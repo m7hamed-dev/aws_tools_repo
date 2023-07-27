@@ -1,4 +1,4 @@
-import 'package:awsome_tools/src/widgets/awsme_txt.dart';
+import 'package:awsome_tools/src/widgets/txt_awsome.dart';
 import 'package:flutter/material.dart';
 import '../../constants/constants.dart';
 
@@ -67,7 +67,7 @@ class Btn extends StatelessWidget {
             borderRadius: defaultBorderRadius,
           ),
         ),
-        child: TxtAwsome(data: title ?? ''),
+        child: TxtAwsome(title ?? ''),
       ),
     );
   }

@@ -14,7 +14,7 @@ class ConfigAwsome {
     required this.fontModel,
   });
 
-  /// some fields
+  /// ## some fields
   final double defaultPadding;
   final String fontFamily;
   final AppColors appColors;

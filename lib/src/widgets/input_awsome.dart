@@ -1,4 +1,4 @@
-import 'package:awsome_tools/src/widgets/awsme_txt.dart';
+import 'package:awsome_tools/src/widgets/txt_awsome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../config/config_awsome.dart';
@@ -9,18 +9,17 @@ class Input extends StatefulWidget {
   const Input({
     Key? key,
     this.inputDescription = '',
-    this.emptyMsg,
     this.textAlign,
-    this.hint,
+    this.hint = '',
     this.controller,
     this.maxLines = 1,
-    this.maxLength,
+    this.maxLength = 120,
     this.onChange,
     this.validator,
     this.onFieldSubmitted,
-    this.isShowBuildCounter,
-    this.prefixIcon,
-    this.suffixIcon,
+    this.isShowBuildCounter = false,
+    this.prefixIcon = const SizedBox(),
+    this.suffixIcon = const SizedBox(),
     this.isRequired = false,
     this.filled = false,
     this.inputType = InputTypes.text,
@@ -28,19 +27,18 @@ class Input extends StatefulWidget {
 
   ///
   final TextAlign? textAlign;
-  final String? emptyMsg;
   final String inputDescription;
-  final String? hint;
+  final String hint;
   final TextEditingController? controller;
   final int maxLines;
-  final int? maxLength;
-  final bool? isShowBuildCounter;
+  final int maxLength;
+  final bool isShowBuildCounter;
   final bool isRequired;
   final bool filled;
   final void Function(String)? onChange;
   final FormFieldValidator<String>? validator;
   final ValueChanged<String>? onFieldSubmitted;
-  final Widget? suffixIcon, prefixIcon;
+  final Widget suffixIcon, prefixIcon;
   final InputTypes inputType;
 
   ///
@@ -78,7 +76,7 @@ class _InputState extends State<Input> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TxtAwsome(
-            data: widget.isRequired
+            widget.isRequired
                 ? '* ${widget.inputDescription}'
                 : widget.inputDescription,
             // style: maraiRegular,
