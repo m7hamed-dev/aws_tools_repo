@@ -2,7 +2,6 @@ import 'package:awsome_tools/src/widgets/txt_awsome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../config/config_awsome.dart';
-import '../constants/constants.dart';
 
 class Input extends StatefulWidget {
   ///
@@ -82,7 +81,7 @@ class _InputState extends State<Input> {
             // style: maraiRegular,
             // color: widget.isRequired ? Colors.red : null,
           ),
-          const SizedBox(height: defaultPadding - 10.0),
+          const SizedBox(height: 10.0),
           _buikdTxtFormField(),
         ],
       );

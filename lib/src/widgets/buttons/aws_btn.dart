@@ -39,12 +39,11 @@ class Btn extends StatelessWidget {
       height: height,
       padding: padding,
       margin: margin,
-      // margin: margin ?? PaddingMarginConstant.marginFromHorizontal,
       decoration: BoxDecoration(
         border: borderColor == null ? null : Border.all(color: borderColor!),
         // gradient: borderColor == null ? _primaryGradient : null,
         borderRadius: defaultBorderRadius,
-        color: Colors.white,
+        color: color,
         // boxShadow: [
         //   BoxShadow(
         //     color: color != null
