@@ -24,3 +24,6 @@ export './src/style/txt_style_awsome.dart';
 
 /// font sizes
 export './src/style/font_sizes_model.dart';
+
+/// validations
+export './src/helpers/inputs_validation.dart';
