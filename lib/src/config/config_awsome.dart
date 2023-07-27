@@ -1,4 +1,4 @@
-import 'package:awsome_tools/src/style/font_sizes.dart';
+import 'package:awsome_tools/src/style/font_sizes_model.dart';
 import 'package:awsome_tools/src/style/txt_style.dart';
 import 'package:flutter/material.dart';
 import '../style/app_colors.dart';
@@ -29,8 +29,9 @@ class ConfigAwsome {
   }
 }
 
-/// # input types like if input is ( number , password or text )
+/// ## input types like if input
+/// # is ( number , password or text )
 enum InputTypes { number, password, text }
 
 /// ## show text only , or text with widget
-enum ShowWidgetTypes { text, withScaffold }
+enum ShowWidgetTypes { text, icon, withScaffold, iconWithScaffold }

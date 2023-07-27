@@ -17,6 +17,14 @@ class ErrorAwsome extends StatelessWidget {
         body: TxtAwsome(error),
       );
     }
+    if (showWidgetType == ShowWidgetTypes.iconWithScaffold) {
+      return const Scaffold(
+        body: Icon(Icons.error, color: Colors.red),
+      );
+    }
+    if (showWidgetType == ShowWidgetTypes.icon) {
+      return const Icon(Icons.error, color: Colors.red);
+    }
     return TxtAwsome(error);
   }
 }

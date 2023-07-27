@@ -54,13 +54,16 @@ class LightThemeAwsome {
 
       /// text from filed theme
       inputDecorationTheme: InputDecorationTheme(
-        helperStyle: configAwsome.textStyleAwsome.maraiRegular
-            .copyWith(color: Colors.pink.withOpacity(.22)),
-        hintStyle: configAwsome.textStyleAwsome.maraiRegular
-            .copyWith(color: Colors.grey),
+        helperStyle: configAwsome.textStyleAwsome.maraiRegular.copyWith(
+          color: Colors.pink.withOpacity(.22),
+        ),
+        hintStyle: configAwsome.textStyleAwsome.maraiRegular.copyWith(
+          color: Colors.grey,
+        ),
         // labelStyle: maraiBlack.copyWith(color: Colors.green),
-        errorStyle:
-            configAwsome.textStyleAwsome.maraiRegular.copyWith(fontSize: 13.0),
+        errorStyle: configAwsome.textStyleAwsome.maraiRegular.copyWith(
+          fontSize: 13.0,
+        ),
         focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(4.0)),
           borderSide: BorderSide(width: 1.5, color: AppColors.primaryColor),
