@@ -1,7 +1,5 @@
-import 'package:awsome_tools/src/style/font_sizes_model.dart';
-import 'package:awsome_tools/src/style/txt_style_awsome.dart';
 import 'package:flutter/material.dart';
-import '../style/app_colors.dart';
+import '../../awsome_tools.dart';
 
 late ConfigAwsome configAwsome;
 
@@ -14,6 +12,8 @@ class ConfigAwsome {
     required this.appColors,
     this.defaultBorderRadius = const BorderRadius.all(Radius.circular(10)),
     required this.fontModel,
+    this.darkTheme,
+    this.lightTheme,
   });
 
   /// ## some fields
@@ -23,7 +23,10 @@ class ConfigAwsome {
   final BorderRadius defaultBorderRadius;
   final FontSizeModel fontModel;
   final TextStylesAwsome textStyleAwsome;
+  final LightThemeAwsome? lightTheme;
+  final DarkThemeAwsome? darkTheme;
 
+  /// inital
   void init(ConfigAwsome yourConfigAwsome) {
     configAwsome = yourConfigAwsome;
   }
