@@ -1,33 +1,40 @@
 import 'package:flutter/material.dart';
 
-const fontFamily = 'Rubik';
-// const fontFamily = 'Madani';
+import 'package:awsome_tools/src/config/config_awsome.dart';
 
-const maraiRegular = TextStyle(
-  fontFamily: fontFamily,
-  fontWeight: FontWeight.w400,
-  fontSize: 12.0,
-);
+class TextStyleAwsome {
+  const TextStyleAwsome({required this.configAwsome});
+  final ConfigAwsome configAwsome;
 
-const maraiMedium = TextStyle(
-  fontFamily: fontFamily,
-  fontWeight: FontWeight.w500,
-  fontSize: 14.0,
-);
+  ///
+  TextStyle get maraiRegular => TextStyle(
+        fontFamily: configAwsome.fontFamily,
+        fontWeight: FontWeight.w400,
+        fontSize: configAwsome.fontModel.regular,
+      );
 
-const maraiBold = TextStyle(
-  fontFamily: fontFamily,
-  fontWeight: FontWeight.w700,
-  fontSize: 16.0,
-);
+  TextStyle get maraiMedium => TextStyle(
+        fontFamily: configAwsome.fontFamily,
+        fontWeight: FontWeight.w500,
+        fontSize: 14.0,
+      );
 
-const maraiBlack = TextStyle(
-  fontFamily: fontFamily,
-  fontWeight: FontWeight.w900,
-  fontSize: 20.0,
-);
-const maraiExtraBlack = TextStyle(
-  fontFamily: fontFamily,
-  fontWeight: FontWeight.w900,
-  fontSize: 26.0,
-);
+  TextStyle get maraiBold => TextStyle(
+        fontFamily: configAwsome.fontFamily,
+        fontWeight: FontWeight.w700,
+        fontSize: configAwsome.fontModel.bold,
+      );
+
+  TextStyle get maraiBlack => TextStyle(
+        fontFamily: configAwsome.fontFamily,
+        fontWeight: FontWeight.w900,
+        fontSize: configAwsome.fontModel.extraBlack,
+      );
+
+  ///
+  TextStyle get maraiExtraBlack => TextStyle(
+        fontFamily: configAwsome.fontFamily,
+        fontWeight: FontWeight.w900,
+        fontSize: configAwsome.fontModel.extraBlack,
+      );
+}
