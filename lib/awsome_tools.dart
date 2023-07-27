@@ -1,3 +1,4 @@
+export './src/config/states_awsome.dart';
 export './src/config/config_awsome.dart';
 export './src/constants/constants.dart';
 
