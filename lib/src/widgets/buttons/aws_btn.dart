@@ -1,10 +1,10 @@
+import 'package:awsome_tools/src/config/config_awsome.dart';
 import 'package:awsome_tools/src/widgets/txt_awsome.dart';
 import 'package:flutter/material.dart';
-import '../../constants/constants.dart';
 
-class Btn extends StatelessWidget {
+class BtnAwsome extends StatelessWidget {
   /// # button
-  const Btn({
+  const BtnAwsome({
     Key? key,
     this.onPressed,
     this.child,
@@ -42,7 +42,7 @@ class Btn extends StatelessWidget {
       decoration: BoxDecoration(
         border: borderColor == null ? null : Border.all(color: borderColor!),
         // gradient: borderColor == null ? _primaryGradient : null,
-        borderRadius: defaultBorderRadius,
+        borderRadius: configAwsome.defaultBorderRadius,
         color: color,
         // boxShadow: [
         //   BoxShadow(
@@ -62,8 +62,8 @@ class Btn extends StatelessWidget {
           padding: const EdgeInsets.all(18.0),
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
-          shape: const RoundedRectangleBorder(
-            borderRadius: defaultBorderRadius,
+          shape: RoundedRectangleBorder(
+            borderRadius: configAwsome.defaultBorderRadius,
           ),
         ),
         child: TxtAwsome(title ?? ''),

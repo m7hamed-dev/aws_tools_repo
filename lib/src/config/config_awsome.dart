@@ -3,10 +3,12 @@ import 'package:awsome_tools/src/style/txt_style.dart';
 import 'package:flutter/material.dart';
 import '../style/app_colors.dart';
 
+late ConfigAwsome configAwsome;
+
 class ConfigAwsome {
   /// # This for config
   const ConfigAwsome({
-    required this.fontFamily,
+    this.fontFamily = '',
     required this.textStyleAwsome,
     this.defaultPadding = 10.0,
     required this.appColors,
