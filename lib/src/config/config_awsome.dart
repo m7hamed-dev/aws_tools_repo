@@ -23,7 +23,14 @@ class ConfigAwsome {
   final BorderRadius defaultBorderRadius;
   final FontSizeModel fontModel;
   final TextStylesAwsome textStyleAwsome;
+
+  static void init(ConfigAwsome yourConfigAwsome) {
+    configAwsome = yourConfigAwsome;
+  }
 }
 
-/// input types like if input is ( number , password or text )
+/// # input types like if input is ( number , password or text )
 enum InputTypes { number, password, text }
+
+/// ## show text only , or text with widget
+enum ShowWidgetTypes { text, withScaffold }

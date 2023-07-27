@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../config/config_awsome.dart';
 
 class LightThemeAwsome {
-  LightThemeAwsome({required this.configAwsome});
-  final ConfigAwsome configAwsome;
+  // LightThemeAwsome({required this.con/figAwsome});
+  // final ConfigAwsome configAwsome;
 
   /// # lightTheme
   ThemeData get lightTheme {
