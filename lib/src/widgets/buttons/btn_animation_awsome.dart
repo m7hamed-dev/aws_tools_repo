@@ -51,9 +51,7 @@ class BtnAnimationAwsome extends StatelessWidget {
           children: [
             TxtAwsome(
               title,
-              style: configAwsome.textStyleAwsome.maraiMedium.copyWith(
-                color: Colors.white,
-              ),
+              style: mediumStyle.copyWith(color: Colors.white),
             ),
           ],
         );
@@ -69,9 +67,7 @@ class BtnAnimationAwsome extends StatelessWidget {
             const SizedBox(width: 5.0),
             TxtAwsome(
               title,
-              style: configAwsome.textStyleAwsome.maraiMedium.copyWith(
-                color: Colors.white,
-              ),
+              style: mediumStyle.copyWith(color: Colors.white),
             ),
           ],
         );

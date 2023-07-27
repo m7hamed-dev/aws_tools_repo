@@ -5,6 +5,7 @@ class FontSizeModel {
     this.regular = 12.0,
     this.medium = 14.0,
     this.bold = 16.0,
+    this.black = 18.0,
     this.extraBlack = 20.0,
   });
 
@@ -13,21 +14,6 @@ class FontSizeModel {
   final double regular;
   final double medium;
   final double bold;
+  final double black;
   final double extraBlack;
-
-  FontSizeModel copyWith({
-    double? small,
-    double? regular,
-    double? medium,
-    double? bold,
-    double? extraBlack,
-  }) {
-    return FontSizeModel(
-      small: small ?? this.small,
-      regular: regular ?? this.regular,
-      medium: medium ?? this.medium,
-      bold: bold ?? this.bold,
-      extraBlack: extraBlack ?? this.extraBlack,
-    );
-  }
 }

@@ -1,5 +1,5 @@
+import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
-import '../config/config_awsome.dart';
 
 class LightThemeAwsome {
   /// # lightTheme
@@ -37,8 +37,7 @@ class LightThemeAwsome {
       // bottom
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         // selectedLabelStyle: maraiMedium.copyWith(color: primaryColor),
-        unselectedLabelStyle:
-            configAwsome.textStyleAwsome.maraiRegular.copyWith(fontSize: 14.0),
+        unselectedLabelStyle: regularStyle.copyWith(fontSize: 14.0),
         selectedItemColor: configAwsome.appColors.primaryColor,
       ),
 
@@ -51,16 +50,12 @@ class LightThemeAwsome {
 
       /// text from filed theme
       inputDecorationTheme: InputDecorationTheme(
-        helperStyle: configAwsome.textStyleAwsome.maraiRegular.copyWith(
+        helperStyle: regularStyle.copyWith(
           color: Colors.pink.withOpacity(.22),
         ),
-        hintStyle: configAwsome.textStyleAwsome.maraiRegular.copyWith(
-          color: Colors.grey,
-        ),
+        hintStyle: regularStyle.copyWith(color: Colors.grey),
         // labelStyle: maraiBlack.copyWith(color: Colors.green),
-        errorStyle: configAwsome.textStyleAwsome.maraiRegular.copyWith(
-          fontSize: 13.0,
-        ),
+        errorStyle: regularStyle.copyWith(fontSize: 13.0),
         focusedBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(4.0)),
           borderSide: BorderSide(

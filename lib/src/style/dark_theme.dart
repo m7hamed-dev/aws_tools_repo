@@ -1,4 +1,4 @@
-import 'package:awsome_tools/src/config/config_awsome.dart';
+import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
 
 class DarkThemeAwsome {
@@ -40,15 +40,13 @@ class DarkThemeAwsome {
 
       /// text form
       inputDecorationTheme: InputDecorationTheme(
-        helperStyle: configAwsome.textStyleAwsome.maraiBlack.copyWith(
+        helperStyle: blackStyle.copyWith(
           color: Colors.white.withOpacity(.22),
         ),
-        hintStyle: configAwsome.textStyleAwsome.maraiBlack
-            .copyWith(color: Colors.white.withOpacity(.22)),
+        hintStyle: blackStyle.copyWith(color: Colors.white.withOpacity(.22)),
         //  hintStyle: maraiBold.copyWith(color: Colors.grey),
-        labelStyle: configAwsome.textStyleAwsome.maraiBlack
-            .copyWith(color: Colors.white),
-        errorStyle: configAwsome.textStyleAwsome.maraiBlack,
+        labelStyle: blackStyle.copyWith(color: Colors.white),
+        errorStyle: boldStyle.copyWith(color: Colors.red),
         // prefixStyle: maraiRegular.copyWith(color: Colors.white),
         // suffixStyle: maraiRegular.copyWith(color: Colors.white),
         focusedBorder: const OutlineInputBorder(
