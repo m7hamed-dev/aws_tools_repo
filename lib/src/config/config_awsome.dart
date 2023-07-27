@@ -20,7 +20,7 @@ class ConfigAwsome {
   final AppColors appColors;
   final BorderRadius defaultBorderRadius;
   final FontSizeModel fontModel;
-  final TextStyleAwsome textStyleAwsome;
+  final TextStylesAwsome textStyleAwsome;
 }
 
 /// input types like if input is ( number , password or text )

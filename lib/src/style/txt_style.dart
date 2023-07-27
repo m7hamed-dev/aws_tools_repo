@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:awsome_tools/src/config/config_awsome.dart';
 
-class TextStyleAwsome {
-  const TextStyleAwsome({required this.configAwsome});
+class TextStylesAwsome {
+  const TextStylesAwsome({required this.configAwsome});
   final ConfigAwsome configAwsome;
 
   ///
