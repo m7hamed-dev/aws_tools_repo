@@ -9,10 +9,9 @@ export './src/widgets/custom_circle_awsome.dart';
 export './src/widgets/error_awsome.dart';
 export './src/widgets/loading_awsome.dart';
 export './src/widgets/input_awsome.dart';
-export 'src/widgets/animations/icon_animation_awsome.dart';
+// - widgets - wiht animations
 export 'src/widgets/buttons/btn_animation_awsome.dart';
-
-// - widgets - normal
+export 'src/widgets/animations/icon_animation_awsome.dart';
 
 /// colors
 export './src/style/app_colors.dart';

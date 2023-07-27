@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../awsome_tools.dart';
 
-class AnimatedIconState extends StatelessWidget {
-  const AnimatedIconState({
+class IconAnimationAwsome extends StatelessWidget {
+  const IconAnimationAwsome({
     super.key,
     required this.onPressed,
     this.color,
