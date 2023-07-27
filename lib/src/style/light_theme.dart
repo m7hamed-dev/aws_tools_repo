@@ -1,17 +1,14 @@
-import 'package:awsome_tools/src/style/app_colors.dart';
 import 'package:flutter/material.dart';
 import '../config/config_awsome.dart';
 
 class LightThemeAwsome {
-  // LightThemeAwsome({required this.con/figAwsome});
-  // final ConfigAwsome configAwsome;
-
   /// # lightTheme
   ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
-      scaffoldBackgroundColor: AppColors.lightScaffoldBackgroundColor,
-      primaryColor: AppColors.primaryColor,
+      scaffoldBackgroundColor:
+          configAwsome.appColors.lightScaffoldBackgroundColor,
+      primaryColor: configAwsome.appColors.primaryColor,
       // primaryColor: HexColor('#5cbba0'),
       appBarTheme: const AppBarTheme(
         iconTheme: IconThemeData(color: Colors.black),
@@ -42,7 +39,7 @@ class LightThemeAwsome {
         // selectedLabelStyle: maraiMedium.copyWith(color: primaryColor),
         unselectedLabelStyle:
             configAwsome.textStyleAwsome.maraiRegular.copyWith(fontSize: 14.0),
-        selectedItemColor: AppColors.primaryColor,
+        selectedItemColor: configAwsome.appColors.primaryColor,
       ),
 
       ///bottomSheetTheme
@@ -64,9 +61,12 @@ class LightThemeAwsome {
         errorStyle: configAwsome.textStyleAwsome.maraiRegular.copyWith(
           fontSize: 13.0,
         ),
-        focusedBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(4.0)),
-          borderSide: BorderSide(width: 1.5, color: AppColors.primaryColor),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(4.0)),
+          borderSide: BorderSide(
+            width: 1.5,
+            color: configAwsome.appColors.darkScaffoldBackgroundColor,
+          ),
         ),
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(4.0)),

@@ -1,12 +1,12 @@
 import 'package:awsome_tools/src/config/config_awsome.dart';
-import 'package:awsome_tools/src/style/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class DarkThemeAwsome {
   ThemeData get darkTheme {
     return ThemeData(
       useMaterial3: true,
-      scaffoldBackgroundColor: AppColors.darkScaffoldBackgroundColor,
+      scaffoldBackgroundColor:
+          configAwsome.appColors.darkScaffoldBackgroundColor,
       iconTheme: const IconThemeData(color: Colors.white),
 
       // app
@@ -19,7 +19,7 @@ class DarkThemeAwsome {
 
       // bottom
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: AppColors.darkScaffoldBackgroundColor,
+        backgroundColor: configAwsome.appColors.darkScaffoldBackgroundColor,
         // selectedLabelStyle: maraiMedium.copyWith(
         //   fontSize: 10.0,
         //   color: HexColor('#5cbb9f'),
@@ -29,14 +29,14 @@ class DarkThemeAwsome {
 
       ///bottomSheetTheme
       bottomSheetTheme: BottomSheetThemeData(
-        backgroundColor: AppColors.darkScaffoldBackgroundColor,
+        backgroundColor: configAwsome.appColors.darkScaffoldBackgroundColor,
       ),
 
       ///
       dividerTheme: DividerThemeData(color: Colors.white.withOpacity(.22)),
       // dividerTheme: DividerThemeData(color: HexColor('#322e40')),
       ///
-      cardColor: AppColors.darkScaffoldBackgroundColor,
+      cardColor: configAwsome.appColors.darkScaffoldBackgroundColor,
 
       /// text form
       inputDecorationTheme: InputDecorationTheme(
