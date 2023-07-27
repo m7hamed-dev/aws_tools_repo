@@ -1,3 +1,4 @@
+import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
 
 class CircleAwsome extends StatelessWidget {
@@ -23,8 +24,10 @@ class CircleAwsome extends StatelessWidget {
     return Container(
       padding: padding,
       margin: margin,
+      clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
-        shape: BoxShape.circle, color: color,
+        shape: BoxShape.circle,
+        color: color ?? configAwsome.appColors.primaryColor,
         border: setBorder ? Border.all() : null,
         // boxShadow: [
         //   BoxShadow(
