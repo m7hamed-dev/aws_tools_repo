@@ -16,13 +16,7 @@ class ConfigAwsome {
     required this.fontModel,
     required this.darkTheme,
     required this.lightTheme,
-    this.appMessage = const AppMessage(
-      success: 'العملية تمت بنجاح',
-      loading: 'من فضلك انتظر',
-      error: 'حدث خطأ',
-      notAuth: 'غير مسجل معنا',
-      errorInfoLogin: 'تاكد من البيانات التي قمت بادخالها',
-    ),
+    this.appMessage,
   });
 
   /// ## some fields
@@ -34,7 +28,7 @@ class ConfigAwsome {
   final TextStylesAwsome textStyleAwsome;
   final LightThemeAwsome lightTheme;
   final DarkThemeAwsome darkTheme;
-  final AppMessage appMessage;
+  final AppMessage? appMessage;
 
   /// inital
   void init(ConfigAwsome yourConfigAwsome) {
