@@ -66,7 +66,7 @@ class BtnAwsome extends StatelessWidget {
             borderRadius: configAwsome.defaultBorderRadius,
           ),
         ),
-        child: TxtAwsome(title ?? ''),
+        child: child ?? TxtAwsome(title ?? ''),
       ),
     );
   }
