@@ -12,8 +12,8 @@ class ConfigAwsome {
     required this.appColors,
     this.defaultBorderRadius = const BorderRadius.all(Radius.circular(10)),
     required this.fontModel,
-    this.darkTheme,
-    this.lightTheme,
+    required this.darkTheme,
+    required this.lightTheme,
   });
 
   /// ## some fields
@@ -23,8 +23,8 @@ class ConfigAwsome {
   final BorderRadius defaultBorderRadius;
   final FontSizeModel fontModel;
   final TextStylesAwsome textStyleAwsome;
-  final LightThemeAwsome? lightTheme;
-  final DarkThemeAwsome? darkTheme;
+  final LightThemeAwsome lightTheme;
+  final DarkThemeAwsome darkTheme;
 
   /// inital
   void init(ConfigAwsome yourConfigAwsome) {
