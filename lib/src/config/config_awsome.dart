@@ -1,5 +1,5 @@
 import 'package:awsome_tools/src/style/font_sizes_model.dart';
-import 'package:awsome_tools/src/style/txt_style.dart';
+import 'package:awsome_tools/src/style/txt_style_awsome.dart';
 import 'package:flutter/material.dart';
 import '../style/app_colors.dart';
 
