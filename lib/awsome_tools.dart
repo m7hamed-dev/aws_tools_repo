@@ -2,6 +2,7 @@ export './src/config/config_awsome.dart';
 export './src/constants/constants.dart';
 
 /// widgets
+export './src/widgets/buttons/aws_btn.dart';
 export './src/widgets/txt_awsome.dart';
 export './src/widgets/custom_circle_awsome.dart';
 export './src/widgets/error_awsome.dart';
