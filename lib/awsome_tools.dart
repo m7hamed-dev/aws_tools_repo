@@ -4,3 +4,6 @@ export './src/widgets/custom_circle_awsome.dart';
 export './src/widgets/error_awsome.dart';
 export './src/widgets/loading_awsome.dart';
 export './src/widgets/input_awsome.dart';
+export './src/style/app_colors.dart';
+export './src/style/light_theme.dart';
+export './src/style/dark_theme.dart';
