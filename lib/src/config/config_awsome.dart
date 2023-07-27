@@ -24,7 +24,7 @@ class ConfigAwsome {
   final FontSizeModel fontModel;
   final TextStylesAwsome textStyleAwsome;
 
-  static void init(ConfigAwsome yourConfigAwsome) {
+  void init(ConfigAwsome yourConfigAwsome) {
     configAwsome = yourConfigAwsome;
   }
 }
