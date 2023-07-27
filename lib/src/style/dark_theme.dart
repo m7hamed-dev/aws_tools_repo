@@ -3,8 +3,6 @@ import 'package:awsome_tools/src/style/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class DarkThemeAwsome {
-  // DarkThemeAwsome({required this.configAwsome});
-  // final ConfigAwsome configAwsome;
   ThemeData get darkTheme {
     return ThemeData(
       useMaterial3: true,
