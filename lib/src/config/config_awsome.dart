@@ -1,6 +1,8 @@
+import 'package:awsome_tools/src/constants/app_message.dart';
 import 'package:flutter/material.dart';
 import '../../awsome_tools.dart';
 
+///
 late ConfigAwsome configAwsome;
 
 class ConfigAwsome {
@@ -14,6 +16,13 @@ class ConfigAwsome {
     required this.fontModel,
     required this.darkTheme,
     required this.lightTheme,
+    this.appMessage = const AppMessage(
+      success: 'العملية تمت بنجاح',
+      loading: 'من فضلك انتظر',
+      error: 'حدث خطأ',
+      notAuth: 'غير مسجل معنا',
+      errorInfoLogin: 'تاكد من البيانات التي قمت بادخالها',
+    ),
   });
 
   /// ## some fields
@@ -25,6 +34,7 @@ class ConfigAwsome {
   final TextStylesAwsome textStyleAwsome;
   final LightThemeAwsome lightTheme;
   final DarkThemeAwsome darkTheme;
+  final AppMessage appMessage;
 
   /// inital
   void init(ConfigAwsome yourConfigAwsome) {
