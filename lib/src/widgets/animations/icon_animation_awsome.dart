@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../awsome_tools.dart';
-import '../config/states_awsome.dart';
+import '../../../awsome_tools.dart';
 
 class AnimatedIconState extends StatelessWidget {
   const AnimatedIconState({

@@ -2,13 +2,17 @@ export './src/config/states_awsome.dart';
 export './src/config/config_awsome.dart';
 export './src/constants/constants.dart';
 
-/// widgets
+/// - widgets - normal
 export './src/widgets/buttons/aws_btn.dart';
 export './src/widgets/txt_awsome.dart';
 export './src/widgets/custom_circle_awsome.dart';
 export './src/widgets/error_awsome.dart';
 export './src/widgets/loading_awsome.dart';
 export './src/widgets/input_awsome.dart';
+export 'src/widgets/animations/icon_animation_awsome.dart';
+export 'src/widgets/buttons/btn_animation_awsome.dart';
+
+// - widgets - normal
 
 /// colors
 export './src/style/app_colors.dart';
