@@ -1,5 +1,5 @@
-class AppSource {
-  const AppSource({
+class AppAssets {
+  const AppAssets({
     this.success = 'assets/images/path',
     this.loading = 'assets/images/path',
     this.error = 'assets/images/path',

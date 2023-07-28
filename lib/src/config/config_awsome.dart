@@ -1,4 +1,3 @@
-import 'package:awsome_tools/src/extensions/dialog_snackbar_bottom_extension_awsome.dart';
 import 'package:flutter/material.dart';
 import '../../awsome_tools.dart';
 
@@ -28,7 +27,7 @@ class ConfigAwsome {
   final LightThemeAwsome lightTheme;
   final DarkThemeAwsome darkTheme;
   final AppMessage appMessage;
-  final AppSource appSource;
+  final AppS appSource;
   final MessageTypes messageType;
 
   /// inital configuration
