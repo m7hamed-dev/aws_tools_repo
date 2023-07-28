@@ -38,7 +38,7 @@ extension SnackbarAwsome on BuildContext {
           ),
         ],
       ),
-      backgroundColor: state.color,
+      backgroundColor: state.colorBaseOnStarte,
       duration: duration,
       behavior: setOnTop ? SnackBarBehavior.floating : SnackBarBehavior.fixed,
       shape: RoundedRectangleBorder(

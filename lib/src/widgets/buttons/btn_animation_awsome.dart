@@ -27,7 +27,7 @@ class BtnAnimationAwsome extends StatelessWidget {
         height: 50,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: state.color,
+          color: state.colorBaseOnStarte,
           borderRadius: configAwsome.defaultBorderRadius,
         ),
         child: _buildChild,

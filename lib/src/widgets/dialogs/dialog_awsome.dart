@@ -1,4 +1,6 @@
 import 'package:awsome_tools/awsome_tools.dart';
+import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
+import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 import 'package:flutter/material.dart';
 
 class DialogAwsome extends StatelessWidget {
@@ -28,7 +30,7 @@ class DialogAwsome extends StatelessWidget {
                 topRight: Radius.circular(10),
                 topLeft: Radius.circular(10),
               ),
-              color: _headerColor,
+              color: state.colorBaseOnStarte,
             ),
             child: Stack(
               children: [
@@ -47,7 +49,7 @@ class DialogAwsome extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      _buildDialogContent,
+                      state.iconBaseOnState,
                       const SizedBox(height: 10.0),
                       const TxtAwsome('حدث خطا'),
                     ],
@@ -62,7 +64,7 @@ class DialogAwsome extends StatelessWidget {
             padding: const EdgeInsets.all(20.0),
             child: MaterialButton(
               onPressed: context.pop,
-              color: _headerColor,
+              color: state.colorBaseOnStarte,
               elevation: 0.0,
               shape: RoundedRectangleBorder(
                 borderRadius: configAwsome.defaultBorderRadius,
@@ -75,26 +77,5 @@ class DialogAwsome extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  Widget get _buildDialogContent {
-    return switch (state) {
-      LoadingState() => const CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-        ),
-      ErrorState() => const Icon(Icons.error, size: 48, color: Colors.white),
-      NetworkErrorState() =>
-        const Icon(Icons.network_check_sharp, size: 48, color: Colors.white),
-      _ => const Icon(Icons.check_circle, size: 48, color: Colors.white)
-    };
-  }
-
-  Color get _headerColor {
-    return switch (state) {
-      InitalState() => const Color.fromARGB(255, 246, 237, 237),
-      LoadingState() => configAwsome.appColors.primaryColor,
-      ErrorState() => const Color.fromARGB(255, 167, 33, 23),
-      _ => const Color.fromARGB(255, 79, 196, 83)
-    };
   }
 }
