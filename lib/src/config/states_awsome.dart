@@ -14,7 +14,7 @@ class SuccessState extends StateAwsome {
 class LoadingState extends StateAwsome {}
 
 class NetworkErrorState extends StateAwsome {
-  NetworkErrorState({this.errorMessage = 'Signle Error!'})
+  NetworkErrorState({this.errorMessage = 'Signal Error!'})
       : super(message: errorMessage);
   final String errorMessage;
 }

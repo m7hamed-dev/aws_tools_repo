@@ -10,6 +10,8 @@ extension IconBaseOnState on StateAwsome {
           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
         ),
       ErrorState() => const Icon(Icons.error, size: 48, color: Colors.white),
+      WarningState() =>
+        const Icon(Icons.warning, size: 48, color: Colors.white),
       NetworkErrorState() =>
         const Icon(Icons.network_check_sharp, size: 48, color: Colors.white),
       _ => const Icon(Icons.check_circle, size: 48, color: Colors.white)
