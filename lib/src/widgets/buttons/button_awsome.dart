@@ -1,5 +1,4 @@
-import 'package:awsome_tools/src/config/config_awsome.dart';
-import 'package:awsome_tools/src/widgets/txt_awsome.dart';
+import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
 
 class BtnAwsome extends StatelessWidget {
@@ -17,6 +16,7 @@ class BtnAwsome extends StatelessWidget {
     this.height,
     this.borderColor,
     this.txtColor,
+    this.gradient,
   }) : super(key: key);
 
   ///
@@ -31,6 +31,7 @@ class BtnAwsome extends StatelessWidget {
   final double? height;
   final double? elevation;
   final Widget? child;
+  final Gradient? gradient;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,7 @@ class BtnAwsome extends StatelessWidget {
       margin: margin,
       decoration: BoxDecoration(
         border: borderColor == null ? null : Border.all(color: borderColor!),
-        // gradient: borderColor == null ? _primaryGradient : null,
+        gradient: borderColor == null && color == null ? gradient : null,
         borderRadius: configAwsome.defaultBorderRadius,
         color: color,
         // boxShadow: [
@@ -66,7 +67,11 @@ class BtnAwsome extends StatelessWidget {
             borderRadius: configAwsome.defaultBorderRadius,
           ),
         ),
-        child: child ?? TxtAwsome(title ?? ''),
+        child: child ??
+            TxtAwsome(
+              title ?? '',
+              style: regularStyle.copyWith(color: txtColor),
+            ),
       ),
     );
   }
