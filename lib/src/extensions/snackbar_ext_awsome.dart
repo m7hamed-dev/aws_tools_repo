@@ -44,7 +44,7 @@ extension SnackbarAwsome on BuildContext {
       backgroundColor: backgroundColor,
       duration: duration,
       behavior: setOnTop ? SnackBarBehavior.floating : SnackBarBehavior.fixed,
-      margin: const EdgeInsets.all(10.0),
+      // margin: const EdgeInsets.all(10.0),
       shape: RoundedRectangleBorder(
         borderRadius: configAwsome.defaultBorderRadius,
       ),
