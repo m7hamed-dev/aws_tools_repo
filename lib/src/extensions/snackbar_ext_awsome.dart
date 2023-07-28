@@ -1,5 +1,6 @@
 import 'package:awsome_tools/awsome_tools.dart';
 import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
+import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 import 'package:flutter/material.dart';
 
 extension SnackbarAwsome on BuildContext {
@@ -11,26 +12,10 @@ extension SnackbarAwsome on BuildContext {
     bool setOnTop = false,
   }) {
     //
-    late IconData iconData;
-    switch (state) {
-      case LoadingState():
-        message = 'Loading...';
-        iconData = Icons.local_activity;
-        break;
-      case ErrorState():
-        message = state.errorMessage;
-        iconData = Icons.error;
-        break;
-      case SuccessState():
-        message = state.successMessage;
-        iconData = Icons.check;
-        break;
-    }
-    //
     final snackbar = SnackBar(
       content: Row(
         children: [
-          Icon(iconData, color: Colors.white),
+          state.iconBaseOnState,
           const SizedBox(width: 10.0),
           Text(
             message,
