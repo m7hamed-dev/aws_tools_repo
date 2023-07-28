@@ -7,7 +7,7 @@ class FontSizeModel {
   final double black;
   final double extraBlack;
 
-  FontSizeModel({
+  const FontSizeModel({
     this.small = 10.0,
     this.regular = 12.0,
     this.medium = 14.0,
