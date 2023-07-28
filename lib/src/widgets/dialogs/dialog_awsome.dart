@@ -39,6 +39,8 @@ class DialogWidgetAwsome extends StatelessWidget {
                   onPressed: context.pop,
                   icon: const Icon(Icons.close, color: Colors.white),
                 ),
+
+                /// circle
                 Positioned(
                   top: -80,
                   right: -20,
@@ -64,10 +66,10 @@ class DialogWidgetAwsome extends StatelessWidget {
                     children: [
                       /// icon with circle
                       Container(
-                        padding: const EdgeInsets.all(6.0),
+                        padding: const EdgeInsets.all(8.0),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.white.withOpacity(.22),
+                          color: Colors.white.withOpacity(.18),
                         ),
                         child: state.iconBaseOnState,
                       ),
