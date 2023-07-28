@@ -14,7 +14,7 @@ class ConfigAwsome {
     required this.darkTheme,
     required this.lightTheme,
     required this.appMessage,
-    required this.appSource,
+    required this.appAssets,
     required this.messageType,
   });
 
@@ -27,7 +27,7 @@ class ConfigAwsome {
   final LightThemeAwsome lightTheme;
   final DarkThemeAwsome darkTheme;
   final AppMessage appMessage;
-  final AppS appSource;
+  final AppAssets appAssets;
   final MessageTypes messageType;
 
   /// inital configuration
