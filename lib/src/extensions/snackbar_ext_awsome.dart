@@ -9,7 +9,7 @@ extension SnackbarAwsome on BuildContext {
     String message = 'Loading...',
   }) {
     // late String message;
-    late Color backgroundColor;
+    late Color backgroundColor = Colors.blue;
     switch (state) {
       case LoadingState():
         message = 'Loading...';
