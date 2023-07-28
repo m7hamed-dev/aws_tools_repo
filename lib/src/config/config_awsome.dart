@@ -17,8 +17,8 @@ class ConfigAwsome {
     required this.fontModel,
     required this.darkTheme,
     required this.lightTheme,
-    this.appMessage,
-    this.appSource,
+    required this.appMessage,
+    required this.appSource,
   });
 
   /// ## some fields
@@ -30,8 +30,8 @@ class ConfigAwsome {
   // final TextStylesAwsome textStyleAwsome;
   final LightThemeAwsome lightTheme;
   final DarkThemeAwsome darkTheme;
-  final AppMessage? appMessage;
-  final AppSource? appSource;
+  final AppMessage appMessage;
+  final AppSource appSource;
 
   /// inital
   void init(ConfigAwsome yourConfigAwsome) {

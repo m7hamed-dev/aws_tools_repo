@@ -1,8 +1,8 @@
 class AppSource {
   const AppSource({
-    required this.success,
-    required this.loading,
-    required this.error,
+    this.success = 'assets/images/...',
+    this.loading = 'assets/images/...',
+    this.error = 'assets/images/...',
   });
   final String success;
   final String loading;
