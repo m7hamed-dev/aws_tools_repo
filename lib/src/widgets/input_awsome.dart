@@ -1,7 +1,6 @@
-import 'package:awsome_tools/src/widgets/txt_awsome.dart';
+import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../config/config_awsome.dart';
 
 class InputWidgetAwsome extends StatefulWidget {
   const InputWidgetAwsome({
@@ -88,6 +87,7 @@ class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
 
   TextFormField _buikdTxtFormField() {
     return TextFormField(
+      style: regularStyle,
       // style: maraiRegular.copyWith(
       //   color: isDark
       //       ? const Color.fromARGB(255, 243, 239, 239)
