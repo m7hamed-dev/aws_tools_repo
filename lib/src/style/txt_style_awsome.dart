@@ -12,6 +12,7 @@ final mediumStyle = TextStyle(
   fontWeight: FontWeight.w500,
   fontSize: configAwsome.fontModel.medium,
 );
+
 final boldStyle = TextStyle(
   fontFamily: configAwsome.fontFamily,
   fontWeight: FontWeight.w700,
