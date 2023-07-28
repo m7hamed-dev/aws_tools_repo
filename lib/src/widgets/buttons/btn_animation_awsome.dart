@@ -43,7 +43,8 @@ class BtnAnimationAwsome extends StatelessWidget {
           children: [
             TxtAwsome(
               title,
-              style: mediumStyle.copyWith(color: Colors.white),
+              style: mediumStyle.copyWith(
+                  color: const Color.fromARGB(255, 66, 66, 66)),
             ),
           ],
         );
@@ -58,7 +59,7 @@ class BtnAnimationAwsome extends StatelessWidget {
             const Icon(Icons.error, color: Colors.white),
             const SizedBox(width: 5.0),
             TxtAwsome(
-              title,
+              state.message,
               style: mediumStyle.copyWith(color: Colors.white),
             ),
           ],
