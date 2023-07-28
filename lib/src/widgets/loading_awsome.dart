@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class LoadingAwsome extends StatelessWidget {
-  const LoadingAwsome({super.key, this.child = const SizedBox()});
+class LoadingWidgetAwsome extends StatelessWidget {
+  const LoadingWidgetAwsome({super.key, this.child = const SizedBox()});
   final Widget child;
   @override
   Widget build(BuildContext context) {

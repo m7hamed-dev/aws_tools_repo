@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../config/config_awsome.dart';
 
-class Input extends StatefulWidget {
-  ///
-  const Input({
+class InputWidgetAwsome extends StatefulWidget {
+  const InputWidgetAwsome({
     Key? key,
     this.inputDescription = '',
     this.textAlign,
@@ -39,13 +38,11 @@ class Input extends StatefulWidget {
   final ValueChanged<String>? onFieldSubmitted;
   final Widget suffixIcon, prefixIcon;
   final InputTypes inputType;
-
-  ///
   @override
-  State<Input> createState() => _InputState();
+  State<InputWidgetAwsome> createState() => _InputWidgetAwsomeState();
 }
 
-class _InputState extends State<Input> {
+class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
   //
   bool obscureText = false;
   //

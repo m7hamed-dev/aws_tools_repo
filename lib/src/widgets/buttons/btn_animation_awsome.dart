@@ -64,6 +64,18 @@ class BtnAnimationAwsome extends StatelessWidget {
             ),
           ],
         );
+      case NetworkErrorState():
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(Icons.network_check_outlined, color: Colors.white),
+            const SizedBox(width: 5.0),
+            TxtAwsome(
+              state.message,
+              style: mediumStyle.copyWith(color: Colors.white),
+            ),
+          ],
+        );
     }
     return const Icon(Icons.check, color: Colors.white);
   }

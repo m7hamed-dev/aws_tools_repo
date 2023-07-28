@@ -26,6 +26,7 @@ class IconAnimationAwsome extends StatelessWidget {
       InitalState() => const SizedBox(),
       LoadingState() => const CircularProgressIndicator(),
       ErrorState() => const Icon(Icons.error),
+      NetworkErrorState() => const Icon(Icons.network_check_rounded),
       _ => const Icon(Icons.check),
     };
   }

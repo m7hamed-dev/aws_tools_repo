@@ -2,8 +2,8 @@ import 'package:awsome_tools/src/config/config_awsome.dart';
 import 'package:awsome_tools/src/widgets/txt_awsome.dart';
 import 'package:flutter/material.dart';
 
-class ErrorAwsome extends StatelessWidget {
-  const ErrorAwsome({
+class ErrorWidgetAwsome extends StatelessWidget {
+  const ErrorWidgetAwsome({
     super.key,
     this.error = '',
     this.showWidgetType = ShowWidgetTypes.text,

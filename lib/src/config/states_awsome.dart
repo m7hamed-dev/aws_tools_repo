@@ -13,6 +13,12 @@ class SuccessState extends StateAwsome {
 
 class LoadingState extends StateAwsome {}
 
+class NetworkErrorState extends StateAwsome {
+  NetworkErrorState({this.errorMessage = 'Signle Error!'})
+      : super(message: errorMessage);
+  final String errorMessage;
+}
+
 class EmptyDataState extends StateAwsome {}
 
 class WarningState extends StateAwsome {}
