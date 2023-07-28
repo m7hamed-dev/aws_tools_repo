@@ -1,73 +1,70 @@
 import 'package:flutter/material.dart';
 
-extension CustomThemeData on ThemeData {
+enum ThemeType {
+  light,
+  dark,
+}
+
+class CustomThemeData {
   static ThemeData customTheme({
-    bool isDarkTheme = false,
+    ThemeType themeType = ThemeType.light,
     Color? customPrimaryColor,
     Color? customAccentColor,
     double? customFontSize,
     // Add more custom properties as needed
   }) {
-    final brightness = isDarkTheme ? Brightness.dark : Brightness.light;
+    final brightness =
+        themeType == ThemeType.dark ? Brightness.dark : Brightness.light;
+
     return ThemeData(
       brightness: brightness,
-      primaryColor:
-          customPrimaryColor ?? (isDarkTheme ? Colors.blue : Colors.orange),
-      textTheme: TextTheme(
-        displayLarge: TextStyle(fontSize: customFontSize ?? 20.0),
-        // Add more text styles as needed
-      ).apply(
+      primaryColor: customPrimaryColor ??
+          (themeType == ThemeType.dark ? Colors.blue : Colors.orange),
+      // accentColor: customAccentColor ?? (themeType == ThemeType.dark ? Colors.orange : Colors.blue),
+      textTheme: const TextTheme().apply(
         bodyColor: brightness == Brightness.dark ? Colors.white : Colors.black,
         displayColor:
             brightness == Brightness.dark ? Colors.white : Colors.black,
       ),
-      // colorScheme: ColorScheme.fromSwatch().copyWith(
-      // secondary:
-      // customAccentColor ?? (isDarkTheme ? Colors.orange : Colors.blue),
-      // ),
       // Add more theme properties as needed
     );
   }
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class IconChangeTheme extends StatefulWidget {
+  const IconChangeTheme({super.key});
+
+  @override
+  State<IconChangeTheme> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<IconChangeTheme> {
+  ThemeType _currentThemeType = ThemeType.light;
+
+  void _toggleTheme() {
+    setState(() {
+      _currentThemeType = _currentThemeType == ThemeType.light
+          ? ThemeType.dark
+          : ThemeType.light;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    final lightTheme = CustomThemeData.customTheme(
-      isDarkTheme: false,
+    final themeData = CustomThemeData.customTheme(
+      themeType: _currentThemeType,
       customPrimaryColor: Colors.blue,
       customAccentColor: Colors.orange,
       customFontSize: 20.0,
     );
 
-    final darkTheme = CustomThemeData.customTheme(
-      isDarkTheme: true,
-      customPrimaryColor: Colors.blue,
-      customAccentColor: Colors.orange,
-      customFontSize: 20.0,
-    );
-
-    return MaterialApp(
-      // Use light theme
-      theme: lightTheme,
-      // Use dark theme
-      darkTheme: darkTheme,
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Custom Theme Example')),
-        body: Center(
-          child: Text(
-            'Custom Theme Example',
-            style: Theme.of(context).textTheme.displayLarge,
-          ),
-        ),
+    return IconButton(
+      onPressed: _toggleTheme,
+      icon: Icon(
+        _currentThemeType == ThemeType.light
+            ? Icons.light_mode
+            : Icons.dark_mode,
       ),
     );
   }
-}
-
-enum ThemeType {
-  light,
-  dark,
 }
