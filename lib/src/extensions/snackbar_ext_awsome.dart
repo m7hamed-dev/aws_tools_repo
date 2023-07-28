@@ -13,13 +13,30 @@ extension SnackbarAwsome on BuildContext {
   }) {
     //
     final snackbar = SnackBar(
-      content: Row(
+      content: Stack(
+        clipBehavior: Clip.none,
         children: [
-          state.iconBaseOnState,
-          const SizedBox(width: 10.0),
-          Text(
-            message ?? state.message,
-            style: regularStyle.copyWith(color: Colors.white),
+          Positioned(
+            top: -40.0,
+            right: -40,
+            child: Container(
+              height: 55.0,
+              width: 55.0,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white.withOpacity(.22),
+              ),
+            ),
+          ),
+          Row(
+            children: [
+              state.iconBaseOnState,
+              const SizedBox(width: 10.0),
+              TxtAwsome(
+                state.message,
+                style: regularStyle.copyWith(color: Colors.white),
+              ),
+            ],
           ),
         ],
       ),
