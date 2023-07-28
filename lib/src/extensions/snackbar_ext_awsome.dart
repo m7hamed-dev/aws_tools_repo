@@ -28,9 +28,9 @@ extension SnackbarAwsome on BuildContext {
     //
     final snackbar = SnackBar(
       content: setOnTop
-          ? Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+          ? Stack(
+              // mainAxisAlignment: MainAxisAlignment.start,
+              // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   message,
