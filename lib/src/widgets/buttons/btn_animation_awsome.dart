@@ -60,18 +60,17 @@ class BtnAnimationAwsome extends StatelessWidget {
   }
 
   Widget get _buildChild {
-    switch (state) {
-      case InitalState():
-        return TxtAwsome(
+    return switch (state) {
+      InitalState() => TxtAwsome(
           title ?? state.message,
           style: mediumStyle.copyWith(color: Colors.white),
-        );
-      case LoadingState():
-        return const CircularProgressIndicator(
+        ),
+      //
+      LoadingState() => const CircularProgressIndicator(
           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-        );
-      case ErrorState():
-        return Row(
+        ),
+      //
+      ErrorState() => Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             state.iconBaseOnState,
@@ -81,9 +80,9 @@ class BtnAnimationAwsome extends StatelessWidget {
               style: mediumStyle.copyWith(color: Colors.white),
             ),
           ],
-        );
-      case NetworkErrorState():
-        return Row(
+        ),
+      //
+      WarningState() => Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             state.iconBaseOnState,
@@ -93,8 +92,21 @@ class BtnAnimationAwsome extends StatelessWidget {
               style: mediumStyle.copyWith(color: Colors.white),
             ),
           ],
-        );
-    }
-    return state.iconBaseOnState;
+        ),
+      //
+      NetworkErrorState() => Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            state.iconBaseOnState,
+            const SizedBox(width: 5.0),
+            TxtAwsome(
+              state.message,
+              style: mediumStyle.copyWith(color: Colors.white),
+            ),
+          ],
+        ),
+      //
+      _ => state.iconBaseOnState
+    };
   }
 }

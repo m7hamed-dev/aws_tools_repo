@@ -8,6 +8,7 @@ class ConfigAwsome {
   const ConfigAwsome({
     this.fontFamily = '',
     this.defaultPadding = 10.0,
+    this.buttonHeight = 55.0,
     required this.appColors,
     this.defaultBorderRadius = const BorderRadius.all(Radius.circular(10)),
     required this.fontModel,
@@ -22,6 +23,7 @@ class ConfigAwsome {
   /// ## some fields
   final String fontFamily;
   final double defaultPadding;
+  final double buttonHeight;
   final AppColors appColors;
   final BorderRadius defaultBorderRadius;
   final FontSizeModel fontModel;
