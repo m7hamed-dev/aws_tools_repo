@@ -8,10 +8,10 @@ import 'package:flutter/material.dart';
 extension DialogSnackBarBottomExtensionAwsome on BuildContext {
   /// ## this extenstion for show dialog or snackbar or bottom
   /// ## Base on MessageTypes ( dialog or snackbar or bottom  )
-  void show(StateAwsome state) {
+  void show(StateAwsome state) async {
     return switch (configAwsome.messageType) {
       // dialog
-      DialogType() => showDialog(
+      DialogType() => await showDialog(
           context: this,
           builder: (context) => DialogWidgetAwsome(state: state),
         ),

@@ -17,10 +17,7 @@ extension SnackbarAwsome on BuildContext {
         children: [
           state.iconBaseOnState,
           const SizedBox(width: 10.0),
-          Text(
-            message,
-            style: regularStyle.copyWith(color: Colors.white),
-          ),
+          Text(message, style: regularStyle.copyWith(color: Colors.white)),
         ],
       ),
       backgroundColor: state.colorBaseOnStarte,

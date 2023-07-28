@@ -17,7 +17,7 @@ export 'src/widgets/loading_error_success_awsome.dart';
 /// colors
 export './src/style/app_colors.dart';
 
-/// themes
+///! themes
 export './src/style/light_theme.dart';
 export './src/style/dark_theme.dart';
 export './src/style/txt_style_awsome.dart';
@@ -33,8 +33,9 @@ export './src/extensions/from_hex_to_color_ext.dart';
 export './src/extensions/navigator_ext.dart';
 export './src/extensions/screen_size_ext.dart';
 // Extensions ( Dialog , SnackBar )
-export './src/extensions/dialog_ext_awsome.dart';
+export './src/extensions/dialog_snackbar_bottom_extension_awsome.dart';
 export './src/extensions/snackbar_ext_awsome.dart';
+export './src/extensions/dialog_ext_awsome.dart';
 
 /// APIs
 export './src/network/crud_api.dart';

@@ -2,6 +2,8 @@ import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
 
 extension IconBaseOnState on StateAwsome {
+  /// ### show icon Base on State Like
+  /// ### [Init] and [Loading] or [Success] State
   Widget get iconBaseOnState {
     return switch (this) {
       LoadingState() => const CircularProgressIndicator(
