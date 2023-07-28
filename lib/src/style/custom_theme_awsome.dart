@@ -14,19 +14,19 @@ class CustomThemeManager {
     return isDarkMode ? darkTheme : lightTheme;
   }
 
-  ThemeData getCustomThemeWithToggle(
-    bool isDarkMode,
-    Function(bool) onThemeToggle,
-  ) {
-    return ThemeData(
-      brightness: isDarkMode ? Brightness.dark : Brightness.light,
-      primaryColor: Colors.blue,
-      appBarTheme: const AppBarTheme(
-        actionsIconTheme: IconThemeData(
-          color: Colors.white,
-        ),
-      ),
-      colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.amber),
-    );
-  }
+  // ThemeData getCustomThemeWithToggle(
+  //   bool isDarkMode,
+  //   Function(bool) onThemeToggle,
+  // ) {
+  //   return ThemeData(
+  //     brightness: isDarkMode ? Brightness.dark : Brightness.light,
+  //     primaryColor: Colors.blue,
+  //     appBarTheme: const AppBarTheme(
+  //       actionsIconTheme: IconThemeData(
+  //         color: Colors.white,
+  //       ),
+  //     ),
+  //     colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.amber),
+  //   );
+  // }
 }
