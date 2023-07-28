@@ -8,9 +8,8 @@ class BottomWidgetAwsome extends StatelessWidget {
   final StateAwsome state;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200.0,
-      child: Column(
+    return Scaffold(
+      body: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           // div
