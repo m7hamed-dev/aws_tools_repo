@@ -22,8 +22,8 @@ class ConfigAwsome {
   });
 
   /// ## some fields
-  final double defaultPadding;
   final String fontFamily;
+  final double defaultPadding;
   final AppColors appColors;
   final BorderRadius defaultBorderRadius;
   final FontSizeModel fontModel;
