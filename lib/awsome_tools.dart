@@ -28,7 +28,7 @@ export './src/style/font_sizes_model.dart';
 export './src/helpers/inputs_validation.dart';
 
 /// Extensions
-export './src/extensions/dialog_ext_awsome.dart';
-export './src/extensions/from_hex_to_color_ext.dart';
-export './src/extensions/navigator_ext.dart';
-export './src/extensions/screen_size_ext.dart';
+export 'src/extensions/dialog_ext_awsome.dart';
+export 'src/extensions/from_hex_to_color_ext.dart';
+export 'src/extensions/navigator_ext.dart';
+export 'src/extensions/screen_size_ext.dart';

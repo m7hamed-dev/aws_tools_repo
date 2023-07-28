@@ -37,7 +37,7 @@ class LightThemeAwsome {
       // bottom
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         // selectedLabelStyle: maraiMedium.copyWith(color: primaryColor),
-        unselectedLabelStyle: regularStyle.copyWith(fontSize: 14.0),
+        unselectedLabelStyle: regularStyle,
         selectedItemColor: configAwsome.appColors.primaryColor,
       ),
 
@@ -63,13 +63,19 @@ class LightThemeAwsome {
             color: configAwsome.appColors.darkScaffoldBackgroundColor,
           ),
         ),
-        border: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(4.0)),
-          borderSide: BorderSide(width: 0.5, color: Colors.green),
+        border: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(4.0)),
+          borderSide: BorderSide(
+            width: 0.5,
+            color: configAwsome.appColors.primaryColor,
+          ),
         ),
-        enabledBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(4.0)),
-          borderSide: BorderSide(width: 0.5, color: Colors.black),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(4.0)),
+          borderSide: BorderSide(
+            width: 0.5,
+            color: configAwsome.appColors.primaryColor,
+          ),
         ),
         errorBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(4.0)),
@@ -86,8 +92,6 @@ class LightThemeAwsome {
           TargetPlatform.fuchsia: ZoomPageTransitionsBuilder(),
         },
       ),
-
-      ///
     );
   }
 }
