@@ -17,7 +17,9 @@ class CustomThemeData {
         themeType == ThemeType.dark ? Brightness.dark : Brightness.light;
 
     return ThemeData(
+      useMaterial3: true,
       brightness: brightness,
+      scaffoldBackgroundColor: Colors.grey,
       primaryColor: customPrimaryColor ??
           (themeType == ThemeType.dark ? Colors.blue : Colors.orange),
       // accentColor: customAccentColor ?? (themeType == ThemeType.dark ? Colors.orange : Colors.blue),
