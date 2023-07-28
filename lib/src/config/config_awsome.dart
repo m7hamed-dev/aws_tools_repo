@@ -25,12 +25,13 @@ class ConfigAwsome {
   final AppColors appColors;
   final BorderRadius defaultBorderRadius;
   final FontSizeModel fontModel;
-  // final CustomThemeAwsome customThemeAwsome;
-  // final LightThemeAwsome lightTheme;
-  // final DarkThemeAwsome darkTheme;
   final AppMessage appMessage;
   final AppAssets appAssets;
   final MessageTypes messageType;
+
+  /// final CustomThemeAwsome customThemeAwsome;
+  /// final LightThemeAwsome lightTheme;
+  /// final DarkThemeAwsome darkTheme;
 
   /// inital configuration
   void init(ConfigAwsome yourConfigAwsome) {
