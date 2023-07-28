@@ -7,41 +7,69 @@ class DialogAwsome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      elevation: 20.0,
       contentPadding: EdgeInsets.zero,
-      shape: RoundedRectangleBorder(
-        borderRadius: configAwsome.defaultBorderRadius,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+        // borderRadius: configAwsome.defaultBorderRadius,
       ),
-      content: Stack(
-        alignment: Alignment.center,
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        // alignment: Alignment.center,
         children: [
-          // Background container (optional)
+          // div
           Container(
-            color: Colors.white,
-            padding: const EdgeInsets.all(16),
-            child: const Text(
-              'This is the background of the dialog',
-              style: TextStyle(fontSize: 18),
-            ),
-          ),
-          // Overlay container
-          Container(
+            height: 120.0,
+            width: double.infinity,
+            padding: const EdgeInsets.all(0.0),
+            clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.7),
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(10),
+                topLeft: Radius.circular(10),
+              ),
+              color: _headerColor,
             ),
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
+            child: Stack(
               children: [
-                _buildDialogContent,
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text('Close'),
+                /// icon close
+                IconButton(
+                  onPressed: context.pop,
+                  icon: const Icon(Icons.close, color: Colors.white),
+                ),
+
+                ///
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  left: 0,
+                  bottom: 0,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _buildDialogContent,
+                      const SizedBox(height: 10.0),
+                      const TxtAwsome('حدث خطا'),
+                    ],
+                  ),
                 ),
               ],
+            ),
+          ),
+
+          /// Overlay container
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: MaterialButton(
+              onPressed: context.pop,
+              color: _headerColor,
+              elevation: 0.0,
+              shape: RoundedRectangleBorder(
+                borderRadius: configAwsome.defaultBorderRadius,
+              ),
+              child: const TxtAwsome(
+                'اغلاق',
+              ),
             ),
           ),
         ],
@@ -55,7 +83,18 @@ class DialogAwsome extends StatelessWidget {
           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
         ),
       ErrorState() => const Icon(Icons.error, size: 48, color: Colors.white),
-      _ => const Icon(Icons.check, size: 48, color: Colors.white)
+      NetworkErrorState() =>
+        const Icon(Icons.network_check_sharp, size: 48, color: Colors.white),
+      _ => const Icon(Icons.check_circle, size: 48, color: Colors.white)
+    };
+  }
+
+  Color get _headerColor {
+    return switch (state) {
+      InitalState() => const Color.fromARGB(255, 246, 237, 237),
+      LoadingState() => configAwsome.appColors.primaryColor,
+      ErrorState() => const Color.fromARGB(255, 167, 33, 23),
+      _ => const Color.fromARGB(255, 79, 196, 83)
     };
   }
 }
