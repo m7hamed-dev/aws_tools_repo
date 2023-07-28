@@ -21,6 +21,7 @@ export './src/style/app_colors.dart';
 export './src/style/light_theme.dart';
 export './src/style/dark_theme.dart';
 export './src/style/txt_style_awsome.dart';
+export 'src/style/custom_theme_awsome.dart';
 
 /// font sizes
 export './src/style/font_sizes_model.dart';
