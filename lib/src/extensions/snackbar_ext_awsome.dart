@@ -27,7 +27,18 @@ extension SnackbarAwsome on BuildContext {
     }
     //
     final snackbar = SnackBar(
-      content: Text(message, style: regularStyle.copyWith(color: Colors.white)),
+      content: setOnTop
+          ? Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  message,
+                  style: regularStyle.copyWith(color: Colors.white),
+                ),
+              ],
+            )
+          : Text(message, style: regularStyle.copyWith(color: Colors.white)),
       backgroundColor: backgroundColor,
       duration: duration,
       behavior: setOnTop ? SnackBarBehavior.floating : SnackBarBehavior.fixed,
