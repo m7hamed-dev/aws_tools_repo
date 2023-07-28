@@ -8,7 +8,7 @@ extension SnackbarAwsome on BuildContext {
     Duration duration = const Duration(seconds: 2),
     String message = 'Loading...',
   }) {
-    late String message;
+    // late String message;
     late Color backgroundColor;
     switch (state) {
       case LoadingState():
