@@ -21,10 +21,10 @@ extension CustomThemeData on ThemeData {
         displayColor:
             brightness == Brightness.dark ? Colors.white : Colors.black,
       ),
-      colorScheme: ColorScheme.fromSwatch().copyWith(
-        secondary:
-            customAccentColor ?? (isDarkTheme ? Colors.orange : Colors.blue),
-      ),
+      // colorScheme: ColorScheme.fromSwatch().copyWith(
+      // secondary:
+      // customAccentColor ?? (isDarkTheme ? Colors.orange : Colors.blue),
+      // ),
       // Add more theme properties as needed
     );
   }
