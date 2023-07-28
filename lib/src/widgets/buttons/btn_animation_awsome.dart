@@ -1,34 +1,58 @@
-import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
+import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 import 'package:flutter/material.dart';
 import '../../../awsome_tools.dart';
 
 class BtnAnimationAwsome extends StatelessWidget {
-  ///
   const BtnAnimationAwsome({
-    super.key,
-    required this.onPressed,
+    Key? key,
+    this.onPressed,
+    this.child,
+    this.title,
     this.color,
+    this.margin,
+    this.padding,
+    this.width,
+    this.height = 55.0,
+    this.elevation,
+    this.borderColor,
+    this.txtColor,
+    this.gradient,
     required this.state,
-    required this.title,
-  });
+  }) : super(key: key);
 
-  final StateAwsome state;
-  final Function() onPressed;
+  ///
+  final Color? txtColor;
+  final String? title;
+  final Color? borderColor;
+  final void Function()? onPressed;
   final Color? color;
-  final String title;
+  final EdgeInsetsGeometry? margin;
+  final EdgeInsetsGeometry? padding;
+  final double? width;
+  final double? height;
+  final double? elevation;
+  final Widget? child;
+  final Gradient? gradient;
+  final StateAwsome state;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onPressed,
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 400),
         width: state is LoadingState ? 50 : 150,
-        height: 50,
+        margin: margin,
+        height: height,
+        padding: padding,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: state.colorBaseOnStarte,
+          border: borderColor == null ? null : Border.all(color: borderColor!),
+          gradient: borderColor == null && color == null ? gradient : null,
           borderRadius: configAwsome.defaultBorderRadius,
+          color: color ?? configAwsome.appColors.primaryColor,
         ),
         child: _buildChild,
       ),
@@ -38,15 +62,9 @@ class BtnAnimationAwsome extends StatelessWidget {
   Widget get _buildChild {
     switch (state) {
       case InitalState():
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TxtAwsome(
-              title,
-              style: mediumStyle.copyWith(
-                  color: const Color.fromARGB(255, 66, 66, 66)),
-            ),
-          ],
+        return TxtAwsome(
+          title ?? state.message,
+          style: mediumStyle.copyWith(color: Colors.white),
         );
       case LoadingState():
         return const CircularProgressIndicator(
@@ -56,7 +74,7 @@ class BtnAnimationAwsome extends StatelessWidget {
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.error, color: Colors.white),
+            state.iconBaseOnState,
             const SizedBox(width: 5.0),
             TxtAwsome(
               state.message,
@@ -68,7 +86,7 @@ class BtnAnimationAwsome extends StatelessWidget {
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.network_check_outlined, color: Colors.white),
+            state.iconBaseOnState,
             const SizedBox(width: 5.0),
             TxtAwsome(
               state.message,
@@ -77,6 +95,6 @@ class BtnAnimationAwsome extends StatelessWidget {
           ],
         );
     }
-    return const Icon(Icons.check, color: Colors.white);
+    return state.iconBaseOnState;
   }
 }
