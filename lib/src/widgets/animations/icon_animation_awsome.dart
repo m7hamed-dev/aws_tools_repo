@@ -10,45 +10,37 @@ class IconAnimationAwsome extends StatelessWidget {
   });
 
   final StateAwsome state;
-  final Function() onPressed;
+  final void Function() onPressed;
   final Color? color;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: onPressed,
-      icon: _buildIcon(_buildChild, _getButtonColor),
+      icon: _buildIcon(_buildChild),
     );
   }
 
-  Color get _getButtonColor {
+  Widget get _buildChild {
     return switch (state) {
-      LoadingState() => Colors.grey,
-      InitalState() => color ?? configAwsome.appColors.primaryColor,
-      ErrorState() => Colors.red,
-      _ => configAwsome.appColors.primaryColor,
+      InitalState() => const SizedBox(),
+      LoadingState() => const CircularProgressIndicator(),
+      ErrorState() => const Icon(Icons.error),
+      _ => const Icon(Icons.check),
     };
   }
 
-  IconData get _buildChild {
-    return switch (state) {
-      LoadingState() => Icons.import_contacts_rounded,
-      InitalState() => Icons.refresh,
-      ErrorState() => Icons.error,
-      _ => Icons.check,
-    };
-  }
-
-  Widget _buildIcon(IconData icon, Color color) {
+  Widget _buildIcon(Widget child) {
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 400),
       transitionBuilder: (child, animation) {
         return ScaleTransition(
+          key: ValueKey<Widget>(child),
           scale: animation,
           child: child,
         );
       },
-      child: Icon(icon, key: ValueKey<IconData>(icon), color: color),
+      child: _buildChild,
     );
   }
 }

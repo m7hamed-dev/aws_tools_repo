@@ -1,3 +1,4 @@
+import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
 import 'package:flutter/material.dart';
 import '../../../awsome_tools.dart';
 
@@ -26,21 +27,12 @@ class BtnAnimationAwsome extends StatelessWidget {
         height: 50,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: _getButtonColor,
+          color: state.color,
           borderRadius: configAwsome.defaultBorderRadius,
         ),
         child: _buildChild,
       ),
     );
-  }
-
-  Color get _getButtonColor {
-    return switch (state) {
-      LoadingState() => Colors.grey,
-      InitalState() => color ?? configAwsome.appColors.primaryColor,
-      ErrorState() => Colors.red,
-      _ => configAwsome.appColors.primaryColor,
-    };
   }
 
   Widget get _buildChild {

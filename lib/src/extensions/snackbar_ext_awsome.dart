@@ -1,4 +1,5 @@
 import 'package:awsome_tools/awsome_tools.dart';
+import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
 import 'package:flutter/material.dart';
 
 extension SnackbarAwsome on BuildContext {
@@ -10,22 +11,18 @@ extension SnackbarAwsome on BuildContext {
     bool setOnTop = false,
   }) {
     //
-    late Color backgroundColor = Colors.blue;
     late IconData iconData;
     switch (state) {
       case LoadingState():
         message = 'Loading...';
-        backgroundColor = Colors.blue;
         iconData = Icons.local_activity;
         break;
       case ErrorState():
         message = state.errorMessage;
-        backgroundColor = Colors.red;
         iconData = Icons.error;
         break;
       case SuccessState():
         message = state.successMessage;
-        backgroundColor = Colors.green;
         iconData = Icons.check;
         break;
     }
@@ -34,17 +31,16 @@ extension SnackbarAwsome on BuildContext {
       content: Row(
         children: [
           Icon(iconData, color: Colors.white),
-          const SizedBox(width: 5.0),
+          const SizedBox(width: 10.0),
           Text(
             message,
             style: regularStyle.copyWith(color: Colors.white),
           ),
         ],
       ),
-      backgroundColor: backgroundColor,
+      backgroundColor: state.color,
       duration: duration,
       behavior: setOnTop ? SnackBarBehavior.floating : SnackBarBehavior.fixed,
-      // margin: const EdgeInsets.all(10.0),
       shape: RoundedRectangleBorder(
         borderRadius: configAwsome.defaultBorderRadius,
       ),
