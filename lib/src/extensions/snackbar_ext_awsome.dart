@@ -33,7 +33,7 @@ extension SnackbarAwsome on BuildContext {
     final snackbar = SnackBar(
       content: Row(
         children: [
-          Icon(iconData),
+          Icon(iconData, color: Colors.white),
           const SizedBox(width: 5.0),
           Text(
             message,
