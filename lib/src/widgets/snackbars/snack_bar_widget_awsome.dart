@@ -8,7 +8,7 @@ class SnackBarWidgetAwsome extends StatelessWidget {
     super.key,
     required this.state,
     this.message,
-    this.duration = const Duration(seconds: 2),
+    this.duration = const Duration(seconds: 4),
     this.setOnTop = false,
   });
   //
