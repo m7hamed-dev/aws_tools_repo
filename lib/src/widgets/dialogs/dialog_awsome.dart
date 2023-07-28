@@ -39,6 +39,19 @@ class DialogAwsome extends StatelessWidget {
                   onPressed: context.pop,
                   icon: const Icon(Icons.close, color: Colors.white),
                 ),
+                Positioned(
+                  top: -80,
+                  right: -20,
+                  bottom: 0.0,
+                  child: Container(
+                    width: 60.0,
+                    height: 60.0,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white.withOpacity(.22),
+                    ),
+                  ),
+                ),
 
                 ///
                 Positioned(
@@ -49,7 +62,15 @@ class DialogAwsome extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      state.iconBaseOnState,
+                      /// icon with circle
+                      Container(
+                        padding: const EdgeInsets.all(6.0),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white.withOpacity(.22),
+                        ),
+                        child: state.iconBaseOnState,
+                      ),
                       const SizedBox(height: 10.0),
                       TxtAwsome(
                         state.message,
