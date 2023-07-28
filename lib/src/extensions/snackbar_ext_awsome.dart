@@ -20,6 +20,14 @@ extension SnackbarAwsome on BuildContext {
             children: [
               state.iconBaseOnState,
               const SizedBox(width: 10.0),
+              Container(
+                height: 55.0,
+                width: 10.0,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              const SizedBox(width: 10.0),
               TxtAwsome(
                 state.message,
                 style: regularStyle.copyWith(color: Colors.white),
