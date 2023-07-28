@@ -12,7 +12,7 @@ class BtnAnimationAwsome extends StatelessWidget {
     this.margin,
     this.padding,
     this.width,
-    this.height = 55.0,
+    this.height,
     this.elevation,
     this.borderColor,
     this.txtColor,
@@ -45,7 +45,7 @@ class BtnAnimationAwsome extends StatelessWidget {
         duration: const Duration(milliseconds: 400),
         width: state is LoadingState ? 50 : 150,
         margin: margin,
-        height: height,
+        height: height ?? configAwsome.buttonHeight,
         padding: padding,
         alignment: Alignment.center,
         decoration: BoxDecoration(
