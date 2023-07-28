@@ -16,6 +16,16 @@ extension SnackbarAwsome on BuildContext {
       content: Stack(
         clipBehavior: Clip.none,
         children: [
+          Row(
+            children: [
+              state.iconBaseOnState,
+              const SizedBox(width: 10.0),
+              TxtAwsome(
+                state.message,
+                style: regularStyle.copyWith(color: Colors.white),
+              ),
+            ],
+          ),
           Positioned(
             top: -40.0,
             right: -40,
@@ -27,16 +37,6 @@ extension SnackbarAwsome on BuildContext {
                 color: Colors.white.withOpacity(.22),
               ),
             ),
-          ),
-          Row(
-            children: [
-              state.iconBaseOnState,
-              const SizedBox(width: 10.0),
-              TxtAwsome(
-                state.message,
-                style: regularStyle.copyWith(color: Colors.white),
-              ),
-            ],
           ),
         ],
       ),
