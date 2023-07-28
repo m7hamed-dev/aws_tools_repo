@@ -10,7 +10,6 @@ class BottomWidgetAwsome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
-      // alignment: Alignment.center,
       children: [
         // div
         Container(

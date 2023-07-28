@@ -8,7 +8,7 @@ extension SnackbarAwsome on BuildContext {
   void showSnackbar(
     StateAwsome state, {
     Duration duration = const Duration(seconds: 2),
-    String message = '',
+    String? message,
     bool setOnTop = false,
   }) {
     //
@@ -17,7 +17,10 @@ extension SnackbarAwsome on BuildContext {
         children: [
           state.iconBaseOnState,
           const SizedBox(width: 10.0),
-          Text(message, style: regularStyle.copyWith(color: Colors.white)),
+          Text(
+            message ?? state.message,
+            style: regularStyle.copyWith(color: Colors.white),
+          ),
         ],
       ),
       backgroundColor: state.colorBaseOnStarte,
