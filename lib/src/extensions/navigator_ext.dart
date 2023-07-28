@@ -19,4 +19,50 @@ extension NavigatorAwsome on BuildContext {
       (route) => false, // This predicate will remove all routes from the stack
     );
   }
+
+  /// # wiht animation
+  Future pushWithAnimation(Widget destination,
+      {required TransitionType transitionType}) {
+    PageRouteBuilder<dynamic> getPageRouteBuilder() {
+      switch (transitionType) {
+        case TransitionType.slideFromRight:
+          return PageRouteBuilder<dynamic>(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                destination,
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              var begin = const Offset(1.0, 0.0);
+              var end = Offset.zero;
+              var curve = Curves.ease;
+              var tween =
+                  Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+              var offsetAnimation = animation.drive(tween);
+              return SlideTransition(position: offsetAnimation, child: child);
+            },
+          );
+        case TransitionType.slideFromLeft:
+          return PageRouteBuilder<dynamic>(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                destination,
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              var begin = const Offset(-1.0, 0.0);
+              var end = Offset.zero;
+              var curve = Curves.ease;
+              var tween =
+                  Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+              var offsetAnimation = animation.drive(tween);
+              return SlideTransition(position: offsetAnimation, child: child);
+            },
+          );
+      }
+    }
+
+    return Navigator.of(this).push(getPageRouteBuilder());
+  }
+}
+
+enum TransitionType {
+  slideFromRight,
+  slideFromLeft,
 }
