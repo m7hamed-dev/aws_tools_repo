@@ -1,13 +1,16 @@
-import 'package:awsome_tools/src/extensions/navigator_ext.dart';
+import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
 
 class DialogAwsome extends StatelessWidget {
-  const DialogAwsome({super.key});
+  const DialogAwsome({super.key, required this.state});
+  final StateAwsome state;
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       contentPadding: EdgeInsets.zero,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+        borderRadius: configAwsome.defaultBorderRadius,
+      ),
       content: Stack(
         alignment: Alignment.center,
         children: [
@@ -30,18 +33,12 @@ class DialogAwsome extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text(
-                  'Custom Dialog',
-                  style: TextStyle(fontSize: 24, color: Colors.white),
-                ),
-                const SizedBox(height: 16),
-                const Text(
-                  'This is the content of the dialog.',
-                  style: TextStyle(fontSize: 18, color: Colors.white),
-                ),
+                _buildDialogContent,
                 const SizedBox(height: 16),
                 ElevatedButton(
-                  onPressed: context.pop,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   child: const Text('Close'),
                 ),
               ],
@@ -50,5 +47,15 @@ class DialogAwsome extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Widget get _buildDialogContent {
+    return switch (state) {
+      LoadingState() => const CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+        ),
+      ErrorState() => const Icon(Icons.error, size: 48, color: Colors.white),
+      _ => const Icon(Icons.check, size: 48, color: Colors.white)
+    };
   }
 }
