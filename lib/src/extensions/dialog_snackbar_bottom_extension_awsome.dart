@@ -9,21 +9,20 @@ extension DialogSnackBarBottomExtensionAwsome on BuildContext {
   /// ## this extenstion for show dialog or snackbar or bottom
   /// ## Base on MessageTypes ( dialog or snackbar or bottom  )
   void show(StateAwsome state) {
-    final type = switch (configAwsome.messageType) {
+    if (configAwsome.messageType is DialogType) {
       // dialog
-      DialogType() => showDialog(
-          context: this,
-          builder: (context) => DialogWidgetAwsome(state: state),
-        ),
-      // bottomsheet
-      BottomType() => showBottomSheet(
-          context: this,
-          builder: (context) => BottomWidgetAwsome(state: state),
-        ),
-      // snackBar
-      _ => showSnackbar(state),
-    };
-    type;
+      showDialog(
+        context: this,
+        builder: (context) => DialogWidgetAwsome(state: state),
+      );
+    } else if (configAwsome.messageType is BottomType) {
+      showBottomSheet(
+        context: this,
+        builder: (context) => BottomWidgetAwsome(state: state),
+      );
+    } else {
+      showSnackbar(state);
+    }
   }
 }
 
