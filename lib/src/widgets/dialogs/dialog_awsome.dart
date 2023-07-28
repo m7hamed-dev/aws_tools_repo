@@ -51,7 +51,10 @@ class DialogAwsome extends StatelessWidget {
                     children: [
                       state.iconBaseOnState,
                       const SizedBox(height: 10.0),
-                      const TxtAwsome('حدث خطا'),
+                      TxtAwsome(
+                        state.message,
+                        style: regularStyle.copyWith(color: Colors.white),
+                      ),
                     ],
                   ),
                 ),
@@ -69,8 +72,9 @@ class DialogAwsome extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: configAwsome.defaultBorderRadius,
               ),
-              child: const TxtAwsome(
+              child: TxtAwsome(
                 'اغلاق',
+                style: regularStyle.copyWith(color: Colors.white),
               ),
             ),
           ),
