@@ -38,7 +38,7 @@ class SnackBarWidgetAwsome extends StatelessWidget {
           Row(
             children: [
               state.iconBaseOnState,
-              const SizedBox(width: 10.0),
+              const SizedBox(width: 70.0),
               TxtAwsome(
                 state.message,
                 style: regularStyle.copyWith(color: Colors.white),
