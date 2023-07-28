@@ -15,7 +15,6 @@ class ConfigAwsome {
     required this.lightTheme,
     required this.appMessage,
     required this.appSource,
-    required this.config,
   });
 
   /// ## some fields
@@ -28,11 +27,10 @@ class ConfigAwsome {
   final DarkThemeAwsome darkTheme;
   final AppMessage appMessage;
   final AppSource appSource;
-  final ConfigAwsome config;
 
   /// inital
-  void init() {
-    configAwsome = config;
+  void init(ConfigAwsome yourConfigAwsome) {
+    configAwsome = yourConfigAwsome;
   }
 }
 
