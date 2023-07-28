@@ -28,14 +28,15 @@ extension SnackbarAwsome on BuildContext {
     //
     final snackbar = SnackBar(
       content: setOnTop
-          ? Stack(
-              // mainAxisAlignment: MainAxisAlignment.start,
-              // crossAxisAlignment: CrossAxisAlignment.start,
+          ? Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   message,
                   style: regularStyle.copyWith(color: Colors.white),
                 ),
+                const Spacer(),
               ],
             )
           : Text(message, style: regularStyle.copyWith(color: Colors.white)),
