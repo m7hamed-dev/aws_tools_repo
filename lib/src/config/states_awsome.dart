@@ -6,7 +6,8 @@ abstract class StateAwsome {
 class InitalState extends StateAwsome {}
 
 class SuccessState extends StateAwsome {
-  SuccessState({this.successMessage = ''}) : super(message: successMessage);
+  SuccessState({this.successMessage = 'Success!'})
+      : super(message: successMessage);
   final String successMessage;
 }
 
@@ -17,6 +18,7 @@ class EmptyDataState extends StateAwsome {}
 class WarningState extends StateAwsome {}
 
 class ErrorState extends StateAwsome {
-  ErrorState({this.errorMessage = ''}) : super(message: errorMessage);
+  ErrorState({this.errorMessage = 'Error occurred!'})
+      : super(message: errorMessage);
   final String errorMessage;
 }

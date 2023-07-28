@@ -8,7 +8,7 @@ extension SnackbarAwsome on BuildContext {
     Duration duration = const Duration(seconds: 2),
     String message = 'Loading...',
   }) {
-    // late String message;
+    //
     late Color backgroundColor = Colors.blue;
     switch (state) {
       case LoadingState():
@@ -16,14 +16,15 @@ extension SnackbarAwsome on BuildContext {
         backgroundColor = Colors.blue;
         break;
       case ErrorState():
-        message = "Error occurred!";
+        message = state.errorMessage;
         backgroundColor = Colors.red;
         break;
       case SuccessState():
-        message = "Success!";
+        message = state.successMessage;
         backgroundColor = Colors.green;
         break;
     }
+    //
     final snackbar = SnackBar(
       content: Text(message, style: regularStyle.copyWith(color: Colors.white)),
       backgroundColor: backgroundColor,
