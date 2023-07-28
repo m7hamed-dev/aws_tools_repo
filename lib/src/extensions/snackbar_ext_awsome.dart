@@ -28,13 +28,16 @@ extension SnackbarAwsome on BuildContext {
     //
     final snackbar = SnackBar(
       content: setOnTop
-          ? Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+          ? Stack(
               children: [
-                Text(
-                  message,
-                  style: regularStyle.copyWith(color: Colors.white),
+                Positioned(
+                  top: 10.0,
+                  left: 10.0,
+                  right: 10.0,
+                  child: Text(
+                    message,
+                    style: regularStyle.copyWith(color: Colors.white),
+                  ),
                 ),
               ],
             )
