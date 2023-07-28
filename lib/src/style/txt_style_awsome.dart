@@ -3,7 +3,7 @@ import 'package:awsome_tools/src/config/config_awsome.dart';
 
 final regularStyle = TextStyle(
   fontFamily: configAwsome.fontFamily,
-  fontWeight: FontWeight.w400,
+  fontWeight: FontWeight.w200,
   fontSize: configAwsome.fontModel.regular,
 );
 

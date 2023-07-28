@@ -87,7 +87,8 @@ class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
 
   TextFormField _buikdTxtFormField() {
     return TextFormField(
-      style: regularStyle,
+      style: regularStyle.copyWith(fontSize: 14.0),
+
       // style: maraiRegular.copyWith(
       //   color: isDark
       //       ? const Color.fromARGB(255, 243, 239, 239)
@@ -112,6 +113,7 @@ class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
       onChanged: widget.onChange,
       autocorrect: false,
       decoration: InputDecoration(
+        errorStyle: regularStyle.copyWith(fontSize: 14.0, color: Colors.red),
         filled: widget.filled,
         // fillColor: HexColor('#f5f7fb'),
         hintText: widget.hint,
