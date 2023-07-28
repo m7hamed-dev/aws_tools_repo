@@ -36,7 +36,6 @@ extension SnackbarAwsome on BuildContext {
                   message,
                   style: regularStyle.copyWith(color: Colors.white),
                 ),
-                const Spacer(),
               ],
             )
           : Text(message, style: regularStyle.copyWith(color: Colors.white)),
