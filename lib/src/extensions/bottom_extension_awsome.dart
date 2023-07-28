@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 extension BottomSheetExtensionAwsome on BuildContext {
   /// ## this extenstion TO show  bottom
   void showBottom(StateAwsome state) {
-    showBottomSheet(
+    showModalBottomSheet(
       context: this,
       builder: (context) => BottomWidgetAwsome(state: state),
     );

@@ -16,7 +16,7 @@ extension DialogSnackBarBottomExtensionAwsome on BuildContext {
         builder: (context) => DialogWidgetAwsome(state: state),
       );
     } else if (configAwsome.messageType is BottomType) {
-      showBottomSheet(
+      showModalBottomSheet(
         context: this,
         builder: (context) => BottomWidgetAwsome(state: state),
       );
