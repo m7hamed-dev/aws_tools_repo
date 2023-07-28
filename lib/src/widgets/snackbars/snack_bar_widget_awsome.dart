@@ -31,7 +31,7 @@ class SnackBarWidgetAwsome extends StatelessWidget {
               width: 55.0,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.white.withOpacity(.18),
+                color: Colors.white.withOpacity(.22),
               ),
             ),
           ),
