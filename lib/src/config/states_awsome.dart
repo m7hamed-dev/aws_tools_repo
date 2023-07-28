@@ -19,9 +19,17 @@ class NetworkErrorState extends StateAwsome {
   final String errorMessage;
 }
 
-class EmptyDataState extends StateAwsome {}
+class EmptyDataState extends StateAwsome {
+  EmptyDataState({this.emptyMessage = 'No Data Found!'})
+      : super(message: emptyMessage);
+  final String emptyMessage;
+}
 
-class WarningState extends StateAwsome {}
+class WarningState extends StateAwsome {
+  WarningState({this.warningMessage = 'Warning!'})
+      : super(message: warningMessage);
+  final String warningMessage;
+}
 
 class ErrorState extends StateAwsome {
   ErrorState({this.errorMessage = 'Error occurred!'})
