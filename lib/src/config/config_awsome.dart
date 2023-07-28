@@ -11,6 +11,7 @@ class ConfigAwsome {
     required this.appColors,
     this.defaultBorderRadius = const BorderRadius.all(Radius.circular(10)),
     required this.fontModel,
+    // this.customThemeAwsome =const lightTheme,
     // required this.darkTheme,
     // required this.lightTheme,
     required this.appMessage,
@@ -24,6 +25,7 @@ class ConfigAwsome {
   final AppColors appColors;
   final BorderRadius defaultBorderRadius;
   final FontSizeModel fontModel;
+  // final CustomThemeAwsome customThemeAwsome;
   // final LightThemeAwsome lightTheme;
   // final DarkThemeAwsome darkTheme;
   final AppMessage appMessage;

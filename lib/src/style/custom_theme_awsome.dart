@@ -1,10 +1,9 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-// class CustomThemeAwsome {
-//   final ThemeData themeData1;
+class CustomThemeAwsome {
+  final ThemeData? themeData1;
+  CustomThemeAwsome({this.themeData1});
+  // final ThemeData themeData2;
 
-//   CustomThemeAwsome({this.themeData1 = ThemeData.dark()});
-//   // final ThemeData themeData2;
-
-//   // ThemeData get themeData {}
-// }
+  // ThemeData get themeData {}
+}
