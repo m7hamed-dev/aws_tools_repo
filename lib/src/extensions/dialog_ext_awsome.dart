@@ -5,6 +5,6 @@ import 'package:flutter/material.dart';
 extension DialogExtAwsome on BuildContext {
   void showDialogAwsome(StateAwsome state) => showDialog(
         context: this,
-        builder: (context) => DialogAwsome(state: state),
+        builder: (context) => DialogWidgetAwsome(state: state),
       );
 }

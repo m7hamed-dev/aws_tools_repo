@@ -3,8 +3,8 @@ import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
 import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 import 'package:flutter/material.dart';
 
-class DialogAwsome extends StatelessWidget {
-  const DialogAwsome({super.key, required this.state});
+class DialogWidgetAwsome extends StatelessWidget {
+  const DialogWidgetAwsome({super.key, required this.state});
   final StateAwsome state;
   @override
   Widget build(BuildContext context) {
