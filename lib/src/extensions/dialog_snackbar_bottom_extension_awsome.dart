@@ -9,7 +9,7 @@ extension DialogSnackBarBottomExtensionAwsome on BuildContext {
   /// ## this extenstion for show dialog or snackbar or bottom
   /// ## Base on MessageTypes ( dialog or snackbar or bottom  )
   void show(StateAwsome state) {
-    return switch (configAwsome.messageType) {
+    final type = switch (configAwsome.messageType) {
       // dialog
       DialogType() => showDialog(
           context: this,
@@ -23,6 +23,7 @@ extension DialogSnackBarBottomExtensionAwsome on BuildContext {
       // snackBar
       _ => showSnackbar(state),
     };
+    type;
   }
 }
 
