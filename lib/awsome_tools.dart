@@ -36,6 +36,7 @@ export './src/extensions/screen_size_ext.dart';
 export './src/extensions/dialog_snackbar_bottom_extension_awsome.dart';
 export './src/extensions/snackbar_ext_awsome.dart';
 export './src/extensions/dialog_ext_awsome.dart';
+export './src/extensions/bottom_extension_awsome.dart';
 
 /// APIs
 export './src/network/crud_api.dart';
