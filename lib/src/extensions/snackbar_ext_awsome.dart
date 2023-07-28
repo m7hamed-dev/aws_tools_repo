@@ -6,7 +6,8 @@ extension SnackbarAwsome on BuildContext {
   void showSnackbar(
     StateAwsome state, {
     Duration duration = const Duration(seconds: 2),
-    String message = 'Loading...',
+    String message = '',
+    bool setOnTop = false,
   }) {
     //
     late Color backgroundColor = Colors.blue;
@@ -29,6 +30,10 @@ extension SnackbarAwsome on BuildContext {
       content: Text(message, style: regularStyle.copyWith(color: Colors.white)),
       backgroundColor: backgroundColor,
       duration: duration,
+      behavior: setOnTop ? SnackBarBehavior.floating : SnackBarBehavior.fixed,
+      shape: RoundedRectangleBorder(
+        borderRadius: configAwsome.defaultBorderRadius,
+      ),
     );
 
     ScaffoldMessenger.of(this).showSnackBar(snackbar);
