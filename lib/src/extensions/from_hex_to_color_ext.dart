@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 extension HexColorAwsome on String {
+  /// # convert HecColor to Color
   Color get toColor {
-    String hexColor = this;
-    if (hexColor.startsWith('#')) {
+    late String hexColor = this;
+    if (startsWith('#')) {
       hexColor = hexColor.substring(1);
     }
     int colorValue = int.tryParse(hexColor, radix: 16) ?? 0xFFFFFFFF;
