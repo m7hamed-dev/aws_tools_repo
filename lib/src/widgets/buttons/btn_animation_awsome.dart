@@ -1,5 +1,4 @@
 import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
-import 'package:awsome_tools/src/extensions/txt_base_on_state.dart';
 import 'package:flutter/material.dart';
 import '../../../awsome_tools.dart';
 
@@ -18,6 +17,7 @@ class BtnAnimationAwsome extends StatelessWidget {
     this.borderColor,
     this.txtColor,
     this.gradient,
+    this.style,
     required this.state,
   }) : super(key: key);
 
@@ -35,6 +35,7 @@ class BtnAnimationAwsome extends StatelessWidget {
   final Widget? child;
   final Gradient? gradient;
   final StateAwsome state;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +63,10 @@ class BtnAnimationAwsome extends StatelessWidget {
 
   Widget get _buildChild {
     return switch (state) {
-      InitalState() => state.textBaseOnState,
+      InitalState() => TxtAwsome(
+          title ?? state.message,
+          style: style ?? mediumStyle.copyWith(color: Colors.white),
+        ),
       //
       LoadingState() => const CircularProgressIndicator(
           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
@@ -73,7 +77,10 @@ class BtnAnimationAwsome extends StatelessWidget {
           children: [
             state.iconBaseOnState,
             const SizedBox(width: 5.0),
-            state.textBaseOnState,
+            TxtAwsome(
+              state.message,
+              style: style ?? mediumStyle.copyWith(color: Colors.white),
+            ),
           ],
         ),
       //
@@ -82,7 +89,10 @@ class BtnAnimationAwsome extends StatelessWidget {
           children: [
             state.iconBaseOnState,
             const SizedBox(width: 5.0),
-            state.textBaseOnState
+            TxtAwsome(
+              state.message,
+              style: style ?? mediumStyle.copyWith(color: Colors.white),
+            ),
           ],
         ),
       //
@@ -91,7 +101,10 @@ class BtnAnimationAwsome extends StatelessWidget {
           children: [
             state.iconBaseOnState,
             const SizedBox(width: 5.0),
-            state.textBaseOnState
+            TxtAwsome(
+              state.message,
+              style: style ?? mediumStyle.copyWith(color: Colors.white),
+            ),
           ],
         ),
       //
