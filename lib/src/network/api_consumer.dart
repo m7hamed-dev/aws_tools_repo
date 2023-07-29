@@ -1,49 +1,65 @@
-abstract class APIsConsumer<BodyData, ReturnType> {
-  Future<Result<List<ReturnType>, Exception>> getALL(
+abstract class APIsConsumer<BodyData> {
+  Future<void> getALL(
     String endpoint, {
     Map<String, String>? headers,
   });
-  Future<ReturnType?> getByID(
+  Future<APIsStates?> getByID(
     String endpoint,
     String id, {
     Map<String, String>? headers,
   });
-  Future<ReturnType> post(
+  Future<APIsStates> post(
     String endpoint,
     BodyData body, {
     Map<String, String>? headers,
   });
-  Future<ReturnType> put(
+  Future<APIsStates> put(
     String endpoint,
     BodyData body, {
     Map<String, String>? headers,
   });
-  Future<ReturnType> delete(
+  Future<APIsStates> delete(
     String endpoint, {
     Map<String, String>? headers,
   });
+
+  void updateState(APIsStates newState);
 }
+
+abstract class APIsStates<Data> {
+  Data? data;
+}
+
+class APIsLoading extends APIsStates {}
+
+class APIsError extends APIsStates {}
+
+class APIsSucces<Value> implements APIsStates<Value> {
+  @override
+  Value? data;
+}
+
 
 // Base Result class
 /// [S] represents the type of the success value
 /// [E] should be [Exception] or a subclass of it
-sealed class Result<S, E extends Exception> {
-  const Result();
-}
+// sealed class Result<S, E extends Exception> {
+//   const Result();
+// }
 
-final class Success<S, E extends Exception> extends Result<S, E> {
-  const Success(this.value);
-  final S value;
-}
+// final class Success<S, E extends Exception> extends Result<S, E> {
+//   const Success(this.value);
+//   final S value;
+// }
 
-final class Failure<S, E extends Exception> extends Result<S, E> {
-  const Failure(this.exception);
-  final E exception;
-}
+// final class Failure<S, E extends Exception> extends Result<S, E> {
+//   const Failure(this.exception);
+//   final E exception;
+// }
 
-final class Loading extends Result {
-  const Loading();
-}
+// final class Loading extends Result {
+//   const Loading();
+// }
 
 // class ApiError {
 //   ApiError(this.statusCode, this.message);
