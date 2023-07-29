@@ -26,17 +26,21 @@ abstract class APIsConsumer<BodyData> {
   void updateState(APIsStates newState);
 }
 
-abstract class APIsStates<Data> {
+abstract class APIsStates<Data, Error> {
   Data? data;
+  Error? error;
 }
 
 class APIsLoading extends APIsStates {}
 
 class APIsError extends APIsStates {}
 
-class APIsSucces<Value> implements APIsStates<Value> {
+class APIsSucces<Value> implements APIsStates<Value, Error> {
   @override
   Value? data;
+
+  @override
+  Error? error;
 }
 
 
