@@ -17,6 +17,7 @@ class BtnAwsome extends StatelessWidget {
     this.borderColor,
     this.txtColor,
     this.gradient,
+    this.style,
   }) : super(key: key);
 
   ///
@@ -32,6 +33,7 @@ class BtnAwsome extends StatelessWidget {
   final double? elevation;
   final Widget? child;
   final Gradient? gradient;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +72,7 @@ class BtnAwsome extends StatelessWidget {
         child: child ??
             TxtAwsome(
               title ?? '',
-              style: regularStyle.copyWith(color: txtColor),
+              style: style ?? regularStyle.copyWith(color: txtColor),
             ),
       ),
     );

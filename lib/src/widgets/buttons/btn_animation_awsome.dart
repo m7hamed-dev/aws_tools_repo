@@ -1,4 +1,5 @@
 import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
+import 'package:awsome_tools/src/extensions/txt_base_on_state.dart';
 import 'package:flutter/material.dart';
 import '../../../awsome_tools.dart';
 
@@ -61,10 +62,7 @@ class BtnAnimationAwsome extends StatelessWidget {
 
   Widget get _buildChild {
     return switch (state) {
-      InitalState() => TxtAwsome(
-          title ?? state.message,
-          style: mediumStyle.copyWith(color: Colors.white),
-        ),
+      InitalState() => state.textBaseOnState,
       //
       LoadingState() => const CircularProgressIndicator(
           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
@@ -75,10 +73,7 @@ class BtnAnimationAwsome extends StatelessWidget {
           children: [
             state.iconBaseOnState,
             const SizedBox(width: 5.0),
-            TxtAwsome(
-              state.message,
-              style: mediumStyle.copyWith(color: Colors.white),
-            ),
+            state.textBaseOnState,
           ],
         ),
       //
@@ -87,10 +82,7 @@ class BtnAnimationAwsome extends StatelessWidget {
           children: [
             state.iconBaseOnState,
             const SizedBox(width: 5.0),
-            TxtAwsome(
-              state.message,
-              style: mediumStyle.copyWith(color: Colors.white),
-            ),
+            state.textBaseOnState
           ],
         ),
       //
@@ -99,10 +91,7 @@ class BtnAnimationAwsome extends StatelessWidget {
           children: [
             state.iconBaseOnState,
             const SizedBox(width: 5.0),
-            TxtAwsome(
-              state.message,
-              style: mediumStyle.copyWith(color: Colors.white),
-            ),
+            state.textBaseOnState
           ],
         ),
       //
