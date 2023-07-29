@@ -13,15 +13,13 @@ class LoadingErrorSuccessAwsome extends StatelessWidget {
     this.errorMessage = 'Error ',
   });
   final StateAwsome state;
-  final Widget? init;
-  final Widget? loading;
-  final Widget? error;
+  final Widget? init, loading, error;
   final Widget success;
   final bool setAnimation;
   final String errorMessage;
   @override
   Widget build(BuildContext context) {
-    final currenWidget = switch (state) {
+    final currentWidget = switch (state) {
       InitalState() => init ?? const SizedBox(),
       LoadingState() => loading ?? const CircularProgressIndicator(),
       ErrorState() => error ?? TxtAwsome(errorMessage),
@@ -30,7 +28,7 @@ class LoadingErrorSuccessAwsome extends StatelessWidget {
     return ChildWithAnimation(
       setAnimation: setAnimation,
       state: state,
-      child: currenWidget,
+      child: currentWidget,
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 import 'package:flutter/material.dart';
 import '../../../awsome_tools.dart';
 
@@ -17,21 +18,11 @@ class IconAnimationAwsome extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: onPressed,
-      icon: _buildIcon(_buildChild),
+      icon: _buildIcon,
     );
   }
 
-  Widget get _buildChild {
-    return switch (state) {
-      InitalState() => const SizedBox(),
-      LoadingState() => const CircularProgressIndicator(),
-      ErrorState() => const Icon(Icons.error),
-      NetworkErrorState() => const Icon(Icons.network_check_rounded),
-      _ => const Icon(Icons.check),
-    };
-  }
-
-  Widget _buildIcon(Widget child) {
+  Widget get _buildIcon {
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 400),
       transitionBuilder: (child, animation) {
@@ -41,7 +32,7 @@ class IconAnimationAwsome extends StatelessWidget {
           child: child,
         );
       },
-      child: _buildChild,
+      child: state.iconBaseOnState,
     );
   }
 }

@@ -27,6 +27,12 @@ class TxtAwsome extends StatelessWidget {
     return Text(
       data,
       style: style,
+      maxLines: maxLines,
+      overflow: overflow,
+      softWrap: softWrap,
+      locale: locale,
+      textAlign: textAlign,
+      textDirection: textDirection,
     );
   }
 }
