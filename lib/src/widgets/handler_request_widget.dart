@@ -19,12 +19,19 @@ class HandlerRequesWidgetAwsome<Data> extends StatelessWidget {
   ///
   @override
   Widget build(BuildContext context) {
-    final widget = switch (requestState) {
-      RequestLoading() => loading ?? const CircularProgressIndicator(),
-      RequestError() => errorWidget ??
-          TxtAwsome(requestState.error ?? configAwsome.stringsAwsome.error),
-      _ => success(requestState.data as Data),
-    };
+    final widget = Center(
+      child: Center(
+        child: switch (requestState) {
+          RequestLoading() => loading ?? const CircularProgressIndicator(),
+          RequestError() => errorWidget ??
+              TxtAwsome(
+                requestState.error ?? configAwsome.stringsAwsome.error,
+                style: regularStyle.copyWith(color: Colors.red),
+              ),
+          _ => success(requestState.data as Data),
+        },
+      ),
+    );
     return widget;
   }
 }
