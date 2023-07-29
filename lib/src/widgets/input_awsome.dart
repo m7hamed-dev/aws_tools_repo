@@ -14,7 +14,6 @@ class InputWidgetAwsome extends StatefulWidget {
     this.onChange,
     this.validator,
     this.onFieldSubmitted,
-    this.isShowBuildCounter = false,
     this.prefixIcon = const SizedBox(),
     this.suffixIcon = const SizedBox(),
     this.isRequired = false,
@@ -29,7 +28,6 @@ class InputWidgetAwsome extends StatefulWidget {
   final TextEditingController? controller;
   final int maxLines;
   final int maxLength;
-  final bool isShowBuildCounter;
   final bool isRequired;
   final bool filled;
   final void Function(String)? onChange;
@@ -119,6 +117,7 @@ class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
         hintText: widget.hint,
         // suffixIcon: _buildSuffixIcon(theme.isDark),
         prefixIcon: widget.prefixIcon,
+        suffixIcon: widget.suffixIcon,
       ),
     );
   }
