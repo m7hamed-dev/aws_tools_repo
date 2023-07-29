@@ -1,6 +1,6 @@
 ///! config
 export './src/config/config_awsome.dart';
-export './src/config/states_awsome.dart';
+export 'src/state_awsome/states_awsome.dart';
 
 ///! - widgets - normal
 export 'src/widgets/buttons/button_awsome.dart';

@@ -15,6 +15,7 @@ class ConfigAwsome {
     required this.appMessage,
     required this.appAssets,
     required this.messageType,
+    this.duration = const Duration(seconds: 4),
   });
 
   /// ## some fields
@@ -27,6 +28,7 @@ class ConfigAwsome {
   final AppMessage appMessage;
   final AppAssets appAssets;
   final MessageTypes messageType;
+  final Duration duration;
 
   /// inital configuration
   void init(ConfigAwsome yourConfigAwsome) {

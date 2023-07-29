@@ -3,9 +3,9 @@ import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
 import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 import 'package:flutter/material.dart';
 
-class SnackBarWidgetAwsome extends StatelessWidget {
+class SnackBarWidgetAwsome {
   const SnackBarWidgetAwsome({
-    super.key,
+    // super.key,
     required this.state,
     this.message,
     this.duration = const Duration(seconds: 4),
@@ -17,8 +17,13 @@ class SnackBarWidgetAwsome extends StatelessWidget {
   final String? message;
   final Duration duration;
 
-  @override
-  Widget build(BuildContext context) {
+  static SnackBar call(
+    BuildContext context, {
+    bool setOnTop = false,
+    required StateAwsome state,
+    String? message,
+    Duration duration = const Duration(seconds: 4),
+  }) {
     return SnackBar(
       content: Stack(
         clipBehavior: Clip.none,

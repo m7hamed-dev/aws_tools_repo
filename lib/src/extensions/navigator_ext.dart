@@ -20,7 +20,7 @@ extension NavigatorAwsome on BuildContext {
     );
   }
 
-  /// # wiht animation
+  /// # with animation
   Future pushWithAnimation(Widget destination,
       {required TransitionType transitionType}) {
     PageRouteBuilder<dynamic> getPageRouteBuilder() {
