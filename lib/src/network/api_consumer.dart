@@ -32,7 +32,13 @@ abstract class APIsStates<Data> {
   final Data? data;
 }
 
-class APIsLoading extends APIsStates {}
+class APIsLoading implements APIsStates {
+  @override
+  get data => null;
+
+  @override
+  String? get error => null;
+}
 
 class APIsError extends APIsStates {
   final String errorMessge;
