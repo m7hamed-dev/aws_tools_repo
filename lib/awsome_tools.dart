@@ -43,5 +43,5 @@ export './src/extensions/bottom_extension_awsome.dart';
 export './src/network/crud_api.dart';
 
 ///! constants
-export './src/constants/app_message.dart';
+export 'src/constants/strings_awsome.dart';
 export 'src/constants/app_assets.dart';

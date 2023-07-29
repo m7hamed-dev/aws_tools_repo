@@ -12,7 +12,7 @@ class ConfigAwsome {
     required this.appColors,
     this.defaultBorderRadius = const BorderRadius.all(Radius.circular(10)),
     required this.fontModel,
-    required this.appMessage,
+    required this.stringsAwsome,
     required this.appAssets,
     required this.messageType,
     this.duration = const Duration(seconds: 4),
@@ -25,7 +25,7 @@ class ConfigAwsome {
   final AppColors appColors;
   final BorderRadius defaultBorderRadius;
   final FontSizeModel fontModel;
-  final AppMessage appMessage;
+  final StringsAwsome stringsAwsome;
   final AppAssets appAssets;
   final MessageTypes messageType;
   final Duration duration;
