@@ -7,21 +7,23 @@ class ConfigAwsome {
   /// # This for config
   ConfigAwsome({
     this.fontFamily = '',
-    this.defaultPadding = 10.0,
+    this.defaultPadding = 8.0,
     this.buttonHeight,
     required this.appColors,
-    this.defaultBorderRadius = const BorderRadius.all(Radius.circular(10)),
+    this.defaultBorderRadius = const BorderRadius.all(Radius.zero),
     required this.fontSizeModel,
     required this.stringsAwsome,
     required this.appAssets,
     required this.messageType,
     this.duration = const Duration(seconds: 4),
-    required this.myThemeData,
+    required this.lightTheme,
+    required this.darkTheme,
   });
 
   /// ## some fields
   final String fontFamily;
-  final ThemeData? myThemeData;
+  final ThemeData lightTheme;
+  final ThemeData darkTheme;
   final Duration duration;
   final double defaultPadding;
   final double? buttonHeight;

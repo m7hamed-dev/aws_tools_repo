@@ -85,8 +85,7 @@ class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
 
   TextFormField _buikdTxtFormField() {
     return TextFormField(
-      style: regularStyle.copyWith(fontSize: 14.0),
-
+      // style: regularStyle.copyWith(fontSize: 14.0),
       // style: maraiRegular.copyWith(
       //   color: isDark
       //       ? const Color.fromARGB(255, 243, 239, 239)
