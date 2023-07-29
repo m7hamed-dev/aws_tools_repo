@@ -9,25 +9,27 @@ class HandlerRequesWidgetAwsome<Data> extends StatelessWidget {
     this.init,
     this.loading,
     this.errorWidget,
-    // this.errorMessage = 'Error ',
   });
-  final RequestState<Data> requestState;
-  final Widget? init, loading;
-  final Widget Function(Data data) success;
-  final Widget? errorWidget;
 
   ///
+  final RequestState<Data> requestState;
+  final Widget? init, loading, errorWidget;
+  final Widget Function(Data data) success;
+  //
   @override
   Widget build(BuildContext context) {
     final widget = Center(
       child: Center(
         child: switch (requestState) {
+          // getting loading
           RequestLoading() => loading ?? const CircularProgressIndicator(),
+          // getting error
           RequestError() => errorWidget ??
               TxtAwsome(
                 requestState.error ?? configAwsome.stringsAwsome.error,
                 style: regularStyle.copyWith(color: Colors.red),
               ),
+          // getting success
           _ => success(requestState.data as Data),
         },
       ),

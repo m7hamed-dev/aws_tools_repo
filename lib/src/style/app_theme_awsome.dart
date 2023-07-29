@@ -1,6 +1,11 @@
-// import 'package:awsome_tools/awsome_tools.dart';
+import 'package:flutter/material.dart';
 
-// class AppThemeAwsome {
+class AppThemeAwsome {
+  const AppThemeAwsome({this.lightTheme2});
+  // this.darkTheme2,
+  final ThemeData? lightTheme2;
+  // final ThemeData? darkTheme2;
+}
 //   const AppThemeAwsome({
 //     required this.darkTheme,
 //     required this.lightTheme,
