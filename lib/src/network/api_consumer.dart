@@ -1,52 +1,46 @@
-abstract class APIsConsumer<BodyData, Data> {
+abstract class APIsConsumer<BodyData> {
   Future<void> getALL(
     String endpoint, {
     Map<String, String>? headers,
   });
-  Future<APIsStates?> getByID(
+  Future<void> getByID(
     String endpoint,
     String id, {
     Map<String, String>? headers,
   });
-  Future<APIsStates> post(
+  Future<void> post(
     String endpoint,
     BodyData body, {
     Map<String, String>? headers,
   });
-  Future<APIsStates> put(
+  Future<void> put(
     String endpoint,
     BodyData body, {
     Map<String, String>? headers,
   });
-  Future<APIsStates> delete(
+  Future<void> delete(
     String endpoint, {
     Map<String, String>? headers,
   });
-  void updateState(APIsStates newState);
-  late APIsStates<Data> apiState;
+  void updateState(RequestState newState);
+  late RequestState requestState;
 }
 
-abstract class APIsStates<Data> {
-  APIsStates({this.error, this.data});
+abstract class RequestState<Data> {
+  RequestState({this.error, this.data});
   final String? error;
   final Data? data;
 }
 
-class APIsLoading implements APIsStates {
-  @override
-  get data => null;
+class RequestLoading<Data> extends RequestState<Data> {}
 
-  @override
-  String? get error => null;
-}
-
-class APIsError extends APIsStates {
+class RequestError extends RequestState {
+  RequestError(this.errorMessge) : super(error: errorMessge);
   final String errorMessge;
-  APIsError(this.errorMessge) : super(error: errorMessge);
 }
 
-class APIsSucces<Value> extends APIsStates {
-  APIsSucces(this.value) : super(data: value);
+class RequestSucces<Value> extends RequestState {
+  RequestSucces(this.value) : super(data: value);
   final Value value;
 }
 
