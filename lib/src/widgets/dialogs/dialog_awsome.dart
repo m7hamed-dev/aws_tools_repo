@@ -76,7 +76,7 @@ class DialogWidgetAwsome extends StatelessWidget {
                       const SizedBox(height: 10.0),
                       TxtAwsome(
                         state.message,
-                        style: regularStyle.copyWith(color: Colors.white),
+                        style: mediumStyle.copyWith(color: Colors.white),
                       ),
                     ],
                   ),

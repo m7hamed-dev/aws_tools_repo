@@ -39,7 +39,7 @@ class BtnAnimationAwsome extends StatelessWidget {
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 400),
+        duration: const Duration(milliseconds: 300),
         width: state is LoadingState ? 50 : 150,
         margin: margin,
         height: height ?? configAwsome.buttonHeight,
