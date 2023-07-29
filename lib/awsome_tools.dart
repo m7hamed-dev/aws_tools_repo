@@ -3,7 +3,7 @@ export './src/config/config_awsome.dart';
 export 'src/state_awsome/states_awsome.dart';
 
 ///! - widgets - normal
-export 'src/widgets/buttons/button_awsome.dart';
+export 'src/widgets/buttons/btn_awsome.dart';
 export './src/widgets/txt_awsome.dart';
 export './src/widgets/custom_circle_awsome.dart';
 export './src/widgets/error_awsome.dart';

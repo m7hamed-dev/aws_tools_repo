@@ -21,21 +21,16 @@ class BtnAnimationAwsome extends StatelessWidget {
     required this.state,
   }) : super(key: key);
 
-  ///
-  final Color? txtColor;
   final String? title;
-  final Color? borderColor;
+  final Color? txtColor, borderColor, color;
   final void Function()? onPressed;
-  final Color? color;
-  final EdgeInsetsGeometry? margin;
-  final EdgeInsetsGeometry? padding;
-  final double? width;
-  final double? height;
+  final EdgeInsetsGeometry? margin, padding;
+  final double? width, height;
   final double? elevation;
   final Widget? child;
   final Gradient? gradient;
-  final StateAwsome state;
   final TextStyle? style;
+  final StateAwsome state;
 
   @override
   Widget build(BuildContext context) {
