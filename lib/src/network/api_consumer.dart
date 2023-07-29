@@ -22,8 +22,8 @@ abstract class APIsConsumer<BodyData> {
     String endpoint, {
     Map<String, String>? headers,
   });
-
   void updateState(APIsStates newState);
+  late APIsStates apiState;
 }
 
 abstract class APIsStates<Data, Error> {
@@ -33,7 +33,13 @@ abstract class APIsStates<Data, Error> {
 
 class APIsLoading extends APIsStates {}
 
-class APIsError extends APIsStates {}
+class APIsError<Data, Error> implements APIsStates<Data, Error> {
+  @override
+  Data? data;
+
+  @override
+  Error? error;
+}
 
 class APIsSucces<Value> implements APIsStates<Value, Error> {
   @override
