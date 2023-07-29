@@ -41,6 +41,10 @@ final class Failure<S, E extends Exception> extends Result<S, E> {
   final E exception;
 }
 
+final class Loading extends Result {
+  const Loading();
+}
+
 // class ApiError {
 //   ApiError(this.statusCode, this.message);
 //   final int statusCode;
