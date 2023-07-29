@@ -17,11 +17,11 @@ class HandlerRequesWidgetAwsome<Data> extends StatelessWidget {
   final String errorMessage;
   @override
   Widget build(BuildContext context) {
-    Widget currentWidget = switch (requestState) {
+    final widget = switch (requestState) {
       RequestLoading() => loading ?? const CircularProgressIndicator(),
       RequestError() => error ?? TxtAwsome(errorMessage),
       _ => success
     };
-    return currentWidget;
+    return widget;
   }
 }
