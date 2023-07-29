@@ -26,27 +26,22 @@ abstract class APIsConsumer<BodyData> {
   late APIsStates apiState;
 }
 
-abstract class APIsStates<Data, Error> {
-  Data? data;
-  Error? error;
+abstract class APIsStates<Data> {
+  APIsStates({this.error, this.data});
+  final String? error;
+  final Data? data;
 }
 
 class APIsLoading extends APIsStates {}
 
-class APIsError<Data, Error> implements APIsStates<Data, Error> {
-  @override
-  Data? data;
-
-  @override
-  Error? error;
+class APIsError extends APIsStates {
+  final String errorMessge;
+  APIsError(this.errorMessge) : super(error: errorMessge);
 }
 
-class APIsSucces<Value> implements APIsStates<Value, Error> {
-  @override
-  Value? data;
-
-  @override
-  Error? error;
+class APIsSucces<Value> extends APIsStates {
+  APIsSucces(this.value) : super(data: value);
+  final Value value;
 }
 
 
