@@ -8,14 +8,14 @@ class SnackBarWidgetAwsome {
     // super.key,
     required this.state,
     this.message,
-    this.duration = const Duration(seconds: 4),
+    this.duration,
     this.setOnTop = false,
   });
   //
   final bool setOnTop;
   final StateAwsome state;
   final String? message;
-  final Duration duration;
+  final Duration? duration;
 
   static SnackBar call(
     BuildContext context, {
@@ -43,7 +43,7 @@ class SnackBarWidgetAwsome {
           Row(
             children: [
               state.iconBaseOnState,
-              const SizedBox(width: 70.0),
+              const SizedBox(width: 10.0),
               TxtAwsome(
                 state.message,
                 style: regularStyle.copyWith(color: Colors.white),

@@ -6,7 +6,7 @@ extension SnackbarAwsome on BuildContext {
   /// # show Snackbar
   void showSnackbar(
     StateAwsome state, {
-    Duration duration = const Duration(seconds: 2),
+    Duration? duration,
     String? message,
     bool setOnTop = false,
   }) {
@@ -16,7 +16,7 @@ extension SnackbarAwsome on BuildContext {
         state: state,
         message: message,
         setOnTop: setOnTop,
-        duration: duration,
+        duration: duration ?? configAwsome.duration,
       ),
     );
   }
