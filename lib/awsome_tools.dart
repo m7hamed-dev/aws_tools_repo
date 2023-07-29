@@ -40,7 +40,8 @@ export './src/extensions/snackbar_ext_awsome.dart';
 export './src/extensions/dialog_ext_awsome.dart';
 export './src/extensions/bottom_extension_awsome.dart';
 
-///! APIs
+///! Network
+export './src/network/api_consumer.dart';
 export './src/network/crud_api.dart';
 
 ///! constants
