@@ -1,4 +1,4 @@
-abstract class APIsConsumer<BodyData> {
+abstract class APIsConsumer<BodyData, Data> {
   Future<void> getALL(
     String endpoint, {
     Map<String, String>? headers,
@@ -23,7 +23,7 @@ abstract class APIsConsumer<BodyData> {
     Map<String, String>? headers,
   });
   void updateState(APIsStates newState);
-  late APIsStates apiState;
+  late APIsStates<Data> apiState;
 }
 
 abstract class APIsStates<Data> {
