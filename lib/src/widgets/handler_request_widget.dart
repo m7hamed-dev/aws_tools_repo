@@ -8,18 +8,21 @@ class HandlerRequesWidgetAwsome<Data> extends StatelessWidget {
     required this.success,
     this.init,
     this.loading,
-    this.error,
-    this.errorMessage = 'Error ',
+    this.errorWidget,
+    // this.errorMessage = 'Error ',
   });
   final RequestState<Data> requestState;
-  final Widget? init, loading, error;
+  final Widget? init, loading;
   final Widget Function(Data data) success;
-  final String errorMessage;
+  final Widget? errorWidget;
+
+  ///
   @override
   Widget build(BuildContext context) {
     final widget = switch (requestState) {
       RequestLoading() => loading ?? const CircularProgressIndicator(),
-      RequestError() => error ?? TxtAwsome(requestState.error ?? errorMessage),
+      RequestError() => errorWidget ??
+          TxtAwsome(requestState.error ?? configAwsome.stringsAwsome.error),
       _ => success(requestState.data as Data),
     };
     return widget;
