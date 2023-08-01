@@ -38,20 +38,12 @@ class BtnAwsome extends StatelessWidget {
       height: height ?? configAwsome.buttonHeight,
       padding: padding,
       margin: margin,
+      clipBehavior: Clip.none,
       decoration: BoxDecoration(
         border: borderColor == null ? null : Border.all(color: borderColor!),
         gradient: borderColor == null && color == null ? gradient : null,
         borderRadius: configAwsome.defaultBorderRadius,
-        color: color,
-        // boxShadow: [
-        //   BoxShadow(
-        //     color: color != null
-        //         ? color!.withOpacity(.11)
-        //         : AppColors.primaryColor.withOpacity(.11),
-        //     blurRadius: 8.0,
-        //     spreadRadius: 8.0,
-        //   ),
-        // ],
+        color: color ?? configAwsome.appColors.primaryColor,
       ),
       child: ElevatedButton(
         onPressed: onPressed,
@@ -68,7 +60,8 @@ class BtnAwsome extends StatelessWidget {
         child: child ??
             TxtAwsome(
               title ?? '',
-              style: style ?? regularStyle.copyWith(color: txtColor),
+              style: style ??
+                  mediumStyle.copyWith(color: txtColor ?? Colors.white),
             ),
       ),
     );
