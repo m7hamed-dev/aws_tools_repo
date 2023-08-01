@@ -19,6 +19,7 @@ class InputWidgetAwsome extends StatefulWidget {
     this.isRequired = false,
     this.filled = false,
     this.inputType = InputTypes.text,
+    this.helperText,
   }) : super(key: key);
 
   ///
@@ -35,6 +36,7 @@ class InputWidgetAwsome extends StatefulWidget {
   final ValueChanged<String>? onFieldSubmitted;
   final Widget suffixIcon, prefixIcon;
   final InputTypes inputType;
+  final String? helperText;
   @override
   State<InputWidgetAwsome> createState() => _InputWidgetAwsomeState();
 }
@@ -48,60 +50,47 @@ class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
     setState(() {});
   }
 
-  void _setPasswordByTrue() {
-    if (widget.inputType == InputTypes.password) {
-      obscureText = true;
-    } else {
-      obscureText = false;
-    }
-  }
-
-  @override
-  void initState() {
-    _setPasswordByTrue();
-    super.initState();
-  }
+  // void _setPasswordByTrue() {
+  //   if (widget.inputType == InputTypes.password) {
+  //     obscureText = true;
+  //   } else {
+  //     obscureText = false;
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
-    if (widget.inputDescription.isNotEmpty) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TxtAwsome(
-            widget.isRequired
-                ? '* ${widget.inputDescription}'
-                : widget.inputDescription,
-            // style: maraiRegular,
-            // color: widget.isRequired ? Colors.red : null,
-          ),
-          const SizedBox(height: 10.0),
-          _buikdTxtFormField(),
-        ],
-      );
-    }
-    return _buikdTxtFormField();
+    final input = switch (widget.isRequired) {
+      true => Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TxtAwsome(
+              widget.isRequired
+                  ? '* ${widget.inputDescription}'
+                  : widget.inputDescription,
+              style: regularStyle.copyWith(
+                color: widget.isRequired ? Colors.red : null,
+              ),
+            ),
+            const SizedBox(height: 10.0),
+            _buikdTxtFormField(),
+          ],
+        ),
+      _ => _buikdTxtFormField(),
+    };
+
+    return input;
   }
 
   TextFormField _buikdTxtFormField() {
     return TextFormField(
-      // style: regularStyle.copyWith(fontSize: 14.0),
-      // style: maraiRegular.copyWith(
-      //   color: isDark
-      //       ? const Color.fromARGB(255, 243, 239, 239)
-      //       : const Color.fromARGB(255, 0, 0, 0),
-      // ),
-      cursorHeight: 12.0,
-      // cursorColor: isDark
-      //     ? const Color.fromARGB(255, 243, 239, 239)
-      //     : const Color.fromARGB(255, 0, 0, 0),
       controller: widget.controller,
       autofocus: false,
       maxLength: widget.maxLength,
       maxLines: widget.maxLines,
       keyboardType: keyboardType,
-      obscureText:
-          widget.inputType == InputTypes.password ? false : obscureText,
+      obscureText: obscureText,
+      obscuringCharacter: '*',
       textAlign: widget.textAlign ?? TextAlign.right,
       inputFormatters: inputFormatters,
       buildCounter: _buildCounter,
@@ -110,13 +99,16 @@ class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
       onChanged: widget.onChange,
       autocorrect: false,
       decoration: InputDecoration(
+        helperText: widget.helperText,
+        helperStyle: regularStyle.copyWith(
+          fontSize: 9.0,
+          color: configAwsome.appColors.primaryColor,
+        ),
         errorStyle: regularStyle.copyWith(fontSize: 14.0, color: Colors.red),
         filled: widget.filled,
-        // fillColor: HexColor('#f5f7fb'),
         hintText: widget.hint,
-        // suffixIcon: _buildSuffixIcon(theme.isDark),
         prefixIcon: widget.prefixIcon,
-        suffixIcon: widget.suffixIcon,
+        suffixIcon: _suffixIcon,
       ),
     );
   }
@@ -143,5 +135,21 @@ class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
     ];
   }
 
-  // String get obscureImage => obscureText ? AppAssets.bell : AppAssets.delete;
+  Widget get _suffixIcon {
+    return switch (widget.inputType) {
+      InputTypes.password => IconButton(
+          padding: const EdgeInsets.all(0.0),
+          onPressed: _changeObscureText,
+          icon: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 300),
+            child: Icon(
+              obscureText ? Icons.visibility_off : Icons.visibility,
+              key: ValueKey<bool>(obscureText),
+              size: obscureText ? 18.0 : 22.0,
+            ),
+          ),
+        ),
+      _ => widget.suffixIcon,
+    };
+  }
 }
