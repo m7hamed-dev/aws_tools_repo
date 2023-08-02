@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
+const primaryColorAwsome = Color.fromARGB(255, 9, 153, 139);
+const secondaryColorAwsome = Color.fromARGB(255, 128, 204, 196);
+
 class AppColors {
   ///
   const AppColors({
-    this.primaryColor = const Color.fromARGB(255, 19, 231, 210),
-    this.secondaryColor = const Color.fromARGB(255, 227, 93, 138),
+    this.primaryColor = primaryColorAwsome,
+    this.secondaryColor = secondaryColorAwsome,
     this.lightScaffoldBackgroundColor = Colors.white,
     this.darkScaffoldBackgroundColor = Colors.grey,
     this.gradientAppColor,

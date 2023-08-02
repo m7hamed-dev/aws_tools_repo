@@ -18,6 +18,7 @@ export './src/widgets/handler_request_widget.dart';
 export 'src/widgets/buttons/btn_animation_awsome.dart';
 export 'src/widgets/animations/icon_animation_awsome.dart';
 export 'src/widgets/loading_error_success_awsome.dart';
+export 'src/widgets/animations/steps_circle_awsom.dart';
 
 ///! colors
 export './src/style/app_colors.dart';
