@@ -11,6 +11,7 @@ class CustomCard extends StatelessWidget {
     this.border,
     this.borderRadius,
     this.color,
+    this.boxShadow,
   });
   final Widget child;
   final double? width, height;
@@ -18,6 +19,8 @@ class CustomCard extends StatelessWidget {
   final BoxBorder? border;
   final BorderRadiusGeometry? borderRadius;
   final Color? color;
+  final List<BoxShadow>? boxShadow;
+
   //
   @override
   Widget build(BuildContext context) {
@@ -30,13 +33,7 @@ class CustomCard extends StatelessWidget {
         color: color,
         borderRadius: borderRadius,
         border: border,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(.07),
-            spreadRadius: 10.0,
-            blurRadius: 10.0,
-          ),
-        ],
+        boxShadow: boxShadow,
       ),
       child: child,
     );

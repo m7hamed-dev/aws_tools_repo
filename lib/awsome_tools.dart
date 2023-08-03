@@ -4,8 +4,8 @@ export 'src/state_awsome/states_awsome.dart';
 
 ///! - widgets - normal
 // image
-export 'src/widgets/images/image_from_asset.dart';
-export 'src/widgets/images/image_place_holder.dart';
+export 'src/widgets/images/image_from_asset_awsome.dart';
+export 'src/widgets/images/image_place_holder_awsome.dart';
 // loading - error - shimmer
 export 'src/widgets/loadin_error_warning_success_widgets/shimmer_effect_awsome.dart';
 export 'src/widgets/loadin_error_warning_success_widgets/error_widget_awsome.dart';
@@ -16,8 +16,8 @@ export 'src/widgets/buttons/btn_awsome.dart';
 export './src/widgets/txt_awsome.dart';
 export './src/widgets/custom_circle_awsome.dart';
 export './src/widgets/input_awsome.dart';
-export 'src/widgets/loadin_error_warning_success_widgets/handler_request_widget.dart';
-export './src/widgets/custom_card.dart';
+export 'src/widgets/loadin_error_warning_success_widgets/handler_basw_api_to_widget_awsome.dart';
+export 'src/widgets/custom_card_awsome.dart';
 //! - widgets - wiht animations
 export 'src/widgets/buttons/btn_animation_awsome.dart';
 export 'src/widgets/animations/icon_animation_awsome.dart';
@@ -25,7 +25,7 @@ export 'src/widgets/loadin_error_warning_success_widgets/init_loading_error_succ
 export 'src/widgets/animations/steps_circle_awsom.dart';
 
 ///! colors
-export './src/style/app_colors.dart';
+export 'src/style/app_colors_awsome.dart';
 
 ///! themes
 export './src/style/light_theme.dart';
@@ -37,7 +37,7 @@ export 'src/style/custom_theme_awsome.dart';
 export './src/style/font_sizes_model.dart';
 
 ///! validations
-export './src/helpers/inputs_validation.dart';
+export 'src/helpers/inputs_validation_awsome.dart';
 
 ///! Extensions
 export './src/extensions/duration_extension_awsome.dart';
@@ -52,7 +52,7 @@ export './src/extensions/dialog_ext_awsome.dart';
 export './src/extensions/bottom_extension_awsome.dart';
 
 ///! Network
-export './src/network/api_consumer.dart';
+export 'src/network/api_consumer_awsome.dart';
 export './src/network/crud_api.dart';
 
 ///! constants
