@@ -31,7 +31,7 @@ class ConfigAwsome {
   final BorderRadius defaultBorderRadius;
   final FontSizeModel fontSizeModel;
   final StringsAwsome stringsAwsome;
-  final AppAssets appAssets;
+  final AssetsAwsome appAssets;
   final MessageTypes messageType;
 
   /// inital configuration

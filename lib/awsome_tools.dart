@@ -3,17 +3,21 @@ export './src/config/config_awsome.dart';
 export 'src/state_awsome/states_awsome.dart';
 
 ///! - widgets - normal
+// image
 export 'src/widgets/images/image_from_asset.dart';
 export 'src/widgets/images/image_place_holder.dart';
+// loading - error - shimmer
 export 'src/widgets/loadin_error_warning_success_widgets/shimmer_effect_awsome.dart';
+export 'src/widgets/loadin_error_warning_success_widgets/error_awsome.dart';
+export 'src/widgets/loadin_error_warning_success_widgets/loading_awsome.dart';
 export 'src/widgets/logo_widget_awsome.dart';
+// buttons
 export 'src/widgets/buttons/btn_awsome.dart';
 export './src/widgets/txt_awsome.dart';
 export './src/widgets/custom_circle_awsome.dart';
-export './src/widgets/error_awsome.dart';
-export 'src/widgets/loadin_error_warning_success_widgets/loading_awsome.dart';
 export './src/widgets/input_awsome.dart';
 export './src/widgets/handler_request_widget.dart';
+export './src/widgets/custom_card.dart';
 //! - widgets - wiht animations
 export 'src/widgets/buttons/btn_animation_awsome.dart';
 export 'src/widgets/animations/icon_animation_awsome.dart';
@@ -53,4 +57,5 @@ export './src/network/crud_api.dart';
 
 ///! constants
 export 'src/constants/strings_awsome.dart';
-export 'src/constants/app_assets.dart';
+export 'src/constants/assets_awsome.dart';
+export 'src/constants/colors_widget_awsome.dart';

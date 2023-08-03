@@ -1,5 +1,5 @@
-class AppAssets {
-  const AppAssets({
+class AssetsAwsome {
+  const AssetsAwsome({
     this.success = 'assets/images/path',
     this.loading = 'assets/images/path',
     this.error = 'assets/images/path',
