@@ -1,9 +1,9 @@
 ///
 ///
 abstract class RequestStateAwsome<Data> {
-  const RequestStateAwsome({this.error = '', this.data});
+  const RequestStateAwsome({this.error = 'Error Ocure!!', this.data});
   final String error;
-  final Data? data;
+  final Data data;
 }
 
 class RequestLoadingAwsome<Data> extends RequestStateAwsome<Data> {}
@@ -17,17 +17,7 @@ class RequestSucces<Data> extends RequestStateAwsome<Data> {
   final Data successData;
 }
 
-class ClassName {
-  late RequestStateAwsome<bool> requestStateAwsome;
-  void onPressed() {
-    requestStateAwsome = RequestErrorAwsome(error: 'my erro is');
-    requestStateAwsome = RequestLoadingAwsome();
-    requestStateAwsome = RequestSucces(successData: false);
-    if (requestStateAwsome is RequestSucces) {
-      requestStateAwsome.data!;
-    }
-  }
-}
+
 
 // Base Result class
 /// [S] represents the type of the success value
