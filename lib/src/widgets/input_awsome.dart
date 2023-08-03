@@ -100,11 +100,11 @@ class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
       autocorrect: false,
       decoration: InputDecoration(
         helperText: widget.helperText,
-        helperStyle: regularStyle.copyWith(
-          fontSize: 9.0,
-          color: configAwsome.appColors.primaryColor,
-        ),
-        errorStyle: regularStyle.copyWith(fontSize: 14.0, color: Colors.red),
+        // helperStyle: regularStyle.copyWith(
+        //   fontSize: 9.0,
+        //   color: configAwsome.appColors.primaryColor,
+        // ),
+        // errorStyle: regularStyle.copyWith(fontSize: 14.0, color: Colors.red),
         filled: widget.filled,
         hintText: widget.hint,
         prefixIcon: widget.prefixIcon,

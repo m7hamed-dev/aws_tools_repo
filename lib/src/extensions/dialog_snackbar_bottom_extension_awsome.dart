@@ -28,10 +28,10 @@ extension DialogSnackBarBottomExtensionAwsome on BuildContext {
 
 /// ### MessageTypes == how can I display message for User UI
 /// ### They are three Wayes ( dialog , bottom , snackBar )
-abstract class MessageTypes {}
+abstract class MessageInteractiveTypes {}
 
-class DialogType implements MessageTypes {}
+class DialogType implements MessageInteractiveTypes {}
 
-class BottomType implements MessageTypes {}
+class BottomType implements MessageInteractiveTypes {}
 
-class SnackBarType implements MessageTypes {}
+class SnackBarType implements MessageInteractiveTypes {}

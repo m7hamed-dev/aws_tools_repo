@@ -32,7 +32,7 @@ class ConfigAwsome {
   final FontSizeModel fontSizeModel;
   final StringsAwsome stringsAwsome;
   final AssetsAwsome appAssets;
-  final MessageTypes messageType;
+  final MessageInteractiveTypes messageType;
 
   /// inital configuration
   void init(ConfigAwsome yourConfigAwsome) {
