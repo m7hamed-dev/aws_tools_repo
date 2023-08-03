@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../awsome_tools.dart';
+import '../../../awsome_tools.dart';
 
 class ImagePlaceHolderAwsome extends StatelessWidget {
   const ImagePlaceHolderAwsome({

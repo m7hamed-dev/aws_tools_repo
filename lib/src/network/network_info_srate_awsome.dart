@@ -1,12 +1,12 @@
 import 'dart:io';
 
-abstract class NetWorkStateAwsome {
-  Future<bool> isInternetConnected();
+abstract class NetworkInfoAwsome {
+  Future<bool> get isConnected;
 }
 
-class CheckNetworkStateAwsome implements NetWorkStateAwsome {
+class CheckNetworkInfoAwsome implements NetworkInfoAwsome {
   @override
-  Future<bool> isInternetConnected() async {
+  Future<bool> get isConnected async {
     try {
       final result = await InternetAddress.lookup('google.com');
       return result.isNotEmpty && result[0].rawAddress.isNotEmpty;

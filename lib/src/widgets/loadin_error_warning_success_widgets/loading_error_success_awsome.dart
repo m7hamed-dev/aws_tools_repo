@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../awsome_tools.dart';
+import '../../../awsome_tools.dart';
 
 class LoadingErrorSuccessAwsome extends StatelessWidget {
   const LoadingErrorSuccessAwsome({

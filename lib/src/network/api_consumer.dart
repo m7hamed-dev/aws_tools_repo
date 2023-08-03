@@ -65,13 +65,3 @@ class RequestSucces<Value> extends RequestState {
 // final class Loading extends Result {
 //   const Loading();
 // }
-
-// class ApiError {
-//   ApiError(this.statusCode, this.message);
-//   final int statusCode;
-//   final String message;
-//   @override
-//   String toString() {
-//     return 'ApiError: Status Code $statusCode, Message: $message';
-//   }
-// }
