@@ -1,30 +1,31 @@
 ///
 ///
 abstract class RequestStateAwsome<Data> {
-  const RequestStateAwsome({this.error = '', required this.data});
+  const RequestStateAwsome({this.error = '', this.data});
   final String error;
-  final Data data;
+  final Data? data;
 }
 
-class RequestLoadingAwsome<Data> extends RequestStateAwsome<Data> {
-  RequestLoadingAwsome({required super.data});
-}
+class RequestLoadingAwsome<Data> extends RequestStateAwsome<Data> {}
 
 class RequestErrorAwsome<String> extends RequestStateAwsome<String> {
-  RequestErrorAwsome({required super.data, required super.error});
+  RequestErrorAwsome({required super.error});
 }
 
-class RequestSucces<Value> extends RequestStateAwsome<Value> {
+class RequestSucces<Data> extends RequestStateAwsome<Data> {
   RequestSucces({required this.successData}) : super(data: successData);
-  final Value successData;
+  final Data successData;
 }
 
 class ClassName {
   late RequestStateAwsome<bool> requestStateAwsome;
   void onPressed() {
-    requestStateAwsome = RequestErrorAwsome(data: false, error: 'my erro is');
-    requestStateAwsome = RequestLoadingAwsome(data: false);
+    requestStateAwsome = RequestErrorAwsome(error: 'my erro is');
+    requestStateAwsome = RequestLoadingAwsome();
     requestStateAwsome = RequestSucces(successData: false);
+    if (requestStateAwsome is RequestSucces) {
+      requestStateAwsome.data!;
+    }
   }
 }
 

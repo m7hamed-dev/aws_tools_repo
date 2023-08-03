@@ -28,7 +28,7 @@ class HandlerRequesWidgetAwsome<Data> extends StatelessWidget {
               TxtAwsome(requestState.error,
                   style: regularStyle.copyWith(color: Colors.red)),
           // getting success
-          _ => success(requestState.data),
+          _ => success(requestState.data as Data),
         },
       ),
     );
