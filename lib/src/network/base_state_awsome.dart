@@ -10,10 +10,12 @@ class LoadingState<Data> extends BaseApiState<Data> {}
 
 class InitalState<Data> extends BaseApiState<Data> {}
 
-class WarningState<Data> extends BaseApiState<Data> {}
+class WarningState<String> extends BaseApiState<String> {
+  WarningState({required super.message});
+}
 
-class ErrorApiState<String> extends BaseApiState<String> {
-  ErrorApiState({required super.message});
+class ErrorState<String> extends BaseApiState<String> {
+  ErrorState({required super.message});
 }
 
 class NoDataState<String> extends BaseApiState<String> {
@@ -24,8 +26,8 @@ class NetworkErrorState<String> extends BaseApiState<String> {
   NetworkErrorState({required super.message});
 }
 
-class SuccesApiState<Data> extends BaseApiState<Data> {
-  SuccesApiState({required this.successData}) : super(data: successData);
+class SuccesState<Data> extends BaseApiState<Data> {
+  SuccesState({required this.successData}) : super(data: successData);
   final Data successData;
 }
 

@@ -12,7 +12,7 @@ extension IconBaseOnState on BaseApiState {
       LoadingState() => const CircularProgressIndicator(
           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
         ),
-      ErrorApiState() => const Icon(
+      ErrorState() => const Icon(
           Icons.error,
           size: iconSize,
           color: Colors.white,

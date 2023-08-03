@@ -67,7 +67,7 @@ class BtnAnimationAwsome extends StatelessWidget {
           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
         ),
       //
-      ErrorApiState() => Row(
+      ErrorState() => Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             state.iconBaseOnState,

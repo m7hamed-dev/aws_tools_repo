@@ -26,7 +26,7 @@ class BaseApiToWidget<Data> extends StatelessWidget {
         //
         LoadingState() => loadingWidget ?? const CircularProgressIndicator(),
         //
-        ErrorApiState() => errorWidget ??
+        ErrorState() => errorWidget ??
             TxtAwsome(
               apiState.message,
               style: regularStyle.copyWith(color: Colors.red),
