@@ -59,3 +59,7 @@ export './src/network/crud_api.dart';
 export 'src/constants/strings_awsome.dart';
 export 'src/constants/assets_awsome.dart';
 export 'src/constants/colors_widget_awsome.dart';
+
+///! Data LocaDataAPIs
+// LocaDataAPIs
+export './src/data/loca_data_api.dart';
