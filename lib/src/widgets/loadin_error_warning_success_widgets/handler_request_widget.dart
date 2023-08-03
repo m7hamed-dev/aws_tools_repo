@@ -13,7 +13,7 @@ class HandlerRequesWidgetAwsome<Data> extends StatelessWidget {
   });
 
   ///
-  final RequestStateAwsome<Data> requestState;
+  final BaseApiStateAwsome<Data> requestState;
   final Widget? init, loading, errorWidget;
   final Widget Function(Data data) success;
   //
@@ -22,13 +22,13 @@ class HandlerRequesWidgetAwsome<Data> extends StatelessWidget {
     final widget = Center(
       child: Center(
         child: switch (requestState) {
-          RequestLoadingAwsome() =>
+          LoadingApiStateAwsome() =>
             loading ?? const CircularProgressIndicator(),
           RequestErrorAwsome() => errorWidget ??
               TxtAwsome(requestState.error,
                   style: regularStyle.copyWith(color: Colors.red)),
           // getting success
-          _ => success(requestState.data as Data),
+          _ => success(requestState.data),
         },
       ),
     );

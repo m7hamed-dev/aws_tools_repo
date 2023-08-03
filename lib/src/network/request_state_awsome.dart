@@ -1,18 +1,18 @@
 ///
 ///
-abstract class RequestStateAwsome<Data> {
-  const RequestStateAwsome({this.error = 'Error Ocure!!', this.data});
+abstract class BaseApiStateAwsome<Data> {
+  const BaseApiStateAwsome({this.error = 'Error Ocure!!', this.data});
   final String error;
-  final Data data;
+  final Data? data;
 }
 
-class RequestLoadingAwsome<Data> extends RequestStateAwsome<Data> {}
+class LoadingApiStateAwsome<Data> extends BaseApiStateAwsome<Data> {}
 
-class RequestErrorAwsome<String> extends RequestStateAwsome<String> {
+class RequestErrorAwsome<String> extends BaseApiStateAwsome<String> {
   RequestErrorAwsome({required super.error});
 }
 
-class RequestSucces<Data> extends RequestStateAwsome<Data> {
+class RequestSucces<Data> extends BaseApiStateAwsome<Data> {
   RequestSucces({required this.successData}) : super(data: successData);
   final Data successData;
 }

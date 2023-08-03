@@ -24,6 +24,6 @@ abstract class APIsConsumer<BodyData> {
     String endpoint, {
     Map<String, String>? headers,
   });
-  void updateState(RequestStateAwsome newState);
-  late RequestStateAwsome requestState;
+  void updateState(BaseApiStateAwsome newState);
+  late BaseApiStateAwsome requestState;
 }
