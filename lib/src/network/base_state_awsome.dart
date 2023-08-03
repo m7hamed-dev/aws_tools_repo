@@ -10,25 +10,25 @@ class InitalState<Data> extends BaseApiState<Data> {}
 
 class LoadingState<Data> extends BaseApiState<Data> {}
 
-class WarningState extends BaseApiState {
+class WarningState<Data> extends BaseApiState<Data> {
   WarningState({this.warning})
       : super(message: warning ?? configAwsome.stringsAwsome.warning);
   final String? warning;
 }
 
-class ErrorState extends BaseApiState {
+class ErrorState<Data> extends BaseApiState<Data> {
   ErrorState({this.error})
       : super(message: error ?? configAwsome.stringsAwsome.error);
   final String? error;
 }
 
-class NoDataState extends BaseApiState {
+class NoDataState<Data> extends BaseApiState<Data> {
   NoDataState({this.noData})
       : super(message: noData ?? configAwsome.stringsAwsome.noData);
   final String? noData;
 }
 
-class NetworkErrorState extends BaseApiState {
+class NetworkErrorState<Data> extends BaseApiState<Data> {
   NetworkErrorState({this.netWorkError})
       : super(message: netWorkError ?? configAwsome.stringsAwsome.networkError);
   final String? netWorkError;
