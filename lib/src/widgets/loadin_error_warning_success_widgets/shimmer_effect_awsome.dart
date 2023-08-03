@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 enum ShimmerShapes { circle, square, likeLisTtile }
 
-class ShimmerLoading extends StatelessWidget {
-  const ShimmerLoading({
+class ShimmerEffectAwsome extends StatelessWidget {
+  const ShimmerEffectAwsome({
     super.key,
     this.width,
     this.height,
@@ -13,34 +13,48 @@ class ShimmerLoading extends StatelessWidget {
     this.itemCount = 1,
     required this.color,
     this.showScaffold = false,
+    this.margin,
+    this.padding,
   });
+
+  final EdgeInsets? padding, margin;
   final bool showScaffold;
   final Color color;
   final ShimmerShapes shimmerShape;
   final double? width, height;
   final Axis scrollDirection;
   final int itemCount;
+
+  ///
   @override
   Widget build(BuildContext context) {
-    /// single shimmer
+    /// # Show Scaffold with a Single shimmer
     if (itemCount == 1) {
       if (showScaffold) {
         return Scaffold(
           body: ShimmerCard(
             width: width,
             height: height,
+            margin: margin,
+            padding: padding,
             shimmerShape: shimmerShape,
             color: color,
           ),
         );
       }
+
+      /// # Showa Single shimmer
       return ShimmerCard(
         width: width,
         height: height,
+        margin: margin,
+        padding: padding,
         shimmerShape: shimmerShape,
         color: color,
       );
     }
+
+    /// # Show Scaffold with Lisview
     if (showScaffold) {
       return Scaffold(
         body: SizedBox(
@@ -56,6 +70,8 @@ class ShimmerLoading extends StatelessWidget {
                 height: height,
                 shimmerShape: shimmerShape,
                 color: color,
+                margin: margin,
+                padding: padding,
               );
             },
           ),
@@ -75,6 +91,8 @@ class ShimmerLoading extends StatelessWidget {
           return ShimmerCard(
             width: width,
             height: height,
+            margin: margin,
+            padding: padding,
             shimmerShape: shimmerShape,
             color: color,
           );
@@ -91,17 +109,22 @@ class ShimmerCard extends StatelessWidget {
     required this.height,
     this.shimmerShape = ShimmerShapes.circle,
     required this.color,
+    this.margin,
+    this.padding,
   });
+
+  final EdgeInsets? padding, margin;
   final Color color;
   final ShimmerShapes shimmerShape;
   final double? width;
   final double? height;
+
   @override
   Widget build(BuildContext context) {
     if (shimmerShape == ShimmerShapes.likeLisTtile) {
       return Container(
-        padding: EdgeInsets.all(configAwsome.defaultPadding),
-        margin: EdgeInsets.all(configAwsome.defaultPadding - 5.0),
+        padding: padding,
+        margin: margin,
         width: width,
         height: height,
         decoration: BoxDecoration(
@@ -155,7 +178,8 @@ class ShimmerCard extends StatelessWidget {
     return Container(
       height: height,
       width: width,
-      margin: EdgeInsets.all(configAwsome.defaultPadding),
+      padding: padding,
+      margin: margin,
       decoration: BoxDecoration(
         border: shimmerShape == ShimmerShapes.circle
             ? Border.all(width: 4.0, color: Colors.black12)

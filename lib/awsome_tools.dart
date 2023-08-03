@@ -8,8 +8,8 @@ export 'src/widgets/images/image_from_asset.dart';
 export 'src/widgets/images/image_place_holder.dart';
 // loading - error - shimmer
 export 'src/widgets/loadin_error_warning_success_widgets/shimmer_effect_awsome.dart';
-export 'src/widgets/loadin_error_warning_success_widgets/error_awsome.dart';
-export 'src/widgets/loadin_error_warning_success_widgets/loading_awsome.dart';
+export 'src/widgets/loadin_error_warning_success_widgets/error_widget_awsome.dart';
+export 'src/widgets/loadin_error_warning_success_widgets/loading_widget_awsome.dart';
 export 'src/widgets/logo_widget_awsome.dart';
 // buttons
 export 'src/widgets/buttons/btn_awsome.dart';
