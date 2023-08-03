@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../awsome_tools.dart';
+import '../../../awsome_tools.dart';
+import '../../network/request_state_awsome.dart';
 
 class HandlerRequesWidgetAwsome<Data> extends StatelessWidget {
   const HandlerRequesWidgetAwsome({
@@ -12,7 +13,7 @@ class HandlerRequesWidgetAwsome<Data> extends StatelessWidget {
   });
 
   ///
-  final RequestState<Data> requestState;
+  final RequestStateAwsome<Data> requestState;
   final Widget? init, loading, errorWidget;
   final Widget Function(Data data) success;
   //
@@ -21,16 +22,13 @@ class HandlerRequesWidgetAwsome<Data> extends StatelessWidget {
     final widget = Center(
       child: Center(
         child: switch (requestState) {
-          // getting loading
-          RequestLoading() => loading ?? const CircularProgressIndicator(),
-          // getting error
-          RequestError() => errorWidget ??
-              TxtAwsome(
-                requestState.error ?? configAwsome.stringsAwsome.error,
-                style: regularStyle.copyWith(color: Colors.red),
-              ),
+          RequestLoadingAwsome() =>
+            loading ?? const CircularProgressIndicator(),
+          RequestErrorAwsome() => errorWidget ??
+              TxtAwsome(requestState.error,
+                  style: regularStyle.copyWith(color: Colors.red)),
           // getting success
-          _ => success(requestState.data as Data),
+          _ => success(requestState.data),
         },
       ),
     );

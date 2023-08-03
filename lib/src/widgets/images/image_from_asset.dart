@@ -17,8 +17,8 @@ class ImageFromAsset extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       path,
-      width: width ?? 25.0,
-      height: height ?? 25.0,
+      width: width,
+      height: height,
       fit: fit,
       color: color,
     );

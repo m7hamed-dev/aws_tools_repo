@@ -1,3 +1,4 @@
+import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
 
 class LoadingWidgetAwsome extends StatelessWidget {
@@ -10,18 +11,27 @@ class LoadingWidgetAwsome extends StatelessWidget {
   final Widget? customLoading;
   @override
   Widget build(BuildContext context) {
-    if (customLoading == null && showScaffold) {
-      return const Scaffold(
-        body: SizedBox(
+    final widget = switch (showScaffold) {
+      true => Scaffold(
+          body: SizedBox(
+            width: 20.0,
+            height: 20.0,
+            child: CircularProgressIndicator(
+              strokeWidth: 1.0,
+              color: configAwsome.appColors.primaryColor,
+            ),
+          ),
+        ),
+      _ => SizedBox(
           width: 20.0,
           height: 20.0,
           child: CircularProgressIndicator(
             strokeWidth: 1.0,
-            color: Colors.black,
+            color: configAwsome.appColors.primaryColor,
           ),
         ),
-      );
-    }
-    return customLoading ?? const SizedBox();
+    };
+
+    return customLoading ?? widget;
   }
 }

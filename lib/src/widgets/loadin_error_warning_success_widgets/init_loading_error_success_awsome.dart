@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import '../../../awsome_tools.dart';
 
-class WidgetBaseOnStateAwsome extends StatelessWidget {
-  const WidgetBaseOnStateAwsome({
+/// ### Show Widget Base On State
+/// ### When Loading show CircularProgressIndicator
+/// ### When Error show TxtAwsome with Error
+/// ### Otherwise Show Success
+class InitLoadingErrorSuccessAwsome extends StatelessWidget {
+  const InitLoadingErrorSuccessAwsome({
     super.key,
     required this.state,
     this.init,
@@ -11,7 +15,9 @@ class WidgetBaseOnStateAwsome extends StatelessWidget {
     required this.success,
     this.setAnimation = false,
     this.errorMessage = 'Error Ocure!',
+    this.showScaffold = false,
   });
+  final bool showScaffold;
   final StateAwsome state;
   final Widget? init, loading, error;
   final Widget success;
@@ -26,6 +32,18 @@ class WidgetBaseOnStateAwsome extends StatelessWidget {
       ErrorState() => error ?? TxtAwsome(errorMessage),
       _ => success
     };
+
+    if (showScaffold) {
+      return Scaffold(
+        body: ChildWithAnimation(
+          setAnimation: setAnimation,
+          state: state,
+          child: currentWidget,
+        ),
+      );
+    }
+
+    ///
     return ChildWithAnimation(
       setAnimation: setAnimation,
       state: state,

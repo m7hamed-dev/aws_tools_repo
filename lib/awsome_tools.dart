@@ -16,12 +16,12 @@ export 'src/widgets/buttons/btn_awsome.dart';
 export './src/widgets/txt_awsome.dart';
 export './src/widgets/custom_circle_awsome.dart';
 export './src/widgets/input_awsome.dart';
-export './src/widgets/handler_request_widget.dart';
+export 'src/widgets/loadin_error_warning_success_widgets/handler_request_widget.dart';
 export './src/widgets/custom_card.dart';
 //! - widgets - wiht animations
 export 'src/widgets/buttons/btn_animation_awsome.dart';
 export 'src/widgets/animations/icon_animation_awsome.dart';
-export 'src/widgets/loadin_error_warning_success_widgets/loading_error_success_awsome.dart';
+export 'src/widgets/loadin_error_warning_success_widgets/init_loading_error_success_awsome.dart';
 export 'src/widgets/animations/steps_circle_awsom.dart';
 
 ///! colors
