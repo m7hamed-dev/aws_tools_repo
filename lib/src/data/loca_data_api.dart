@@ -4,7 +4,8 @@ abstract class LocaDataAPIs<T> {
   const LocaDataAPIs(this.key);
   final String key;
   Future<T> getData();
-  Future<void> saveData(T data);
-  Future<void> updateData(T data);
-  Future<bool> clearData();
+  Future<void> create(T data);
+  Future<void> update(T data);
+  Future<void> delete(T data);
+  Future<bool> get clearData;
 }
