@@ -1,6 +1,5 @@
 ///! config
 export './src/config/config_awsome.dart';
-export 'src/state_awsome/base_states_awsome.dart';
 
 ///! - widgets - normal
 // image
@@ -54,6 +53,7 @@ export './src/extensions/bottom_extension_awsome.dart';
 ///! Network
 export 'src/network/api_consumer_awsome.dart';
 export './src/network/crud_api.dart';
+export 'src/network/base_state_awsome.dart';
 
 ///! constants
 export 'src/constants/strings_awsome.dart';
