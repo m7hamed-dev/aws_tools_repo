@@ -13,14 +13,10 @@ class ErrorWidgetAwsome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (showWidgetType == ShowWidgetTypes.withScaffold) {
-      return Scaffold(
-        body: TxtAwsome(error),
-      );
+      return Scaffold(body: TxtAwsome(error));
     }
     if (showWidgetType == ShowWidgetTypes.iconWithScaffold) {
-      return const Scaffold(
-        body: Icon(Icons.error, color: Colors.red),
-      );
+      return const Scaffold(body: Icon(Icons.error, color: Colors.red));
     }
     if (showWidgetType == ShowWidgetTypes.icon) {
       return const Icon(Icons.error, color: Colors.red);

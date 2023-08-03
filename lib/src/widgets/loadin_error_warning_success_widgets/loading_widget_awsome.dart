@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import '../../../awsome_tools.dart';
 
 class LoadingWidgetAwsome extends StatelessWidget {
-  const LoadingWidgetAwsome({super.key, this.child = const SizedBox()});
+  const LoadingWidgetAwsome({
+    super.key,
+    this.child = const SizedBox(),
+    required this.showWidgetType,
+  });
   final Widget child;
+  final ShowWidgetTypes showWidgetType;
   @override
   Widget build(BuildContext context) {
     if (child is SizedBox) {

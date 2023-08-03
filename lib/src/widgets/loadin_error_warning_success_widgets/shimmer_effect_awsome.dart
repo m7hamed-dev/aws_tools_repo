@@ -12,7 +12,9 @@ class ShimmerLoading extends StatelessWidget {
     this.shimmerShape = ShimmerShapes.circle,
     this.itemCount = 1,
     required this.color,
+    this.showScaffold = false,
   });
+  final bool showScaffold;
   final Color color;
   final ShimmerShapes shimmerShape;
   final double? width, height;
@@ -22,11 +24,42 @@ class ShimmerLoading extends StatelessWidget {
   Widget build(BuildContext context) {
     /// single shimmer
     if (itemCount == 1) {
+      if (showScaffold) {
+        return Scaffold(
+          body: ShimmerCard(
+            width: width,
+            height: height,
+            shimmerShape: shimmerShape,
+            color: color,
+          ),
+        );
+      }
       return ShimmerCard(
         width: width,
         height: height,
         shimmerShape: shimmerShape,
         color: color,
+      );
+    }
+    if (showScaffold) {
+      return Scaffold(
+        body: SizedBox(
+          height: scrollDirection == Axis.vertical ? null : height,
+          child: ListView.builder(
+            itemCount: itemCount,
+            scrollDirection: scrollDirection,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemBuilder: (BuildContext context, int index) {
+              return ShimmerCard(
+                width: width,
+                height: height,
+                shimmerShape: shimmerShape,
+                color: color,
+              );
+            },
+          ),
+        ),
       );
     }
 

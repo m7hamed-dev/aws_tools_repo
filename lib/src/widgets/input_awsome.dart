@@ -118,8 +118,9 @@ class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
     int? currentLength,
     int? maxLength,
     bool? isFocused,
-  }) =>
-      null;
+  }) {
+    return null;
+  }
 
   TextInputType? get keyboardType => widget.inputType == InputTypes.number
       ? TextInputType.number
