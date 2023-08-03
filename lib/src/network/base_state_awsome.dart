@@ -1,17 +1,21 @@
+import 'package:awsome_tools/awsome_tools.dart';
+
 ///
 ///
 abstract class BaseApiState<Data> {
-  const BaseApiState({this.message = 'Error Ocure!!', this.data});
+  const BaseApiState({this.message = '', this.data});
   final String message;
   final Data? data;
 }
 
-class LoadingState<Data> extends BaseApiState<Data> {}
-
 class InitalState<Data> extends BaseApiState<Data> {}
 
+class LoadingState<Data> extends BaseApiState<Data> {}
+
 class WarningState<String> extends BaseApiState<String> {
-  WarningState({required super.message});
+  WarningState({this.warning})
+      : super(message: configAwsome.stringsAwsome.warning);
+  final String? warning;
 }
 
 class ErrorState<String> extends BaseApiState<String> {
