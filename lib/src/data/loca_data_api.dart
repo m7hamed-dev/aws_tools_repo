@@ -1,11 +1,13 @@
-/// ## This abstract class to define some
-/// ## func like curd methods
-abstract class LocaDataAPIs<T> {
+/// ### This abstract class to define some
+/// ### func like curd methods
+/// ### Data === data to save , delete or update
+/// ### GetDataType === data to getting from source
+abstract class LocaDataAPIs<Data, GetDataType> {
   const LocaDataAPIs(this.key);
   final String key;
-  Future<T> getData();
-  Future<void> create(T data);
-  Future<void> update(T data);
-  Future<void> delete(T data);
+  Future<GetDataType> getData();
+  Future<void> create(Data data);
+  Future<void> update(Data data);
+  Future<void> delete(Data data);
   Future<bool> get clearData;
 }
