@@ -1,9 +1,7 @@
 import 'package:awsome_tools/awsome_tools.dart';
 
-///
-///
 abstract class BaseApiState<Data> {
-  const BaseApiState({this.message = '', this.data});
+  BaseApiState({this.message = '', this.data});
   final String message;
   final Data? data;
 }
@@ -12,22 +10,28 @@ class InitalState<Data> extends BaseApiState<Data> {}
 
 class LoadingState<Data> extends BaseApiState<Data> {}
 
-class WarningState<String> extends BaseApiState<String> {
+class WarningState extends BaseApiState {
   WarningState({this.warning})
-      : super(message: configAwsome.stringsAwsome.warning);
+      : super(message: warning ?? configAwsome.stringsAwsome.warning);
   final String? warning;
 }
 
-class ErrorState<String> extends BaseApiState<String> {
-  ErrorState({required super.message});
+class ErrorState extends BaseApiState {
+  ErrorState({this.error})
+      : super(message: error ?? configAwsome.stringsAwsome.error);
+  final String? error;
 }
 
-class NoDataState<String> extends BaseApiState<String> {
-  NoDataState({required super.message});
+class NoDataState extends BaseApiState {
+  NoDataState({this.noData})
+      : super(message: noData ?? configAwsome.stringsAwsome.noData);
+  final String? noData;
 }
 
-class NetworkErrorState<String> extends BaseApiState<String> {
-  NetworkErrorState({required super.message});
+class NetworkErrorState extends BaseApiState {
+  NetworkErrorState({this.netWorkError})
+      : super(message: netWorkError ?? configAwsome.stringsAwsome.networkError);
+  final String? netWorkError;
 }
 
 class SuccesState<Data> extends BaseApiState<Data> {
