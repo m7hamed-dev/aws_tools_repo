@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../awsome_tools.dart';
 
-class LoadingErrorSuccessAwsome extends StatelessWidget {
-  const LoadingErrorSuccessAwsome({
+class WidgetBaseOnStateAwsome extends StatelessWidget {
+  const WidgetBaseOnStateAwsome({
     super.key,
     required this.state,
     this.init,
@@ -10,13 +10,14 @@ class LoadingErrorSuccessAwsome extends StatelessWidget {
     this.error,
     required this.success,
     this.setAnimation = false,
-    this.errorMessage = 'Error ',
+    this.errorMessage = 'Error Ocure!',
   });
   final StateAwsome state;
   final Widget? init, loading, error;
   final Widget success;
   final bool setAnimation;
   final String errorMessage;
+
   @override
   Widget build(BuildContext context) {
     final currentWidget = switch (state) {

@@ -45,4 +45,4 @@ enum InputTypes { number, password, text }
 
 /// ## show text only , or text with widget
 /// ## or text with Scaffold
-enum ShowWidgetTypes { text, icon, withScaffold, iconWithScaffold }
+// enum ShowWidgetTypes { text, icon, withScaffold, iconWithScaffold }

@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import '../../../awsome_tools.dart';
 
 class LoadingWidgetAwsome extends StatelessWidget {
   const LoadingWidgetAwsome({
     super.key,
-    this.child = const SizedBox(),
-    required this.showWidgetType,
+    this.customLoading,
+    this.showScaffold = false,
   });
-  final Widget child;
-  final ShowWidgetTypes showWidgetType;
+  final bool showScaffold;
+  final Widget? customLoading;
   @override
   Widget build(BuildContext context) {
-    if (child is SizedBox) {
-      return const Center(
-        child: SizedBox(
+    if (customLoading == null && showScaffold) {
+      return const Scaffold(
+        body: SizedBox(
           width: 20.0,
           height: 20.0,
           child: CircularProgressIndicator(
@@ -23,6 +22,6 @@ class LoadingWidgetAwsome extends StatelessWidget {
         ),
       );
     }
-    return child;
+    return customLoading ?? const SizedBox();
   }
 }
