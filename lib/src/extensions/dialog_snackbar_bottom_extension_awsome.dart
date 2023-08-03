@@ -3,8 +3,6 @@ import 'package:awsome_tools/src/widgets/bottomsheet/bottom_widget_awsome.dart';
 import 'package:awsome_tools/src/widgets/dialogs/dialog_awsome.dart';
 import 'package:flutter/material.dart';
 
-import '../network/base_state_awsome.dart';
-
 ///! ### this extenstion for show dialog or snackBar or bottom
 ///! ### Base on [ MessageTypes => ( dialog or snackbar or bottom  ) ]
 extension DialogSnackBarBottomExtensionAwsome on BuildContext {

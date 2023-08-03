@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../awsome_tools.dart';
-import '../../network/base_state_awsome.dart';
 
 /// ### take api State and return some widgets
 /// ### Base on api State like loading , error
