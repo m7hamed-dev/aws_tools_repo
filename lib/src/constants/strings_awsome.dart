@@ -6,6 +6,7 @@ class StringsAwsome {
     this.notAuth = 'غير مسجل معنا',
     this.warning = 'تنبيه !!',
     this.errorInfoLogin = 'تاكد من البيانات التي قمت بادخالها',
+    this.noData = 'يجب ان يحتوي علي قيمه',
     this.textInputValidation = 'يجب ان يحتوي علي قيمه',
     this.textPhoneInputValidation = 'يجب ادخال رقم هاتف صحيح',
     this.networkError = 'Error occurred!',
@@ -17,6 +18,7 @@ class StringsAwsome {
   final String error;
   final String warning;
   final String networkError;
+  final String noData;
   final String notAuth;
   final String errorInfoLogin;
 
