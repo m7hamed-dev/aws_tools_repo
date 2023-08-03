@@ -1,15 +1,27 @@
 ///
 ///
 abstract class BaseApiState<Data> {
-  const BaseApiState({this.error = 'Error Ocure!!', this.data});
-  final String error;
+  const BaseApiState({this.message = 'Error Ocure!!', this.data});
+  final String message;
   final Data? data;
 }
 
-class LoadingApiState<Data> extends BaseApiState<Data> {}
+class LoadingState<Data> extends BaseApiState<Data> {}
+
+class InitalState<Data> extends BaseApiState<Data> {}
+
+class WarningState<Data> extends BaseApiState<Data> {}
 
 class ErrorApiState<String> extends BaseApiState<String> {
-  ErrorApiState({required super.error});
+  ErrorApiState({required super.message});
+}
+
+class NoDataState<String> extends BaseApiState<String> {
+  NoDataState({required super.message});
+}
+
+class NetworkErrorState<String> extends BaseApiState<String> {
+  NetworkErrorState({required super.message});
 }
 
 class SuccesApiState<Data> extends BaseApiState<Data> {

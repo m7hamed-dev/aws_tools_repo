@@ -1,9 +1,10 @@
-import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
+
+import '../network/base_state_awsome.dart';
 
 const iconSize = 30.0;
 
-extension IconBaseOnState on StateAwsome {
+extension IconBaseOnState on BaseApiState {
   /// ### show icon Base on State Like
   /// ## [Init] and [Loading] or [Success] State
   Widget get iconBaseOnState {
@@ -11,7 +12,7 @@ extension IconBaseOnState on StateAwsome {
       LoadingState() => const CircularProgressIndicator(
           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
         ),
-      ErrorState() => const Icon(
+      ErrorApiState() => const Icon(
           Icons.error,
           size: iconSize,
           color: Colors.white,

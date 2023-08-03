@@ -1,6 +1,7 @@
 import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 import 'package:flutter/material.dart';
 import '../../../awsome_tools.dart';
+import '../../network/base_state_awsome.dart';
 
 class BtnAnimationAwsome extends StatelessWidget {
   const BtnAnimationAwsome({
@@ -30,7 +31,7 @@ class BtnAnimationAwsome extends StatelessWidget {
   final Widget? child;
   final Gradient? gradient;
   final TextStyle? style;
-  final StateAwsome state;
+  final BaseApiState state;
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +68,7 @@ class BtnAnimationAwsome extends StatelessWidget {
           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
         ),
       //
-      ErrorState() => Row(
+      ErrorApiState() => Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             state.iconBaseOnState,

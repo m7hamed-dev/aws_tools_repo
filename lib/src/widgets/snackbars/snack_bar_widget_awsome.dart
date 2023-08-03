@@ -3,6 +3,8 @@ import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
 import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 import 'package:flutter/material.dart';
 
+import '../../network/base_state_awsome.dart';
+
 class SnackBarWidgetAwsome {
   const SnackBarWidgetAwsome({
     // super.key,
@@ -13,14 +15,14 @@ class SnackBarWidgetAwsome {
   });
   //
   final bool setOnTop;
-  final StateAwsome state;
+  final BaseApiState state;
   final String? message;
   final Duration? duration;
 
   static SnackBar call(
     BuildContext context, {
     bool setOnTop = false,
-    required StateAwsome state,
+    required BaseApiState state,
     String? message,
     Duration duration = const Duration(seconds: 4),
   }) {

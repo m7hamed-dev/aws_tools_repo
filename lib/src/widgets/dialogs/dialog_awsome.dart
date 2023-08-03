@@ -3,9 +3,11 @@ import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
 import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 import 'package:flutter/material.dart';
 
+import '../../network/base_state_awsome.dart';
+
 class DialogWidgetAwsome extends StatelessWidget {
   const DialogWidgetAwsome({super.key, required this.state});
-  final StateAwsome state;
+  final BaseApiState state;
   @override
   Widget build(BuildContext context) {
     return AlertDialog(

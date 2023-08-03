@@ -1,8 +1,8 @@
 import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
 
-class BusyOverlayWidget extends StatelessWidget {
-  const BusyOverlayWidget({
+class LoadingWidget extends StatelessWidget {
+  const LoadingWidget({
     super.key,
     this.customLoading,
     this.showScaffold = false,
