@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 enum ScreenTypes { mobile, tablet, web }
 
 extension ScreenSizeAwsome on BuildContext {
-  Size get size => MediaQuery.of(this).size;
+  Size get size => MediaQuery.sizeOf(this);
   double get width => size.width;
   double get height => size.height;
   bool get isMobileLayout => size.width < 600;
