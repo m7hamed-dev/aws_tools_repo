@@ -12,7 +12,10 @@ class CustomCard extends StatelessWidget {
     this.borderRadius,
     this.color,
     this.boxShadow,
+    this.onTap,
   });
+
+  ///
   final Widget child;
   final double? width, height;
   final EdgeInsetsGeometry? margin, padding;
@@ -20,22 +23,26 @@ class CustomCard extends StatelessWidget {
   final BorderRadiusGeometry? borderRadius;
   final Color? color;
   final List<BoxShadow>? boxShadow;
+  final void Function()? onTap;
 
   //
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      margin: margin,
-      padding: padding,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: borderRadius,
-        border: border,
-        boxShadow: boxShadow,
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: width,
+        height: height,
+        margin: margin,
+        padding: padding,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: borderRadius,
+          border: border,
+          boxShadow: boxShadow,
+        ),
+        child: child,
       ),
-      child: child,
     );
   }
 }
