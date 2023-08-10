@@ -9,6 +9,7 @@ extension IconBaseOnState on BaseApiState {
   /// ## [Init] and [Loading] or [Success] State
   Widget get iconBaseOnState {
     return switch (this) {
+      InitalState() => const SizedBox(),
       LoadingState() => const CircularProgressIndicator(
           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
         ),
