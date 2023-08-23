@@ -14,17 +14,12 @@ extension NavigatorAwsome on BuildContext {
   }
 
   ///
-  void _push(Widget page) {
-    Navigator.of(this).push(
-      MaterialPageRoute(builder: (context) => page),
-    );
-  }
+  void _push(Widget page) =>
+      Navigator.of(this).push(MaterialPageRoute(builder: (context) => page));
 
   /// This predicate will remove all routes from the stack
-  void _pushAndRemoveUntil(Widget page) {
-    Navigator.pushAndRemoveUntil(
-        this, MaterialPageRoute(builder: (context) => page), (route) => false);
-  }
+  void _pushAndRemoveUntil(Widget page) => Navigator.pushAndRemoveUntil(
+      this, MaterialPageRoute(builder: (context) => page), (route) => false);
 
   /// # with animation
   Future pushWithAnimation(
@@ -80,7 +75,5 @@ extension NavigatorAwsome on BuildContext {
   }
 }
 
-enum TransitionType {
-  slideFromRight,
-  slideFromLeft,
-}
+/// # TransitionType = { slideFromRight, slideFromLeft }
+enum TransitionType { slideFromRight, slideFromLeft }

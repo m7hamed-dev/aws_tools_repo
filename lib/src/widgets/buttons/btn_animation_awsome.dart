@@ -18,10 +18,12 @@ class BtnAnimationAwsome extends StatelessWidget {
     this.txtColor,
     this.gradient,
     this.style,
+    this.successTitle,
     required this.state,
   }) : super(key: key);
 
   final String? title;
+  final String? successTitle;
   final Color? txtColor, borderColor, color;
   final void Function()? onPressed;
   final EdgeInsetsGeometry? margin, padding;
@@ -62,11 +64,13 @@ class BtnAnimationAwsome extends StatelessWidget {
           title ?? state.message,
           style: style ?? mediumStyle.copyWith(color: Colors.white),
         ),
-      //
+
+      ///
       LoadingState() => const CircularProgressIndicator(
           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
         ),
-      //
+
+      ///
       ErrorState() => Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -78,7 +82,8 @@ class BtnAnimationAwsome extends StatelessWidget {
             ),
           ],
         ),
-      //
+
+      ///
       WarningState() => Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -90,7 +95,8 @@ class BtnAnimationAwsome extends StatelessWidget {
             ),
           ],
         ),
-      //
+
+      ///
       NetworkErrorState() => Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -102,8 +108,17 @@ class BtnAnimationAwsome extends StatelessWidget {
             ),
           ],
         ),
-      //
-      _ => state.iconBaseOnState
+
+      ///
+      _ => successTitle != null
+          ? TxtAwsome(
+              successTitle ?? '',
+              style: style ?? mediumStyle.copyWith(color: Colors.white),
+            )
+          : TxtAwsome(
+              state.message,
+              style: style ?? mediumStyle.copyWith(color: Colors.white),
+            ),
     };
   }
 }
