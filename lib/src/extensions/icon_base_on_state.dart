@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../network/base_state_awsome.dart';
 
 const iconSize = 30.0;
