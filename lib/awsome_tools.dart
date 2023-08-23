@@ -23,6 +23,7 @@ export 'src/widgets/loading_error_success_widgets/init_loading_error_success_aws
 export 'src/widgets/animations/steps_circle_awsom.dart';
 //! - Close App With Will Pop
 export 'src/widgets/close_app_with_willpop_awsome.dart';
+export 'src/widgets/gap.dart';
 
 ///! colors
 export 'src/style/app_colors_awsome.dart';
