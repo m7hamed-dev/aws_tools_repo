@@ -22,8 +22,7 @@ class BtnAnimationAwsome extends StatelessWidget {
     required this.state,
   }) : super(key: key);
 
-  final String? title;
-  final String? successTitle;
+  final String? title, successTitle;
   final Color? txtColor, borderColor, color;
   final void Function()? onPressed;
   final EdgeInsetsGeometry? margin, padding;
@@ -46,7 +45,7 @@ class BtnAnimationAwsome extends StatelessWidget {
         margin: margin,
         height: height ?? configAwsome.buttonHeight,
         padding: padding,
-        alignment: Alignment.center,
+        // alignment: Alignment.center,
         decoration: BoxDecoration(
           border: borderColor == null ? null : Border.all(color: borderColor!),
           gradient: borderColor == null && color == null ? gradient : null,
@@ -91,32 +90,6 @@ class BtnAnimationAwsome extends StatelessWidget {
             ),
           ],
         ),
-
-      // ///
-      // WarningState() => Row(
-      //     mainAxisAlignment: MainAxisAlignment.center,
-      //     children: [
-      //       state.iconBaseOnState,
-      //       const SizedBox(width: 5.0),
-      //       TxtAwsome(
-      //         state.message,
-      //         style: style ?? mediumStyle.copyWith(color: Colors.white),
-      //       ),
-      //     ],
-      //   ),
-
-      // ///
-      // NetworkErrorState() => Row(
-      //     mainAxisAlignment: MainAxisAlignment.center,
-      //     children: [
-      //       state.iconBaseOnState,
-      //       const SizedBox(width: 5.0),
-      //       TxtAwsome(
-      //         state.message,
-      //         style: style ?? mediumStyle.copyWith(color: Colors.white),
-      //       ),
-      //     ],
-      //   ),
     };
   }
 }
