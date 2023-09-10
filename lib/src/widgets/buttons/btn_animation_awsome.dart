@@ -60,57 +60,17 @@ class BtnAnimationAwsome extends StatelessWidget {
 
   Widget get _buildChild {
     return switch (state) {
+      //
       InitalState() => TxtAwsome(
           title ?? state.message,
           style: style ?? mediumStyle.copyWith(color: Colors.white),
         ),
-
-      ///
+      //
       LoadingState() => const CircularProgressIndicator(
           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
         ),
-
-      ///
-      ErrorState() => Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            state.iconBaseOnState,
-            const SizedBox(width: 5.0),
-            TxtAwsome(
-              state.message,
-              style: style ?? mediumStyle.copyWith(color: Colors.white),
-            ),
-          ],
-        ),
-
-      ///
-      WarningState() => Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            state.iconBaseOnState,
-            const SizedBox(width: 5.0),
-            TxtAwsome(
-              state.message,
-              style: style ?? mediumStyle.copyWith(color: Colors.white),
-            ),
-          ],
-        ),
-
-      ///
-      NetworkErrorState() => Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            state.iconBaseOnState,
-            const SizedBox(width: 5.0),
-            TxtAwsome(
-              state.message,
-              style: style ?? mediumStyle.copyWith(color: Colors.white),
-            ),
-          ],
-        ),
-
-      ///
-      _ => successTitle != null
+      // when success
+      SuccesState() => successTitle != null
           ? TxtAwsome(
               successTitle ?? '',
               style: style ?? mediumStyle.copyWith(color: Colors.white),
@@ -119,6 +79,44 @@ class BtnAnimationAwsome extends StatelessWidget {
               state.message,
               style: style ?? mediumStyle.copyWith(color: Colors.white),
             ),
+      // error , warning , noData , NetworkError
+      _ => Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            state.iconBaseOnState,
+            const SizedBox(width: 5.0),
+            TxtAwsome(
+              state.message,
+              style: style ?? mediumStyle.copyWith(color: Colors.white),
+            ),
+          ],
+        ),
+
+      // ///
+      // WarningState() => Row(
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     children: [
+      //       state.iconBaseOnState,
+      //       const SizedBox(width: 5.0),
+      //       TxtAwsome(
+      //         state.message,
+      //         style: style ?? mediumStyle.copyWith(color: Colors.white),
+      //       ),
+      //     ],
+      //   ),
+
+      // ///
+      // NetworkErrorState() => Row(
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     children: [
+      //       state.iconBaseOnState,
+      //       const SizedBox(width: 5.0),
+      //       TxtAwsome(
+      //         state.message,
+      //         style: style ?? mediumStyle.copyWith(color: Colors.white),
+      //       ),
+      //     ],
+      //   ),
     };
   }
 }

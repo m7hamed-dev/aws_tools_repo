@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 enum ShimmerShapes { circle, square, likeLisTtile }
 
-class ShimmerEffectAwsome extends StatelessWidget {
+class ShimmerEffectAwsome extends StatefulWidget {
   const ShimmerEffectAwsome({
     super.key,
     this.width,
@@ -15,63 +15,77 @@ class ShimmerEffectAwsome extends StatelessWidget {
     this.showScaffold = false,
     this.margin,
     this.padding,
+    this.textDirection = TextDirection.ltr,
   });
 
   final EdgeInsets? padding, margin;
   final bool showScaffold;
+  final TextDirection textDirection;
   final Color color;
   final ShimmerShapes shimmerShape;
   final double? width, height;
   final Axis scrollDirection;
   final int itemCount;
 
-  ///
+  @override
+  State<ShimmerEffectAwsome> createState() => _ShimmerEffectAwsomeState();
+}
+
+class _ShimmerEffectAwsomeState extends State<ShimmerEffectAwsome> {
+  late Widget child;
+  @override
+  void initState() {
+    super.initState();
+    child = const SizedBox();
+  }
+
   @override
   Widget build(BuildContext context) {
     /// # Show Scaffold with a Single shimmer
-    if (itemCount == 1) {
-      if (showScaffold) {
-        return Scaffold(
+    if (widget.itemCount == 1) {
+      if (widget.showScaffold) {
+        child = Scaffold(
           body: ShimmerCard(
-            width: width,
-            height: height,
-            margin: margin,
-            padding: padding,
-            shimmerShape: shimmerShape,
-            color: color,
+            width: widget.width,
+            height: widget.height,
+            margin: widget.margin,
+            padding: widget.padding,
+            shimmerShape: widget.shimmerShape,
+            color: widget.color,
           ),
         );
       }
 
       /// # Showa Single shimmer
-      return ShimmerCard(
-        width: width,
-        height: height,
-        margin: margin,
-        padding: padding,
-        shimmerShape: shimmerShape,
-        color: color,
+      child = ShimmerCard(
+        width: widget.width,
+        height: widget.height,
+        margin: widget.margin,
+        padding: widget.padding,
+        shimmerShape: widget.shimmerShape,
+        color: widget.color,
       );
     }
 
     /// # Show Scaffold with Lisview
-    if (showScaffold) {
-      return Scaffold(
+    if (widget.showScaffold) {
+      child = Scaffold(
         body: SizedBox(
-          height: scrollDirection == Axis.vertical ? null : height,
+          height:
+              widget.scrollDirection == Axis.vertical ? null : widget.height,
           child: ListView.builder(
-            itemCount: itemCount,
-            scrollDirection: scrollDirection,
+            itemCount: widget.itemCount,
+            scrollDirection: widget.scrollDirection,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (BuildContext context, int index) {
               return ShimmerCard(
-                width: width,
-                height: height,
-                shimmerShape: shimmerShape,
-                color: color,
-                margin: margin,
-                padding: padding,
+                width: widget.width,
+                height: widget.height,
+                shimmerShape: widget.shimmerShape,
+                color: widget.color,
+                margin: widget.margin,
+                padding: widget.padding,
               );
             },
           ),
@@ -80,23 +94,31 @@ class ShimmerEffectAwsome extends StatelessWidget {
     }
 
     /// List shimmer
-    return SizedBox(
-      height: scrollDirection == Axis.vertical ? null : height,
+    child = SizedBox(
+      height: widget.scrollDirection == Axis.vertical ? null : widget.height,
       child: ListView.builder(
-        itemCount: itemCount,
-        scrollDirection: scrollDirection,
+        itemCount: widget.itemCount,
+        scrollDirection: widget.scrollDirection,
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (BuildContext context, int index) {
           return ShimmerCard(
-            width: width,
-            height: height,
-            margin: margin,
-            padding: padding,
-            shimmerShape: shimmerShape,
-            color: color,
+            width: widget.width,
+            height: widget.height,
+            margin: widget.margin,
+            padding: widget.padding,
+            shimmerShape: widget.shimmerShape,
+            color: widget.color,
           );
         },
+      ),
+    );
+
+    ///
+    return Builder(
+      builder: (context) => Directionality(
+        textDirection: widget.textDirection,
+        child: child,
       ),
     );
   }

@@ -1,14 +1,18 @@
 import 'package:awsome_tools/awsome_tools.dart';
 
 abstract class BaseApiState<Data> {
-  BaseApiState({this.message = '', this.data});
+  BaseApiState({required this.message, this.data});
   final String message;
   final Data? data;
 }
 
-class InitalState<Data> extends BaseApiState<Data> {}
+class InitalState<Data> extends BaseApiState<Data> {
+  InitalState({required super.message});
+}
 
-class LoadingState<Data> extends BaseApiState<Data> {}
+class LoadingState<Data> extends BaseApiState<Data> {
+  LoadingState({required super.message});
+}
 
 class WarningState<Data> extends BaseApiState<Data> {
   WarningState({this.warning})
@@ -35,7 +39,8 @@ class NetworkErrorState<Data> extends BaseApiState<Data> {
 }
 
 class SuccesState<Data> extends BaseApiState<Data> {
-  SuccesState({required this.successData}) : super(data: successData);
+  SuccesState({required this.successData})
+      : super(data: successData, message: 'success!');
   final Data successData;
 }
 
