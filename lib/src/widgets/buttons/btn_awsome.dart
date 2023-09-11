@@ -39,6 +39,7 @@ class BtnAwsome extends StatelessWidget {
       padding: padding,
       margin: margin,
       clipBehavior: Clip.none,
+      alignment: Alignment.center,
       decoration: BoxDecoration(
         border: borderColor == null ? null : Border.all(color: borderColor!),
         gradient: borderColor == null && color == null ? gradient : null,

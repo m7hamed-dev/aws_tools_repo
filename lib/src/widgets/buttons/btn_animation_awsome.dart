@@ -45,7 +45,7 @@ class BtnAnimationAwsome extends StatelessWidget {
         margin: margin,
         height: height ?? configAwsome.buttonHeight,
         padding: padding,
-        // alignment: Alignment.center,
+        alignment: Alignment.center,
         decoration: BoxDecoration(
           border: borderColor == null ? null : Border.all(color: borderColor!),
           gradient: borderColor == null && color == null ? gradient : null,
