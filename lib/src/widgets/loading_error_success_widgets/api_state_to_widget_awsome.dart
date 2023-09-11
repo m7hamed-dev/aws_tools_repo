@@ -21,15 +21,15 @@ class ApiStateToWidget<Data> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return switch (apiStates) {
+      InitalState() => initWidget ?? const SizedBox(),
       LoadingState() => loadingWidget ?? const CircularProgressIndicator(),
-      SuccesState() => success(apiStates.data as Data),
-      // onther Cases => error , warning , empty ... ect
-      _ => errorWidget ??
+      ErrorState() || WarningState() || NetworkErrorState() => errorWidget ??
           TxtAwsome(
-            apiStates.message,
+            apiStates.message ?? '',
             style: regularStyle.copyWith(color: apiStates.colorBaseOnStarte),
             overflow: TextOverflow.clip,
-          )
+          ),
+      _ => success(apiStates.data as Data),
     };
   }
 }

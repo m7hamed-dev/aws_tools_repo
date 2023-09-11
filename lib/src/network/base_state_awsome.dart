@@ -1,18 +1,14 @@
 import 'package:awsome_tools/awsome_tools.dart';
 
 abstract class BaseApiState<Data> {
-  BaseApiState({required this.message, this.data});
-  final String message;
+  BaseApiState({this.message, this.data});
+  final String? message;
   final Data? data;
 }
 
-class InitalState<Data> extends BaseApiState<Data> {
-  InitalState({required super.message});
-}
+class InitalState<Data> extends BaseApiState<Data> {}
 
-class LoadingState<Data> extends BaseApiState<Data> {
-  LoadingState({required super.message});
-}
+class LoadingState<Data> extends BaseApiState<Data> {}
 
 class WarningState<Data> extends BaseApiState<Data> {
   WarningState({this.warning})

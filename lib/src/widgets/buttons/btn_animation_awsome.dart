@@ -61,7 +61,7 @@ class BtnAnimationAwsome extends StatelessWidget {
     return switch (state) {
       //
       InitalState() => TxtAwsome(
-          title ?? state.message,
+          title ?? '',
           style: style ?? mediumStyle.copyWith(color: Colors.white),
         ),
       //
@@ -75,7 +75,7 @@ class BtnAnimationAwsome extends StatelessWidget {
               style: style ?? mediumStyle.copyWith(color: Colors.white),
             )
           : TxtAwsome(
-              state.message,
+              state.message ?? '',
               style: style ?? mediumStyle.copyWith(color: Colors.white),
             ),
       // error , warning , noData , NetworkError
@@ -85,7 +85,7 @@ class BtnAnimationAwsome extends StatelessWidget {
             state.iconBaseOnState,
             const SizedBox(width: 5.0),
             TxtAwsome(
-              state.message,
+              state.message ?? '',
               style: style ?? mediumStyle.copyWith(color: Colors.white),
             ),
           ],

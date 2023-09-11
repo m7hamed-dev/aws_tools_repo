@@ -65,7 +65,7 @@ class BottomWidgetAwsome extends StatelessWidget {
                     ),
                     const SizedBox(height: 10.0),
                     TxtAwsome(
-                      state.message,
+                      state.message ?? '',
                       style: regularStyle.copyWith(color: Colors.white),
                     ),
                   ],

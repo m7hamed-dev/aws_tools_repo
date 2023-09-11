@@ -45,7 +45,7 @@ class SnackBarWidgetAwsome {
               state.iconBaseOnState,
               const SizedBox(width: 10.0),
               TxtAwsome(
-                state.message,
+                state.message ?? '',
                 style: regularStyle.copyWith(color: Colors.white),
               ),
             ],

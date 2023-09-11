@@ -85,7 +85,7 @@ class DialogBodyWidget extends StatelessWidget {
                         ),
                         const SizedBox(height: 10.0),
                         TxtAwsome(
-                          state.message,
+                          state.message ?? '',
                           style: mediumStyle.copyWith(color: Colors.white),
                         ),
                       ],
@@ -125,7 +125,7 @@ class DialogBodyWidget extends StatelessWidget {
       ),
       title: title,
       content: TxtAwsome(
-        state.message,
+        state.message ?? '',
         style: mediumStyle.copyWith(color: Colors.white),
       ),
       actions: [
