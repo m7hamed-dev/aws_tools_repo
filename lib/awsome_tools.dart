@@ -14,7 +14,7 @@ export 'src/widgets/buttons/btn_awsome.dart';
 export './src/widgets/txt_awsome.dart';
 export './src/widgets/custom_circle_awsome.dart';
 export './src/widgets/input_awsome.dart';
-export 'src/widgets/loading_error_success_widgets/base_api_to_widget_awsome.dart';
+export 'src/widgets/loading_error_success_widgets/api_state_to_widget_awsome.dart';
 export 'src/widgets/custom_card_awsome.dart';
 //! - widgets - wiht animations
 export 'src/widgets/buttons/btn_animation_awsome.dart';

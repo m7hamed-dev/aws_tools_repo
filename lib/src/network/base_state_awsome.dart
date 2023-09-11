@@ -62,7 +62,3 @@ class SuccesState<Data> extends BaseApiState<Data> {
 //   const Failure(this.exception);
 //   final E exception;
 // }
-
-// final class Loading extends Result {
-//   const Loading();
-// }
