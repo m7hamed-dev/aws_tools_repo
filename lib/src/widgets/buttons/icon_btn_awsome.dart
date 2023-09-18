@@ -37,12 +37,11 @@ class IconBtnAwsome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      height: height,
-      // height: height ?? configAwsome.buttonHeight,
+      height: height ?? configAwsome.buttonHeight,
       padding: padding,
       margin: margin,
       // clipBehavior: Clip.none,
-      alignment: Alignment.center,
+      // alignment: Alignment.center,
       decoration: BoxDecoration(
         border: borderColor == null ? null : Border.all(color: borderColor!),
         gradient: borderColor == null && color == null ? gradient : null,

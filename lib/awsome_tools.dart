@@ -11,6 +11,7 @@ export 'src/widgets/loading_error_success_widgets/loading_widget_awsome.dart';
 export 'src/widgets/logo_widget_awsome.dart';
 //! buttons
 export 'src/widgets/buttons/btn_awsome.dart';
+export 'src/widgets/buttons/icon_btn_awsome.dart';
 export './src/widgets/txt_awsome.dart';
 export './src/widgets/custom_circle_awsome.dart';
 export './src/widgets/input_awsome.dart';
