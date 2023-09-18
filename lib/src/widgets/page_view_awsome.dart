@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dot_indicator_awsome.dart';
 
-class PageViewWithDotIndicator extends StatelessWidget {
-  const PageViewWithDotIndicator({
+class PageViewAwsome extends StatelessWidget {
+  const PageViewAwsome({
     super.key,
     required this.itemCount,
     required this.width,
@@ -47,7 +47,7 @@ class PageViewWithDotIndicator extends StatelessWidget {
               bottom: bottom,
               right: right,
               left: left,
-              child: DotIndicator(
+              child: DotIndicatorAwsome(
                 itemCount: itemCount,
                 currentIndex: currentPage,
                 // shape: BoxShape.rectangle,
