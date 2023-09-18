@@ -20,6 +20,13 @@ class InputWidgetAwsome extends StatefulWidget {
     this.filled = false,
     this.inputType = InputTypes.text,
     this.helperText,
+    this.focusedBorder,
+    this.enabledBorder,
+    this.errorBorder,
+    this.disabledBorder,
+    this.border,
+    this.focusedErrorBorder,
+    this.fillColor,
   }) : super(key: key);
 
   ///
@@ -37,6 +44,14 @@ class InputWidgetAwsome extends StatefulWidget {
   final Widget suffixIcon, prefixIcon;
   final InputTypes inputType;
   final String? helperText;
+  final Color? fillColor;
+  final InputBorder? focusedBorder,
+      enabledBorder,
+      errorBorder,
+      disabledBorder,
+      border,
+      focusedErrorBorder;
+
   @override
   State<InputWidgetAwsome> createState() => _InputWidgetAwsomeState();
 }
@@ -99,16 +114,18 @@ class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
       onChanged: widget.onChange,
       autocorrect: false,
       decoration: InputDecoration(
-        helperText: widget.helperText,
-        // helperStyle: regularStyle.copyWith(
-        //   fontSize: 9.0,
-        //   color: configAwsome.appColors.primaryColor,
-        // ),
-        // errorStyle: regularStyle.copyWith(fontSize: 14.0, color: Colors.red),
         filled: widget.filled,
         hintText: widget.hint,
+        fillColor: widget.fillColor,
         prefixIcon: widget.prefixIcon,
         suffixIcon: _suffixIcon,
+        helperText: widget.helperText,
+        focusedBorder: widget.focusedBorder,
+        enabledBorder: widget.enabledBorder,
+        errorBorder: widget.errorBorder,
+        disabledBorder: widget.disabledBorder,
+        border: widget.border,
+        focusedErrorBorder: widget.focusedErrorBorder,
       ),
     );
   }
