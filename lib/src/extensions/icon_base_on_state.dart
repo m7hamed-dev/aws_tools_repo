@@ -15,12 +15,21 @@ extension IconBaseOnState on BaseApiState {
         ),
 
       /// Error Cases
-      ErrorState() => const Icon(Icons.error, size: iconSize, color: iconColor),
-      WarningState() ||
-      NoDataState() =>
-        const Icon(Icons.warning, size: iconSize, color: iconColor),
-      NetworkErrorState() =>
-        const Icon(Icons.network_check_sharp, size: iconSize, color: iconColor),
+      ErrorState() => const Icon(
+          Icons.error,
+          size: iconSize,
+          color: iconColor,
+        ),
+      WarningState() || NoDataState() => const Icon(
+          Icons.warning,
+          size: iconSize,
+          color: iconColor,
+        ),
+      NetworkErrorState() => const Icon(
+          Icons.network_check_sharp,
+          size: iconSize,
+          color: iconColor,
+        ),
 
       /// when success
       _ => const Icon(Icons.check_circle, size: iconSize, color: iconColor)

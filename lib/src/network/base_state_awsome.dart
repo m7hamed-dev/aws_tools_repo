@@ -36,7 +36,10 @@ class NetworkErrorState<Data> extends BaseApiState<Data> {
 
 class SuccesState<Data> extends BaseApiState<Data> {
   SuccesState({required this.successData})
-      : super(data: successData, message: 'success!');
+      : super(
+          data: successData,
+          message: 'success!',
+        );
   final Data successData;
 }
 

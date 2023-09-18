@@ -35,10 +35,11 @@ class BtnAwsome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      height: height ?? configAwsome.buttonHeight,
+      height: height,
+      // height: height ?? configAwsome.buttonHeight,
       padding: padding,
       margin: margin,
-      clipBehavior: Clip.none,
+      // clipBehavior: Clip.none,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         border: borderColor == null ? null : Border.all(color: borderColor!),
