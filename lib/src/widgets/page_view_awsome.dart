@@ -1,12 +1,13 @@
+import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
-import 'dot_indicator_awsome.dart';
 
 class PageViewAwsome extends StatelessWidget {
   const PageViewAwsome({
     super.key,
     required this.itemCount,
-    required this.width,
-    required this.height,
+    required this.itemBuilder,
+    this.width,
+    this.height,
     this.currentPage = 0,
     this.onPageChanged,
     this.top,
@@ -17,10 +18,11 @@ class PageViewAwsome extends StatelessWidget {
 
   ///
   final int itemCount;
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
   final int currentPage;
   final Function(int)? onPageChanged;
+  final Widget Function(BuildContext, int) itemBuilder;
 
   /// ## for
   final double? top, right, left, bottom;
@@ -28,35 +30,31 @@ class PageViewAwsome extends StatelessWidget {
   ///
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SizedBox(
-        width: width,
-        height: height,
-        child: Stack(
-          children: [
-            PageView.builder(
+    return SizedBox(
+      width: width ?? context.width,
+      height: height ?? context.height * 0.20,
+      child: Stack(
+        children: [
+          PageView.builder(
+            itemCount: itemCount,
+            controller: PageController(initialPage: currentPage),
+            onPageChanged: onPageChanged,
+            itemBuilder: itemBuilder,
+          ),
+          Positioned(
+            top: top,
+            bottom: bottom,
+            right: right,
+            left: left,
+            child: DotIndicatorAwsome(
               itemCount: itemCount,
-              controller: PageController(initialPage: currentPage),
-              onPageChanged: onPageChanged,
-              itemBuilder: (context, index) {
-                return const Placeholder();
-              },
+              currentIndex: currentPage,
+              // shape: BoxShape.rectangle,
+              // width: currentPage == 0 ? 100 : 10,
+              // height: currentPage == 0 ? 200 : 10,
             ),
-            Positioned(
-              top: top,
-              bottom: bottom,
-              right: right,
-              left: left,
-              child: DotIndicatorAwsome(
-                itemCount: itemCount,
-                currentIndex: currentPage,
-                // shape: BoxShape.rectangle,
-                // width: currentPage == 0 ? 100 : 10,
-                // height: currentPage == 0 ? 200 : 10,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
