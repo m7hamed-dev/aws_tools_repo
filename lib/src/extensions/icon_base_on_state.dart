@@ -8,28 +8,24 @@ extension IconBaseOnState on BaseApiState {
   /// ## show icon Base on Current State
   Widget get iconBaseOnState {
     return switch (this) {
-      /// inital , loading
-      InitalState() => const SizedBox(),
+      // intial , loading
+      // InitalState() => const SizedBox(),
+      //
       LoadingState() => const CircularProgressIndicator(
           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
         ),
-
-      /// Error Cases
-      ErrorState() => const Icon(
-          Icons.error,
-          size: iconSize,
-          color: iconColor,
-        ),
-      WarningState() || NoDataState() => const Icon(
-          Icons.warning,
-          size: iconSize,
-          color: iconColor,
-        ),
-      NetworkErrorState() => const Icon(
-          Icons.network_check_sharp,
-          size: iconSize,
-          color: iconColor,
-        ),
+      //
+      WarningState() =>
+        const Icon(Icons.warning, color: Colors.orange, size: iconSize),
+      //
+      ErrorState() =>
+        const Icon(Icons.error, color: Colors.red, size: iconSize),
+      //
+      NetworkErrorState() => const Icon(Icons.network_check,
+          color: Color.fromARGB(255, 203, 26, 13), size: iconSize),
+      //
+      SuccesState() => const Icon(Icons.check_circle,
+          color: Color.fromARGB(255, 9, 171, 14), size: iconSize),
 
       /// when success
       _ => const Icon(Icons.check_circle, size: iconSize, color: iconColor)

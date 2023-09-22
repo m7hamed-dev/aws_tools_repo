@@ -1,7 +1,7 @@
-/// # Enhacment of print statement
 extension EnhancePrint on String {
+  /// ## Enhacment of print statement
   String get enhancePrint {
-    const shape = '---------------------------- \n';
-    return '$shape $this $shape';
+    const shape = '----------------------------';
+    return '$shape \n $this \n $shape';
   }
 }
