@@ -18,7 +18,9 @@ class ConfigAwsome {
     this.duration = const Duration(seconds: 4),
     required this.lightTheme,
     required this.darkTheme,
-  });
+  }) {
+    init(configAwsome);
+  }
 
   /// ## some fields
   final String fontFamily;

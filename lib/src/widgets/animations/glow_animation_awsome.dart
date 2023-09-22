@@ -7,10 +7,10 @@ class GlowCircleAnimationAwsome extends StatefulWidget {
     super.key,
     required this.glowColor,
     required this.child,
-    this.glowHeight = 40.0,
-    this.glowWidth = 40.0,
-    this.height = 40.0,
-    this.width = 40.0,
+    this.glowHeight = 34.0,
+    this.glowWidth = 34.0,
+    this.height = 30.0,
+    this.width = 30.0,
     this.duration = const Duration(milliseconds: 400),
   });
 
