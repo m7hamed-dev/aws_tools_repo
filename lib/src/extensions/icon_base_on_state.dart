@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../network/base_state_awsome.dart';
 
-const iconSize = 30.0;
+const iconSize = 28.0;
 const iconColor = Colors.white;
 
 extension IconBaseOnState on BaseApiState {
@@ -15,20 +15,36 @@ extension IconBaseOnState on BaseApiState {
           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
         ),
       //
-      WarningState() =>
-        const Icon(Icons.warning, color: Colors.orange, size: iconSize),
+      WarningState() => const Icon(
+          Icons.warning,
+          color: iconColor,
+          size: iconSize,
+        ),
       //
-      ErrorState() =>
-        const Icon(Icons.error, color: Colors.red, size: iconSize),
+      ErrorState() => const Icon(
+          Icons.error,
+          color: iconColor,
+          size: iconSize,
+        ),
       //
-      NetworkErrorState() => const Icon(Icons.network_check,
-          color: Color.fromARGB(255, 203, 26, 13), size: iconSize),
+      NetworkErrorState() => const Icon(
+          Icons.network_check,
+          color: iconColor,
+          size: iconSize,
+        ),
       //
-      SuccesState() => const Icon(Icons.check_circle,
-          color: Color.fromARGB(255, 9, 171, 14), size: iconSize),
+      SuccesState() => const Icon(
+          Icons.check_circle,
+          color: iconColor,
+          size: iconSize,
+        ),
 
       /// when success
-      _ => const Icon(Icons.check_circle, size: iconSize, color: iconColor)
+      _ => const Icon(
+          Icons.check_circle,
+          size: iconSize,
+          color: iconColor,
+        )
     };
   }
 }

@@ -1,6 +1,6 @@
-import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
-import 'package:flutter/material.dart';
 import '../../../awsome_tools.dart';
+import 'package:flutter/material.dart';
+import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 
 class BtnAnimationAwsome extends StatelessWidget {
   const BtnAnimationAwsome({
@@ -35,24 +35,36 @@ class BtnAnimationAwsome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onPressed,
-      splashColor: Colors.transparent,
-      highlightColor: Colors.transparent,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
-        width: state is LoadingState ? 50 : 150,
-        margin: margin,
-        height: height ?? configAwsome.buttonHeight,
-        padding: padding,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          border: borderColor == null ? null : Border.all(color: borderColor!),
-          gradient: borderColor == null && color == null ? gradient : null,
-          borderRadius: configAwsome.defaultBorderRadius,
-          color: color ?? configAwsome.appColors.primaryColor,
+    return Container(
+      width: width,
+      height: height ?? configAwsome.buttonHeight,
+      padding: padding,
+      margin: margin,
+      decoration: BoxDecoration(
+        border: borderColor == null ? null : Border.all(color: borderColor!),
+        gradient: borderColor == null && color == null ? gradient : null,
+        borderRadius: configAwsome.defaultBorderRadius,
+        color: color ?? configAwsome.appColors.primaryColor,
+      ),
+      child: ElevatedButton(
+        onPressed: onPressed,
+        clipBehavior: Clip.antiAlias,
+        style: ElevatedButton.styleFrom(
+          visualDensity: VisualDensity.compact,
+          padding: const EdgeInsets.all(18.0),
+          backgroundColor: Colors.transparent,
+          shadowColor: Colors.transparent,
+          shape: RoundedRectangleBorder(
+            borderRadius: configAwsome.defaultBorderRadius,
+          ),
         ),
-        child: _buildChild,
+        child: child ??
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 300),
+              width: state is LoadingState ? 50 : context.width,
+              height: height ?? configAwsome.buttonHeight,
+              child: Center(child: _buildChild),
+            ),
       ),
     );
   }
@@ -79,8 +91,10 @@ class BtnAnimationAwsome extends StatelessWidget {
               style: style ?? mediumStyle.copyWith(color: Colors.white),
             ),
       // error , warning , noData , NetworkError
-      _ => Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+      _ => Wrap(
+          alignment: WrapAlignment.center,
+          runAlignment: WrapAlignment.center,
+          crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             state.iconBaseOnState,
             const SizedBox(width: 5.0),
