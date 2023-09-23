@@ -60,7 +60,7 @@ export './src/extensions/dialog_ext_awsome.dart';
 export './src/extensions/bottom_extension_awsome.dart';
 
 ///! Network
-export 'src/network/base_api_service.dart';
+export 'src/network/api_consumer.dart';
 export 'src/network/base_state_awsome.dart';
 
 ///! constants
