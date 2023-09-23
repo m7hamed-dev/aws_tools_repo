@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import '../network/base_state_awsome.dart';
+import 'package:awsome_tools/src/extensions/animate_switcher_ext_awsome.dart';
 
 const iconSize = 28.0;
 const iconColor = Colors.white;
 
+/// ## show icon widget Base on Current State
 extension IconBaseOnState on BaseApiState {
-  /// ## show icon Base on Current State
+  /// ## show icon widget Base on Current State
   Widget get iconBaseOnState {
-    return switch (this) {
+    final icon = switch (this) {
       // intial , loading
       // InitalState() => const SizedBox(),
       //
@@ -46,5 +48,8 @@ extension IconBaseOnState on BaseApiState {
           color: iconColor,
         )
     };
+
+    ///
+    return icon.animateSwitcher();
   }
 }
