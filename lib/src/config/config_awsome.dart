@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import '../../awsome_tools.dart';
+import 'package:flutter/material.dart';
 
 late ConfigAwsome configAwsome;
 
@@ -18,9 +18,7 @@ class ConfigAwsome {
     this.duration = const Duration(seconds: 4),
     required this.lightTheme,
     required this.darkTheme,
-  }) {
-    init(configAwsome);
-  }
+  });
 
   /// ## some fields
   final String fontFamily;
