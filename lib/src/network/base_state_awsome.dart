@@ -7,52 +7,14 @@ abstract class IBaseState<Data> {
   ///
   /// This state typically represents the initial state of your data
   /// before any loading or processing begins.
-  BaseState<Data> state = InitalState();
-
   /// Initialize the state to an initial state.
-  ///
-  /// This state typically represents the initial state of your data
-  /// before any loading or processing begins.
-  void initialState();
-
-  /// Transition the state to a loading state.
-  ///
-  /// This state typically represents that data is currently being loaded.
-  void loadingState();
-
-  /// Transition the state to an error state.
-  ///
-  /// This state typically represents that an error has occurred while
-  /// fetching or processing data.
-  void errorState();
-
-  /// Transition the state to a warning state.
-  ///
-  /// This state typically represents a non-fatal issue or warning condition
-  /// related to the data.
-  void warningState();
-
-  /// Transition the state to a no data state.
-  ///
-  /// This state typically represents that there is no data available to display.
-  void noDataState();
-
-  /// Transition the state to a network error state.
-  ///
-  /// This state typically represents a network-related error.
-  void networkErrorState();
+  BaseState<Data> state = InitalState();
 
   /// Update the state to a new state [newState].
   ///
   /// Use this method to transition the state to a different state based on
   /// your application logic.
   void updateState(BaseState<Data> newState);
-
-  /// Notify the state.
-  ///
-  /// This method can be used to trigger any necessary updates or
-  /// notifications when the state changes.
-  void notifyState();
 }
 
 abstract class BaseState<Data> {

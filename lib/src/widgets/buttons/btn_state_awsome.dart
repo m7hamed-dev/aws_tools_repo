@@ -1,7 +1,6 @@
 import 'btn_awsome.dart';
 import '../../../awsome_tools.dart';
 import 'package:flutter/material.dart';
-import 'package:awsome_tools/src/extensions/txt_base_on_state.dart';
 import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 
 /// btn types
@@ -53,7 +52,6 @@ class BtnStateAwsome extends StatelessWidget {
       borderColor: borderColor == null ? null : borderColor!,
       gradient: borderColor == null && color == null ? gradient : null,
       color: color ?? configAwsome.appColors.primaryColor,
-
       // rad:  configAwsome.defaultBorderRadius,
       child: ChildBody(
         btnType: btnType,
@@ -136,12 +134,8 @@ class ChildBody extends StatelessWidget {
         child: Center(child: _buildChild),
       );
     }
-    if (btnType == BtnTypes.normal) {
-      return TxtAwsome(
-        title ?? '',
-        style: textStyle ?? mediumStyle.copyWith(color: Colors.white),
-      );
-    }
+
+    /// normal button
     return TxtAwsome(
       title ?? '',
       style: textStyle ?? mediumStyle.copyWith(color: Colors.white),
