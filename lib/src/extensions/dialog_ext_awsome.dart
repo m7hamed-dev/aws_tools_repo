@@ -23,7 +23,7 @@ extension DialogExtension on BuildContext {
     }
 
     ///# show dialog base on Platform Like (IOS , Android) with Design Behavior
-    if (useAdaptiveDialog) {
+    else if (useAdaptiveDialog) {
       await showAdaptiveDialog(
         context: this,
         builder: (context) => DialogBodyWidget(
