@@ -1,11 +1,11 @@
-import 'package:awsome_tools/src/widgets/dialogs/dialog_awsome.dart';
 import 'package:flutter/material.dart';
 import '../network/base_state_awsome.dart';
+import 'package:awsome_tools/src/widgets/dialogs/dialog_awsome.dart';
 
 extension DialogExtension on BuildContext {
   ///# useAdaptiveDialog with new version of Flutter 3.13
   void showDialogAwsome(
-    BaseApiState state, {
+    BaseState state, {
     bool useAdaptiveDialog = false,
     bool useCutomDesignDialog = true,
   }) async {

@@ -15,7 +15,7 @@ class ApiStateToWidget<Data> extends StatelessWidget {
   });
 
   ///
-  final BaseApiState<Data> state;
+  final BaseState<Data> state;
   final Widget? initWidget, loadingWidget, errorWidget;
   final Widget Function(Data data) success;
   final Widget Function(String errorMessage)? errorWidgetBuilder;

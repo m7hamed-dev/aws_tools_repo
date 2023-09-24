@@ -6,7 +6,7 @@ const iconSize = 28.0;
 const iconColor = Colors.white;
 
 /// ## show icon widget Base on Current State
-extension IconBaseOnState on BaseApiState {
+extension IconBaseOnState on BaseState {
   /// ## show icon widget Base on Current State
   Widget get iconBaseOnState {
     final icon = switch (this) {

@@ -1,7 +1,7 @@
-import 'package:awsome_tools/awsome_tools.dart';
-import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
-import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 import 'package:flutter/material.dart';
+import 'package:awsome_tools/awsome_tools.dart';
+import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
+import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
 
 class SnackBarWidgetAwsome {
   const SnackBarWidgetAwsome({
@@ -13,14 +13,14 @@ class SnackBarWidgetAwsome {
   });
   //
   final bool setOnTop;
-  final BaseApiState state;
+  final BaseState state;
   final String? message;
   final Duration? duration;
 
   static SnackBar call(
     BuildContext context, {
     bool setOnTop = false,
-    required BaseApiState state,
+    required BaseState state,
     String? message,
     Duration duration = const Duration(seconds: 4),
   }) {

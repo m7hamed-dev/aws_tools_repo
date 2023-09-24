@@ -1,7 +1,7 @@
-import 'package:awsome_tools/awsome_tools.dart';
-import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
-import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 import 'package:flutter/material.dart';
+import 'package:awsome_tools/awsome_tools.dart';
+import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
+import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
 
 class DialogBodyWidget extends StatelessWidget {
   const DialogBodyWidget({
@@ -12,7 +12,7 @@ class DialogBodyWidget extends StatelessWidget {
   });
   //
   final Widget? title;
-  final BaseApiState state;
+  final BaseState state;
   final bool useCutomDesignDialog;
   //
   @override

@@ -1,7 +1,7 @@
-import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
+import 'package:awsome_tools/awsome_tools.dart';
 
-extension ColorBaseOnState on BaseApiState {
+extension ColorBaseOnState on BaseState {
   /// ## color Base on State
   Color get colorBaseOnStarte {
     return switch (this) {

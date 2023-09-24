@@ -1,74 +1,95 @@
-import 'package:flutter/material.dart';
 import 'package:awsome_tools/awsome_tools.dart';
 
-abstract class BaseApiState2 {
-  late BaseApiState state = InitalState();
-  void initalState();
+/// ## This is an abstract class with some functions like
+/// ## intialState , loadingState , errorState
+abstract class IBaseState<Data> {
+  /// Initialize the state to an initial state.
+  ///
+  /// This state typically represents the initial state of your data
+  /// before any loading or processing begins.
+  BaseState<Data> state = InitalState();
+
+  /// Initialize the state to an initial state.
+  ///
+  /// This state typically represents the initial state of your data
+  /// before any loading or processing begins.
+  void initialState();
+
+  /// Transition the state to a loading state.
+  ///
+  /// This state typically represents that data is currently being loaded.
   void loadingState();
-  void updateState(BaseApiState newState) {}
+
+  /// Transition the state to an error state.
+  ///
+  /// This state typically represents that an error has occurred while
+  /// fetching or processing data.
+  void errorState();
+
+  /// Transition the state to a warning state.
+  ///
+  /// This state typically represents a non-fatal issue or warning condition
+  /// related to the data.
+  void warningState();
+
+  /// Transition the state to a no data state.
+  ///
+  /// This state typically represents that there is no data available to display.
+  void noDataState();
+
+  /// Transition the state to a network error state.
+  ///
+  /// This state typically represents a network-related error.
+  void networkErrorState();
+
+  /// Update the state to a new state [newState].
+  ///
+  /// Use this method to transition the state to a different state based on
+  /// your application logic.
+  void updateState(BaseState<Data> newState);
+
+  /// Notify the state.
+  ///
+  /// This method can be used to trigger any necessary updates or
+  /// notifications when the state changes.
+  void notifyState();
 }
 
-class MyState implements BaseApiState2 {
-  @override
-  late BaseApiState state;
-  @override
-  void initalState() {
-    updateState(InitalState());
-  }
-
-  @override
-  void updateState(BaseApiState newState) {
-    state = newState;
-  }
-
-  void get() {
-    initalState();
-    debugPrint('statement');
-    loadingState();
-  }
-
-  @override
-  void loadingState() {}
-}
-
-class ClassNames {}
-
-///
-abstract class BaseApiState<Data> {
-  BaseApiState({this.message, this.data});
+abstract class BaseState<Data> {
+  BaseState({this.message, this.data});
   final String? message;
   final Data? data;
 }
 
-class InitalState<Data> extends BaseApiState<Data> {}
+class InitalState<Data> extends BaseState<Data> {}
 
-class LoadingState<Data> extends BaseApiState<Data> {}
+class LoadingState<Data> extends BaseState<Data> {}
 
-class WarningState<Data> extends BaseApiState<Data> {
+class WarningState<Data> extends BaseState<Data> {
   WarningState({this.warning})
       : super(message: warning ?? configAwsome.stringsAwsome.warning);
   final String? warning;
 }
 
-class ErrorState<Data> extends BaseApiState<Data> {
+class ErrorState<Data> extends BaseState<Data> {
   ErrorState({this.error})
       : super(message: error ?? configAwsome.stringsAwsome.error);
   final String? error;
 }
 
-class NoDataState<Data> extends BaseApiState<Data> {
+class NoDataState<Data> extends BaseState<Data> {
   NoDataState({this.noData})
       : super(message: noData ?? configAwsome.stringsAwsome.noData);
   final String? noData;
 }
 
-class NetworkErrorState<Data> extends BaseApiState<Data> {
+class NetworkErrorState<Data> extends BaseState<Data> {
   NetworkErrorState({this.netWorkError})
       : super(message: netWorkError ?? configAwsome.stringsAwsome.networkError);
   final String? netWorkError;
 }
 
-class SuccesState<Data> extends BaseApiState<Data> {
+class SuccesState<Data> extends BaseState<Data> {
   SuccesState({
     required this.successData,
     this.successMessage,
@@ -76,8 +97,6 @@ class SuccesState<Data> extends BaseApiState<Data> {
   final Data successData;
   final String? successMessage;
 }
-
-
 
 // Base Result class
 /// [S] represents the type of the success value

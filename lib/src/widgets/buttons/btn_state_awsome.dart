@@ -32,7 +32,7 @@ class BtnStateAwsome extends StatelessWidget {
   final Widget? child;
   final Gradient? gradient;
   final TextStyle? style;
-  final BaseApiState state;
+  final BaseState state;
   final bool showIcon;
 
   @override
