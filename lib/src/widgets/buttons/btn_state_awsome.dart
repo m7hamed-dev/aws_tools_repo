@@ -2,8 +2,8 @@ import '../../../awsome_tools.dart';
 import 'package:flutter/material.dart';
 import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 
-class BtnAnimationAwsome extends StatelessWidget {
-  const BtnAnimationAwsome({
+class BtnStateAwsome extends StatelessWidget {
+  const BtnStateAwsome({
     Key? key,
     this.onPressed,
     this.child,
@@ -19,6 +19,7 @@ class BtnAnimationAwsome extends StatelessWidget {
     this.gradient,
     this.style,
     this.successTitle,
+    this.showIcon = true,
     required this.state,
   }) : super(key: key);
 
@@ -32,6 +33,7 @@ class BtnAnimationAwsome extends StatelessWidget {
   final Gradient? gradient;
   final TextStyle? style;
   final BaseApiState state;
+  final bool showIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +72,19 @@ class BtnAnimationAwsome extends StatelessWidget {
   }
 
   Widget get _buildChild {
+    /// hide Icon
+    if (showIcon == false) {
+      if (successTitle != null) {
+        return TxtAwsome(
+          successTitle ?? '',
+          style: style ?? mediumStyle.copyWith(color: Colors.white),
+        );
+      }
+      return TxtAwsome(
+        state.message ?? '',
+        style: style ?? mediumStyle.copyWith(color: Colors.white),
+      );
+    }
     return switch (state) {
       //
       InitalState() => TxtAwsome(
@@ -90,7 +105,8 @@ class BtnAnimationAwsome extends StatelessWidget {
               state.message ?? '',
               style: style ?? mediumStyle.copyWith(color: Colors.white),
             ),
-      // error , warning , noData , NetworkError
+
+      /// error , warning , noData , NetworkError
       _ => Wrap(
           alignment: WrapAlignment.center,
           runAlignment: WrapAlignment.center,

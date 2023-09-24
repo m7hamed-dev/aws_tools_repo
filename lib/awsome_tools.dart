@@ -23,7 +23,7 @@ export 'src/widgets/custom_card_awsome.dart';
 export 'src/extensions/animate_switcher_ext_awsome.dart';
 //! - widgets - wiht animations
 export 'src/widgets/animations/glow_animation_awsome.dart';
-export 'src/widgets/buttons/btn_animation_awsome.dart';
+export 'src/widgets/buttons/btn_state_awsome.dart';
 export 'src/widgets/animations/icon_animation_awsome.dart';
 export 'src/widgets/loading_error_success_widgets/init_loading_error_success_awsome.dart';
 export 'src/widgets/animations/steps_circle_awsom.dart';

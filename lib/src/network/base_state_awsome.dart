@@ -1,5 +1,39 @@
+import 'package:flutter/material.dart';
 import 'package:awsome_tools/awsome_tools.dart';
 
+abstract class BaseApiState2 {
+  late BaseApiState state = InitalState();
+  void initalState();
+  void loadingState();
+  void updateState(BaseApiState newState) {}
+}
+
+class MyState implements BaseApiState2 {
+  @override
+  late BaseApiState state;
+  @override
+  void initalState() {
+    updateState(InitalState());
+  }
+
+  @override
+  void updateState(BaseApiState newState) {
+    state = newState;
+  }
+
+  void get() {
+    initalState();
+    debugPrint('statement');
+    loadingState();
+  }
+
+  @override
+  void loadingState() {}
+}
+
+class ClassNames {}
+
+///
 abstract class BaseApiState<Data> {
   BaseApiState({this.message, this.data});
   final String? message;
