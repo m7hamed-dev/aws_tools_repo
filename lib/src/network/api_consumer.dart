@@ -14,18 +14,6 @@
 ///   MyApiConsumer({required String baseURL, required String accessToken})
 ///       : super(baseURL: baseURL, accessToken: accessToken);
 ///
-///   @override
-///   Future post({
-///     required String path,
-///     required Map<String, dynamic> body,
-///     Map<String, dynamic>? queryParameters,
-///     Map<String, dynamic>? headers,
-///   }) async {
-///     // Implement the POST request logic here.
-///   }
-///
-///   // Implement other abstract methods like findAll, update, findOne, and delete.
-/// }
 /// ```
 abstract class ApiConsumer {
   /// The base URL of the API.
