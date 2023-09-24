@@ -2,6 +2,9 @@ import '../../../awsome_tools.dart';
 import 'package:flutter/material.dart';
 import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 
+/// btn types
+enum BtnTypes { icon, txt, iconText, process }
+
 class BtnStateAwsome extends StatelessWidget {
   const BtnStateAwsome({
     Key? key,
@@ -72,7 +75,7 @@ class BtnStateAwsome extends StatelessWidget {
   }
 
   Widget get _buildChild {
-    /// hide Icon
+    /// then show button with text only
     if (showIcon == false) {
       if (successTitle != null) {
         return TxtAwsome(
