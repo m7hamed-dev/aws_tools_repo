@@ -47,6 +47,7 @@ export './src/style/font_sizes_model.dart';
 export 'src/helpers/inputs_validation_awsome.dart';
 
 ///! Extensions
+export './src/extensions/txt_base_on_state.dart';
 export './src/extensions/duration_extension_awsome.dart';
 export './src/extensions/from_hex_to_color_ext.dart';
 export './src/extensions/navigator_ext.dart';

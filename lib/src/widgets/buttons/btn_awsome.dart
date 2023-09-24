@@ -38,8 +38,6 @@ class BtnAwsome extends StatelessWidget {
       height: height ?? configAwsome.buttonHeight,
       padding: padding,
       margin: margin,
-      // clipBehavior: Clip.none,
-      // alignment: Alignment.center,
       decoration: BoxDecoration(
         border: borderColor == null ? null : Border.all(color: borderColor!),
         gradient: borderColor == null && color == null ? gradient : null,
@@ -58,12 +56,7 @@ class BtnAwsome extends StatelessWidget {
             borderRadius: configAwsome.defaultBorderRadius,
           ),
         ),
-        child: child ??
-            TxtAwsome(
-              title ?? '',
-              style: style ??
-                  mediumStyle.copyWith(color: txtColor ?? Colors.white),
-            ),
+        child: child,
       ),
     );
   }
