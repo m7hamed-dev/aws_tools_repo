@@ -1,19 +1,51 @@
-/// A base class for making API requests.
+/// Abstract class for making HTTP requests to a RESTful API.
 ///
-/// This abstract class defines methods for common API operations such as
-/// creating, reading, updating, and deleting resources.
+/// This class provides a set of methods for performing common HTTP operations
+/// such as POST, GET (findAll and findOne), PUT (update), and DELETE on a RESTful
+/// API.
 ///
-/// Implementations of this class should provide concrete implementations
-/// for these methods.
+/// To use this class, create a concrete subclass that implements the abstract
+/// methods according to your API's requirements.
+///
+/// Example:
+///
+/// ```dart
+/// class MyApiConsumer extends ApiConsumer {
+///   MyApiConsumer({required String baseURL, required String accessToken})
+///       : super(baseURL: baseURL, accessToken: accessToken);
+///
+///   @override
+///   Future post({
+///     required String path,
+///     required Map<String, dynamic> body,
+///     Map<String, dynamic>? queryParameters,
+///     Map<String, dynamic>? headers,
+///   }) async {
+///     // Implement the POST request logic here.
+///   }
+///
+///   // Implement other abstract methods like findAll, update, findOne, and delete.
+/// }
+/// ```
 abstract class ApiConsumer {
-  /// Creates a new resource.
+  /// The base URL of the API.
+  final String baseURL;
+
+  /// The access token to authenticate API requests.
+  final String accessToken;
+
+  /// Creates an instance of [ApiConsumer].
   ///
-  /// Use this method to create a new resource by sending a POST request
-  /// to the specified [path] with the given [body].
+  /// The [baseURL] is the base URL of the API, and [accessToken] is the
+  /// access token used for authentication.
+  const ApiConsumer({required this.baseURL, required this.accessToken});
+
+  /// Sends a POST request to the specified [path].
   ///
-  /// Optional [queryParameters] and [headers] can be provided for customization.
+  /// The [body] parameter contains the request body data as a map.
   ///
-  /// Returns a [Future] that completes when the request is finished.
+  /// Optional [queryParameters] and [headers] can be provided for additional
+  /// customization of the request.
   Future post({
     required String path,
     required Map<String, dynamic> body,
@@ -21,28 +53,27 @@ abstract class ApiConsumer {
     Map<String, dynamic>? headers,
   });
 
-  /// Retrieves all resources.
+  /// Sends a GET request to retrieve a list of resources.
   ///
-  /// Use this method to get a list of all resources by sending a GET request
-  /// to the specified [path].
+  /// The [path] parameter specifies the endpoint for fetching the resources.
   ///
-  /// Optional [queryParameters] and [headers] can be provided for customization.
-  ///
-  /// Returns a [Future] that completes with the response data.
+  /// Optional [queryParameters] and [headers] can be provided for additional
+  /// customization of the request.
   Future findAll({
     required String path,
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? headers,
   });
 
-  /// Updates an existing resource.
+  /// Sends a PUT request to update a resource.
   ///
-  /// Use this method to update an existing resource by sending a PUT request
-  /// to the specified [path] with the given [id] and [body].
+  /// The [path] parameter specifies the endpoint for updating the resource,
+  /// and [id] is the identifier of the resource to be updated.
   ///
-  /// Optional [queryParameters] and [headers] can be provided for customization.
+  /// The [body] parameter contains the request body data as a map.
   ///
-  /// Returns a [Future] that completes when the request is finished.
+  /// Optional [queryParameters] and [headers] can be provided for additional
+  /// customization of the request.
   Future update({
     required String path,
     required String id,
@@ -51,14 +82,13 @@ abstract class ApiConsumer {
     Map<String, dynamic>? headers,
   });
 
-  /// Retrieves a single resource by ID.
+  /// Sends a GET request to retrieve a single resource by its [id].
   ///
-  /// Use this method to get a specific resource by sending a GET request
-  /// to the specified [path] with the given [id].
+  /// The [path] parameter specifies the endpoint for fetching the resource,
+  /// and [id] is the identifier of the resource to be retrieved.
   ///
-  /// Optional [queryParameters] and [headers] can be provided for customization.
-  ///
-  /// Returns a [Future] that completes with the response data.
+  /// Optional [queryParameters] and [headers] can be provided for additional
+  /// customization of the request.
   Future findOne({
     required String path,
     required String id,
@@ -66,14 +96,13 @@ abstract class ApiConsumer {
     Map<String, dynamic>? headers,
   });
 
-  /// Deletes a resource by ID.
+  /// Sends a DELETE request to delete a resource.
   ///
-  /// Use this method to delete a specific resource by sending a DELETE request
-  /// to the specified [path] with the given [id].
+  /// The [path] parameter specifies the endpoint for deleting the resource,
+  /// and [id] is the identifier of the resource to be deleted.
   ///
-  /// Optional [body], [queryParameters], and [headers] can be provided for customization.
-  ///
-  /// Returns a [Future] that completes when the request is finished.
+  /// Optional [body], [queryParameters], and [headers] can be provided for
+  /// additional customization of the request.
   Future delete({
     required String path,
     required String id,

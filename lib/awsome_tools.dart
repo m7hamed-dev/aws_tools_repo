@@ -12,16 +12,16 @@ export 'src/widgets/logo_widget_awsome.dart';
 //! buttons
 export 'src/widgets/dot_indicator_awsome.dart';
 export 'src/widgets/page_view_awsome.dart';
-export 'src/widgets/buttons/btn_awsome.dart';
+// export 'src/widgets/buttons/btn_awsome.dart';
 export 'src/widgets/buttons/icon_btn_awsome.dart';
 export './src/widgets/txt_awsome.dart';
 export './src/widgets/custom_circle_awsome.dart';
 export './src/widgets/input_awsome.dart';
 export 'src/widgets/loading_error_success_widgets/api_state_to_widget_awsome.dart';
 export 'src/widgets/custom_card_awsome.dart';
-//! - widgets - wiht animations as Extensions
+//! - widgets - with animations as Extensions
 export 'src/extensions/animate_switcher_ext_awsome.dart';
-//! - widgets - wiht animations
+//! - widgets - with animations
 export 'src/widgets/animations/glow_animation_awsome.dart';
 export 'src/widgets/buttons/btn_state_awsome.dart';
 export 'src/widgets/animations/icon_animation_awsome.dart';
