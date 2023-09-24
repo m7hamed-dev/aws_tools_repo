@@ -25,7 +25,10 @@ class GlowCircleAnimationAwsome extends StatefulWidget {
 
 class GlowCircleAnimationAwsomeState extends State<GlowCircleAnimationAwsome>
     with TickerProviderStateMixin {
+  ///
   late AnimationController _controller;
+
+  ///
   @override
   void initState() {
     super.initState();

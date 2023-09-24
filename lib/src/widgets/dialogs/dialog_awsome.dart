@@ -7,16 +7,19 @@ class DialogBodyWidget extends StatelessWidget {
   const DialogBodyWidget({
     super.key,
     required this.state,
-    this.useCutomDesignDialog = true,
     this.title,
+    this.useCutomDesignDialog = true,
+    this.useAnimation = false,
   });
   //
+  final bool useCutomDesignDialog;
   final Widget? title;
   final BaseState state;
-  final bool useCutomDesignDialog;
+  final bool useAnimation;
   //
   @override
   Widget build(BuildContext context) {
+    ///
     if (useCutomDesignDialog) {
       return AlertDialog.adaptive(
         elevation: 20.0,
@@ -74,16 +77,35 @@ class DialogBodyWidget extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        /// icon with circle
-                        Container(
-                          padding: const EdgeInsets.all(8.0),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.white.withOpacity(.18),
-                          ),
-                          child: state.iconBaseOnState,
-                        ),
+                        /// icon base on state with animation
+                        useAnimation
+                            ? Container(
+                                padding: const EdgeInsets.all(8.0),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.white.withOpacity(.18),
+                                ),
+                                child: GlowCircleAnimationAwsome(
+                                  glowColor:
+                                      configAwsome.appColors.primaryColor,
+                                  child: state.iconBaseOnState,
+                                ),
+                              )
+
+                            /// icon base on state without Animation
+                            : Container(
+                                padding: const EdgeInsets.all(8.0),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.white.withOpacity(.18),
+                                ),
+                                child: state.iconBaseOnState,
+                              ),
+
+                        /// some height
                         const SizedBox(height: 10.0),
+
+                        /// text
                         TxtAwsome(
                           state.message ?? '',
                           style: mediumStyle.copyWith(color: Colors.white),

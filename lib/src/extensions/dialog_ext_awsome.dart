@@ -9,6 +9,7 @@ extension DialogExtension on BuildContext {
     bool useAdaptiveDialog = false,
     bool useCutomDesignDialog = true,
     bool isLoadingDialog = false,
+    bool useAnimation = false,
   }) async {
     /// # show loading
     if (isLoadingDialog) {
@@ -29,6 +30,7 @@ extension DialogExtension on BuildContext {
         builder: (context) => DialogBodyWidget(
           state: state,
           useCutomDesignDialog: useCutomDesignDialog,
+          useAnimation: useAnimation,
         ),
       );
     } else {
@@ -37,6 +39,7 @@ extension DialogExtension on BuildContext {
         builder: (context) => DialogBodyWidget(
           state: state,
           useCutomDesignDialog: useCutomDesignDialog,
+          useAnimation: useAnimation,
         ),
       );
     }

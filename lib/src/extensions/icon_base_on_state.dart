@@ -9,7 +9,7 @@ const iconColor = Colors.white;
 extension IconBaseOnState on BaseState {
   /// ## show icon widget Base on Current State
   Widget get iconBaseOnState {
-    final icon = switch (this) {
+    return switch (this) {
       // intial , loading
       // InitalState() => const SizedBox(),
       //
@@ -48,8 +48,5 @@ extension IconBaseOnState on BaseState {
           color: iconColor,
         )
     };
-
-    ///
-    return icon.animateSwitcher();
   }
 }
