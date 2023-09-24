@@ -45,15 +45,16 @@ class BtnStateAwsome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BtnAwsome(
+      onPressed: onPressed,
       width: width,
       height: height ?? configAwsome.buttonHeight,
       padding: padding,
       margin: margin,
       borderColor: borderColor == null ? null : borderColor!,
       gradient: borderColor == null && color == null ? gradient : null,
-      // rad:  configAwsome.defaultBorderRadius,
-
       color: color ?? configAwsome.appColors.primaryColor,
+
+      // rad:  configAwsome.defaultBorderRadius,
       child: ChildBody(
         btnType: btnType,
         title: title,
