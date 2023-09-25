@@ -142,7 +142,11 @@ class DialogBodyWidget extends StatelessWidget {
     return AlertDialog.adaptive(
       elevation: 40.0,
       contentPadding: const EdgeInsets.only(top: 20.0, left: 20.0),
-      actionsPadding: const EdgeInsets.only(bottom: 10.0, right: 10.0),
+      actionsPadding: const EdgeInsets.only(
+        bottom: 10.0,
+        right: 10.0,
+        top: 10.0,
+      ),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(10.0)),
       ),
