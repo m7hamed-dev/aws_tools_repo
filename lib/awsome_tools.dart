@@ -63,6 +63,7 @@ export './src/extensions/bottom_extension_awsome.dart';
 ///! Network
 export 'src/network/api_consumer.dart';
 export 'src/network/base_state_awsome.dart';
+export 'src/network/handler_status_code.dart';
 
 ///! constants
 export 'src/constants/strings_awsome.dart';
