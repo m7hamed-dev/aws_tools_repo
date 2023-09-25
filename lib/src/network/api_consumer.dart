@@ -14,8 +14,9 @@
 ///   MyApiConsumer({required String baseURL, required String accessToken})
 ///       : super(baseURL: baseURL, accessToken: accessToken);
 ///
+/// ResponseType
 /// ```
-abstract class ApiConsumer {
+abstract class ApiConsumer<ResponseType> {
   /// The base URL of the API.
   final String baseURL;
 
@@ -34,7 +35,7 @@ abstract class ApiConsumer {
   ///
   /// Optional [queryParameters] and [headers] can be provided for additional
   /// customization of the request.
-  Future post({
+  Future<ResponseType> post({
     required String path,
     required Map<String, dynamic> body,
     Map<String, dynamic>? queryParameters,
@@ -47,7 +48,7 @@ abstract class ApiConsumer {
   ///
   /// Optional [queryParameters] and [headers] can be provided for additional
   /// customization of the request.
-  Future findAll({
+  Future<ResponseType> findAll({
     required String path,
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? headers,
@@ -62,7 +63,7 @@ abstract class ApiConsumer {
   ///
   /// Optional [queryParameters] and [headers] can be provided for additional
   /// customization of the request.
-  Future update({
+  Future<ResponseType> update({
     required String path,
     required String id,
     required Map<dynamic, String> body,
@@ -77,7 +78,7 @@ abstract class ApiConsumer {
   ///
   /// Optional [queryParameters] and [headers] can be provided for additional
   /// customization of the request.
-  Future findOne({
+  Future<ResponseType> findOne({
     required String path,
     required String id,
     Map<String, dynamic>? queryParameters,
@@ -91,7 +92,7 @@ abstract class ApiConsumer {
   ///
   /// Optional [body], [queryParameters], and [headers] can be provided for
   /// additional customization of the request.
-  Future delete({
+  Future<ResponseType> delete({
     required String path,
     required String id,
     Map<String, dynamic>? body,
