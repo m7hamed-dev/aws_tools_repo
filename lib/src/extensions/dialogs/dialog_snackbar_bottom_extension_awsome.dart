@@ -12,6 +12,7 @@ extension DialogSnackBarBottomExtensionAwsome on BuildContext {
     BaseState state, {
     bool isLoadingDialog = false,
     InteractiveTypes? interactiveType,
+    bool useCutomDesignDialog = true,
   }) async {
     /// loading dialog
     if (isLoadingDialog) {
@@ -31,13 +32,17 @@ extension DialogSnackBarBottomExtensionAwsome on BuildContext {
             context: this,
             builder: (context) => DialogBodyWidget(
               state: state,
+              useCutomDesignDialog: useCutomDesignDialog,
             ),
           ),
 
         /// BottomSheet
         BottomType() => await showModalBottomSheet(
             context: this,
-            builder: (context) => BottomWidgetAwsome(state: state),
+            builder: (context) => BottomWidgetAwsome(
+              state: state,
+              // useCutomDesignDialog: useCutomDesignDialog,
+            ),
           ),
 
         /// showSnackbar
