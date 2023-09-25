@@ -1,6 +1,6 @@
-/// ### This abstract class to define some
+/// ## This abstract class to define some
 /// ### func like curd methods
-/// ### Data === data to save , delete or update
+/// ## Data === data to save , delete or update
 /// ### GetDataType === data to getting from source
 abstract class LocaDataAPIs<Data, GetDataType> {
   const LocaDataAPIs(this.key);
