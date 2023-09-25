@@ -18,7 +18,7 @@ abstract class IBaseState<Data> {
 }
 
 abstract class BaseState<Data> {
-  BaseState({this.message, this.data});
+  const BaseState({this.message, this.data});
   final String? message;
   final Data? data;
 }
