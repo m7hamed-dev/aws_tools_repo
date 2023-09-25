@@ -9,7 +9,7 @@ extension ColorBaseOnState on BaseState {
       InitalState() => configAwsome.appColors.primaryColor,
       LoadingState() => configAwsome.appColors.primaryColor,
       ErrorState() => const Color.fromARGB(255, 167, 33, 23),
-      EmptyState() => const Color.fromARGB(255, 168, 85, 79),
+      EmptyState() => const Color.fromARGB(255, 183, 180, 180),
       WarningState() => const Color.fromARGB(255, 211, 141, 35),
       _ => const Color.fromARGB(255, 79, 196, 83)
     };
