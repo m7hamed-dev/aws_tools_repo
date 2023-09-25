@@ -140,22 +140,26 @@ class DialogBodyWidget extends StatelessWidget {
 
     /// use dialog without custom design
     return AlertDialog.adaptive(
-      elevation: 20.0,
-      contentPadding: EdgeInsets.zero,
+      elevation: 40.0,
+      contentPadding: const EdgeInsets.only(top: 20.0, left: 20.0),
+      actionsPadding: const EdgeInsets.only(bottom: 10.0, right: 10.0),
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+        borderRadius: BorderRadius.all(Radius.circular(10.0)),
       ),
-      title: title,
       content: TxtAwsome(
         state.message ?? '',
-        style: mediumStyle.copyWith(color: Colors.white),
+        style: mediumStyle.copyWith(),
       ),
       actions: [
         MaterialButton(
           onPressed: context.pop,
+          elevation: 0.0,
           child: TxtAwsome(
             'ok',
-            style: mediumStyle.copyWith(color: Colors.white),
+            style: mediumStyle.copyWith(
+              color: primaryColorAwsome,
+              fontSize: 16.0,
+            ),
           ),
         ),
       ],
