@@ -3,8 +3,6 @@
 /// ## Data === data to save , delete or update
 /// ### GetDataType === data to getting from source
 abstract class LocaDataAPIs<Data, GetDataType> {
-  const LocaDataAPIs(this.key);
-  final String key;
   Future<GetDataType> getData();
   Future<void> create(Data data);
   Future<void> update(Data data);
