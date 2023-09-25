@@ -55,6 +55,7 @@ export './src/extensions/screen_size_ext.dart';
 export './src/extensions/enhance_print.dart';
 
 ///! Extensions ( Dialog , SnackBar )
+export 'src/extensions/dialogs/dialog_if_empty.dart';
 export 'src/extensions/dialogs/dialog_snackbar_bottom_extension_awsome.dart';
 export './src/extensions/snackbar_ext_awsome.dart';
 export 'src/extensions/dialogs/dialog_ext_awsome.dart';

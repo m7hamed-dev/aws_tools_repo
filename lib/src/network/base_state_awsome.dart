@@ -39,8 +39,8 @@ class ErrorState<Data> extends BaseState<Data> {
   final String? error;
 }
 
-class NoDataState<Data> extends BaseState<Data> {
-  NoDataState({this.noData})
+class EmptyState<Data> extends BaseState<Data> {
+  EmptyState({this.noData})
       : super(message: noData ?? configAwsome.stringsAwsome.noData);
   final String? noData;
 }
