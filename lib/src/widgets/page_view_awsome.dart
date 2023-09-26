@@ -1,7 +1,9 @@
-import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
+import 'package:awsome_tools/awsome_tools.dart';
 
+/// ## PageViewAwsome
 class PageViewAwsome extends StatelessWidget {
+  /// ## PageViewAwsome
   const PageViewAwsome({
     super.key,
     required this.itemCount,
@@ -10,6 +12,10 @@ class PageViewAwsome extends StatelessWidget {
     this.height,
     this.currentPage = 0,
     this.onPageChanged,
+    this.selectedDotColor,
+    this.unsSelectedDotColor,
+    this.shape = BoxShape.circle,
+    //
     this.top,
     this.right,
     this.bottom,
@@ -22,6 +28,8 @@ class PageViewAwsome extends StatelessWidget {
   final double? height;
   final int currentPage;
   final Function(int)? onPageChanged;
+  final BoxShape shape;
+  final Color? selectedDotColor, unsSelectedDotColor;
   final Widget Function(BuildContext, int) itemBuilder;
 
   /// ## for
@@ -49,9 +57,9 @@ class PageViewAwsome extends StatelessWidget {
             child: DotIndicatorAwsome(
               itemCount: itemCount,
               currentIndex: currentPage,
-              // shape: BoxShape.rectangle,
-              // width: currentPage == 0 ? 100 : 10,
-              // height: currentPage == 0 ? 200 : 10,
+              shape: shape,
+              selectedDotColor: selectedDotColor,
+              unsSelectedDotColor: unsSelectedDotColor,
             ),
           ),
         ],
