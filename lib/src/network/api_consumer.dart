@@ -39,7 +39,7 @@ abstract class ApiConsumer<ResponseType> {
     required String path,
     required Map<String, dynamic> body,
     Map<String, dynamic>? queryParameters,
-    Map<String, dynamic>? headers,
+    Map<String, String>? headers,
   });
 
   /// Sends a GET request to retrieve a list of resources.
@@ -51,7 +51,7 @@ abstract class ApiConsumer<ResponseType> {
   Future<ResponseType> findAll({
     required String path,
     Map<String, dynamic>? queryParameters,
-    Map<String, dynamic>? headers,
+    Map<String, String>? headers,
   });
 
   /// Sends a PUT request to update a resource.
@@ -68,7 +68,7 @@ abstract class ApiConsumer<ResponseType> {
     required String id,
     required Map<dynamic, String> body,
     Map<String, dynamic>? queryParameters,
-    Map<String, dynamic>? headers,
+    Map<String, String>? headers,
   });
 
   /// Sends a GET request to retrieve a single resource by its [id].
@@ -82,7 +82,7 @@ abstract class ApiConsumer<ResponseType> {
     required String path,
     required String id,
     Map<String, dynamic>? queryParameters,
-    Map<String, dynamic>? headers,
+    Map<String, String>? headers,
   });
 
   /// Sends a DELETE request to delete a resource.
@@ -97,6 +97,6 @@ abstract class ApiConsumer<ResponseType> {
     required String id,
     Map<String, dynamic>? body,
     Map<String, dynamic>? queryParameters,
-    Map<String, dynamic>? headers,
+    Map<String, String>? headers,
   });
 }

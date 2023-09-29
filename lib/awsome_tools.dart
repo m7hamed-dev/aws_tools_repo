@@ -74,5 +74,7 @@ export 'src/constants/assets_awsome.dart';
 export 'src/constants/colors_widget_awsome.dart';
 
 ///! Data LocaDataAPIs
-// LocaDataAPIs
 export './src/data/loca_data_api.dart';
+
+///!
+export './src/container_injector/feature_injector.dart';
