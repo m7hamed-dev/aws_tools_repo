@@ -66,7 +66,12 @@ class DialogLoadingBody extends StatelessWidget {
               color: configAwsome.appColors.primaryColor,
             ),
             const SizedBox(width: 20.0),
-            const TxtAwsome('من فضلك انتظر'),
+            TxtAwsome(
+              'من فضلك انتظر',
+              style: TextStyle(
+                color: configAwsome.appColors.primaryColor,
+              ),
+            ),
           ],
         ),
       ),
