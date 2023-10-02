@@ -8,8 +8,8 @@ import 'package:awsome_tools/src/widgets/bottomsheet/bottom_widget_awsome.dart';
 extension DialogSnackBarBottomExtensionAwsome on BuildContext {
   /// ## this extenstion for show dialog or snackbar or bottom
   /// ## Base on MessageTypes ( dialog or snackbar or bottom  )
-  Future<void> show(
-    BaseState state, {
+  Future<void> show({
+    BaseState? state,
     bool isLoadingDialog = false,
     InteractiveTypes? interactiveType,
     bool useCutomDesignDialog = true,
@@ -31,7 +31,7 @@ extension DialogSnackBarBottomExtensionAwsome on BuildContext {
         DialogType() => await showDialog(
             context: this,
             builder: (context) => DialogBodyWidget(
-              state: state,
+              state: state ?? InitalState(),
               useCutomDesignDialog: useCutomDesignDialog,
             ),
           ),
@@ -40,13 +40,15 @@ extension DialogSnackBarBottomExtensionAwsome on BuildContext {
         BottomType() => await showModalBottomSheet(
             context: this,
             builder: (context) => BottomWidgetAwsome(
-              state: state,
+              state: state ?? InitalState(),
               // useCutomDesignDialog: useCutomDesignDialog,
             ),
           ),
 
         /// showSnackbar
-        _ => showSnackbar(state)
+        _ => showSnackbar(
+            state ?? InitalState(),
+          )
       };
     }
   }

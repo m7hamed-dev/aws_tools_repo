@@ -4,8 +4,8 @@ import 'package:awsome_tools/src/widgets/dialogs/dialog_awsome.dart';
 
 extension DialogExtension on BuildContext {
   ///# useAdaptiveDialog with new version of Flutter 3.13
-  void showDialogAwsome(
-    BaseState state, {
+  void showDialogAwsome({
+    BaseState? state,
     bool useAdaptiveDialog = false,
     bool useCutomDesignDialog = true,
     bool isLoadingDialog = false,
@@ -28,7 +28,7 @@ extension DialogExtension on BuildContext {
       await showAdaptiveDialog(
         context: this,
         builder: (context) => DialogBodyWidget(
-          state: state,
+          state: state ?? InitalState(),
           useCutomDesignDialog: useCutomDesignDialog,
           useAnimation: useAnimation,
         ),
@@ -37,7 +37,7 @@ extension DialogExtension on BuildContext {
       await showDialog(
         context: this,
         builder: (context) => DialogBodyWidget(
-          state: state,
+          state: state ?? InitalState(),
           useCutomDesignDialog: useCutomDesignDialog,
           useAnimation: useAnimation,
         ),
@@ -66,12 +66,7 @@ class DialogLoadingBody extends StatelessWidget {
               color: configAwsome.appColors.primaryColor,
             ),
             const SizedBox(width: 20.0),
-            TxtAwsome(
-              'من فضلك انتظر',
-              style: TextStyle(
-                color: configAwsome.appColors.primaryColor,
-              ),
-            ),
+            const TxtAwsome('من فضلك انتظر'),
           ],
         ),
       ),

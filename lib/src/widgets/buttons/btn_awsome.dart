@@ -5,12 +5,13 @@ import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 /// btn types
 enum BtnTypes { state, txtState, normal }
 
-class BtnStateAwsome extends StatelessWidget {
-  const BtnStateAwsome({
+class BtnAwsome extends StatelessWidget {
+  ///
+  const BtnAwsome({
     Key? key,
-    this.onPressed,
     this.child,
-    this.title,
+    this.title = '',
+    this.onPressed,
     this.color,
     this.margin,
     this.padding,
@@ -18,27 +19,25 @@ class BtnStateAwsome extends StatelessWidget {
     this.height,
     this.elevation,
     this.borderColor,
-    this.txtColor,
+    // this.txtColor,
     this.gradient,
-    this.style,
-    this.successTitle,
-    this.showIcon = true,
-    required this.state,
-    required this.btnType,
+    this.textStyle,
+    this.state,
+    this.btnType = BtnTypes.normal,
   }) : super(key: key);
 
-  final BtnTypes btnType;
-  final String? title, successTitle;
-  final Color? txtColor, borderColor, color;
+  final String title;
   final void Function()? onPressed;
+  final BtnTypes btnType;
+  final Color? borderColor, color;
   final EdgeInsetsGeometry? margin, padding;
   final double? width, height;
   final double? elevation;
   final Widget? child;
   final Gradient? gradient;
-  final TextStyle? style;
-  final BaseState state;
-  final bool showIcon;
+  final TextStyle? textStyle;
+  final BaseState? state;
+  // final Color? txtColor, borderColor, color;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +48,9 @@ class BtnStateAwsome extends StatelessWidget {
       margin: margin,
       decoration: BoxDecoration(
         border: borderColor == null ? null : Border.all(color: borderColor!),
-        gradient: borderColor == null && color == null ? gradient : null,
+        gradient: borderColor == null && color == null
+            ? gradient
+            : configAwsome.appColors.gradientAppColor,
         borderRadius: configAwsome.defaultBorderRadius,
         color: color ?? configAwsome.appColors.primaryColor,
       ),
@@ -67,32 +68,12 @@ class BtnStateAwsome extends StatelessWidget {
         ),
         child: ChildBody(
           btnType: btnType,
-          title: title ?? '',
-          textStyle: style,
-          state: state,
+          title: title,
+          textStyle: textStyle,
+          state: state ?? InitalState(),
         ),
       ),
     );
-
-    // return BtnAwsome(
-    //   onPressed: onPressed,
-    //   width: width,
-    //   height: height ?? configAwsome.buttonHeight,
-    //   padding: padding,
-    //   margin: margin,
-    //   borderColor: borderColor == null ? null : borderColor!,
-    //   gradient: borderColor == null && color == null
-    //       ? gradient
-    //       : configAwsome.appColors.gradientAppColor,
-    //   color: color ?? configAwsome.appColors.primaryColor,
-    //   // rad:  configAwsome.defaultBorderRadius,
-    //   child: ChildBody(
-    //     btnType: btnType,
-    //     title: title,
-    //     textStyle: style,
-    //     state: state,
-    //   ),
-    // );
   }
 }
 
@@ -101,7 +82,6 @@ class ChildBody extends StatelessWidget {
     super.key,
     required this.btnType,
     this.title = 'title button',
-    // this.succesTitle = 'succes title button',
     this.textStyle,
     this.width,
     this.height,
@@ -111,7 +91,6 @@ class ChildBody extends StatelessWidget {
   ///
   final BtnTypes btnType;
   final String title;
-  // final String? title, succesTitle;
   final TextStyle? textStyle;
   final BaseState state;
   final double? height, width;
