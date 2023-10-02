@@ -12,7 +12,10 @@ class TxtAwsome extends StatelessWidget {
     this.overflow,
     this.textScaleFactor,
     this.maxLines,
+    this.color,
   });
+
+  ///
   final String data;
   final TextStyle? style;
   final TextAlign? textAlign;
@@ -22,6 +25,9 @@ class TxtAwsome extends StatelessWidget {
   final TextOverflow? overflow;
   final double? textScaleFactor;
   final int? maxLines;
+  final Color? color;
+
+  ///
   @override
   Widget build(BuildContext context) {
     return Text(

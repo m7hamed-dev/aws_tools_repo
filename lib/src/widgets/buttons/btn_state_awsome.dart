@@ -1,4 +1,3 @@
-import 'btn_awsome.dart';
 import '../../../awsome_tools.dart';
 import 'package:flutter/material.dart';
 import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
@@ -43,54 +42,55 @@ class BtnStateAwsome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BtnAwsome(
-      onPressed: onPressed,
+    return Container(
       width: width,
       height: height ?? configAwsome.buttonHeight,
       padding: padding,
       margin: margin,
-      borderColor: borderColor == null ? null : borderColor!,
-      gradient: borderColor == null && color == null ? gradient : null,
-      color: color ?? configAwsome.appColors.primaryColor,
-      // rad:  configAwsome.defaultBorderRadius,
-      child: ChildBody(
-        btnType: btnType,
-        title: title,
-        textStyle: style,
-        state: state,
+      decoration: BoxDecoration(
+        border: borderColor == null ? null : Border.all(color: borderColor!),
+        gradient: borderColor == null && color == null ? gradient : null,
+        borderRadius: configAwsome.defaultBorderRadius,
+        color: color ?? configAwsome.appColors.primaryColor,
+      ),
+      child: ElevatedButton(
+        onPressed: onPressed,
+        clipBehavior: Clip.antiAlias,
+        style: ElevatedButton.styleFrom(
+          visualDensity: VisualDensity.compact,
+          padding: const EdgeInsets.all(18.0),
+          backgroundColor: Colors.transparent,
+          shadowColor: Colors.transparent,
+          shape: RoundedRectangleBorder(
+            borderRadius: configAwsome.defaultBorderRadius,
+          ),
+        ),
+        child: ChildBody(
+          btnType: btnType,
+          title: title ?? '',
+          textStyle: style,
+          state: state,
+        ),
       ),
     );
 
-    // return Container(
+    // return BtnAwsome(
+    //   onPressed: onPressed,
     //   width: width,
     //   height: height ?? configAwsome.buttonHeight,
     //   padding: padding,
     //   margin: margin,
-    //   decoration: BoxDecoration(
-    //     border: borderColor == null ? null : Border.all(color: borderColor!),
-    //     gradient: borderColor == null && color == null ? gradient : null,
-    //     borderRadius: configAwsome.defaultBorderRadius,
-    //     color: color ?? configAwsome.appColors.primaryColor,
-    //   ),
-    //   child: ElevatedButton(
-    //     onPressed: onPressed,
-    //     clipBehavior: Clip.antiAlias,
-    //     style: ElevatedButton.styleFrom(
-    //       visualDensity: VisualDensity.compact,
-    //       padding: const EdgeInsets.all(18.0),
-    //       backgroundColor: Colors.transparent,
-    //       shadowColor: Colors.transparent,
-    //       shape: RoundedRectangleBorder(
-    //         borderRadius: configAwsome.defaultBorderRadius,
-    //       ),
-    //     ),
-    //     child: child ??
-    //         AnimatedContainer(
-    //           duration: const Duration(milliseconds: 300),
-    //           width: state is LoadingState ? 50 : context.width,
-    //           height: height ?? configAwsome.buttonHeight,
-    //           child: Center(child: _buildChild),
-    //         ),
+    //   borderColor: borderColor == null ? null : borderColor!,
+    //   gradient: borderColor == null && color == null
+    //       ? gradient
+    //       : configAwsome.appColors.gradientAppColor,
+    //   color: color ?? configAwsome.appColors.primaryColor,
+    //   // rad:  configAwsome.defaultBorderRadius,
+    //   child: ChildBody(
+    //     btnType: btnType,
+    //     title: title,
+    //     textStyle: style,
+    //     state: state,
     //   ),
     // );
   }
@@ -101,7 +101,7 @@ class ChildBody extends StatelessWidget {
     super.key,
     required this.btnType,
     this.title = 'title button',
-    this.succesTitle = 'succes title button',
+    // this.succesTitle = 'succes title button',
     this.textStyle,
     this.width,
     this.height,
@@ -110,7 +110,8 @@ class ChildBody extends StatelessWidget {
 
   ///
   final BtnTypes btnType;
-  final String? title, succesTitle;
+  final String title;
+  // final String? title, succesTitle;
   final TextStyle? textStyle;
   final BaseState state;
   final double? height, width;
@@ -122,7 +123,8 @@ class ChildBody extends StatelessWidget {
       return AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         width: state is LoadingState ? 50 : context.width,
-        height: height ?? configAwsome.buttonHeight,
+        // height: height ?? configAwsome.buttonHeight,
+        height: height,
         child: Center(child: _buildChild),
       );
     }
@@ -130,14 +132,14 @@ class ChildBody extends StatelessWidget {
       return AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         width: state is LoadingState ? 50 : context.width,
-        height: height ?? configAwsome.buttonHeight,
+        height: height,
         child: Center(child: _buildChild),
       );
     }
 
     /// normal button
     return TxtAwsome(
-      title ?? '',
+      title,
       style: textStyle ?? mediumStyle.copyWith(color: Colors.white),
     );
   }
@@ -146,7 +148,7 @@ class ChildBody extends StatelessWidget {
     return switch (state) {
       //
       InitalState() => TxtAwsome(
-          title ?? '',
+          title,
           style: textStyle ?? mediumStyle.copyWith(color: Colors.white),
         ),
       //
@@ -154,15 +156,10 @@ class ChildBody extends StatelessWidget {
           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
         ),
       // when success
-      SuccesState() => succesTitle != null
-          ? TxtAwsome(
-              succesTitle ?? '',
-              style: textStyle ?? mediumStyle.copyWith(color: Colors.white),
-            )
-          : TxtAwsome(
-              state.message ?? '',
-              style: textStyle ?? mediumStyle.copyWith(color: Colors.white),
-            ),
+      SuccesState() => TxtAwsome(
+          state.message ?? '',
+          style: textStyle ?? mediumStyle.copyWith(color: Colors.white),
+        ),
 
       /// error , warning , noData , NetworkError
       _ => Wrap(
