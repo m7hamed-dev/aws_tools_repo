@@ -47,7 +47,7 @@ class BtnAwsome extends StatelessWidget {
       decoration: BoxDecoration(
         border: borderColor == null ? null : Border.all(color: borderColor!),
         color: color ?? configAwsome.appColors.primaryColor,
-        gradient: configAwsome.appColors.gradientAppColor,
+        gradient: setGradientColor,
         // gradient: borderColor == null && color == null
         //     ? gradient
         //     : configAwsome.appColors.gradientAppColor,
@@ -73,6 +73,12 @@ class BtnAwsome extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Gradient? get setGradientColor {
+    return color == null && gradient == null
+        ? configAwsome.appColors.gradientAppColor
+        : gradient;
   }
 }
 
