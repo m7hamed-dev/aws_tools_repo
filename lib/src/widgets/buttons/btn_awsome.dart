@@ -47,9 +47,10 @@ class BtnAwsome extends StatelessWidget {
       decoration: BoxDecoration(
         border: borderColor == null ? null : Border.all(color: borderColor!),
         color: color ?? configAwsome.appColors.primaryColor,
-        gradient: borderColor == null && color == null
-            ? gradient
-            : configAwsome.appColors.gradientAppColor,
+        gradient: configAwsome.appColors.gradientAppColor,
+        // gradient: borderColor == null && color == null
+        //     ? gradient
+        //     : configAwsome.appColors.gradientAppColor,
         borderRadius: configAwsome.defaultBorderRadius,
       ),
       child: ElevatedButton(
