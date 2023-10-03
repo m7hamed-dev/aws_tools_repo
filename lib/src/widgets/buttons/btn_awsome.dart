@@ -19,7 +19,6 @@ class BtnAwsome extends StatelessWidget {
     this.height,
     this.elevation,
     this.borderColor,
-    // this.txtColor,
     this.gradient,
     this.textStyle,
     this.state,
@@ -37,7 +36,6 @@ class BtnAwsome extends StatelessWidget {
   final Gradient? gradient;
   final TextStyle? textStyle;
   final BaseState? state;
-  // final Color? txtColor, borderColor, color;
 
   @override
   Widget build(BuildContext context) {
@@ -48,11 +46,11 @@ class BtnAwsome extends StatelessWidget {
       margin: margin,
       decoration: BoxDecoration(
         border: borderColor == null ? null : Border.all(color: borderColor!),
+        color: color ?? configAwsome.appColors.primaryColor,
         gradient: borderColor == null && color == null
             ? gradient
             : configAwsome.appColors.gradientAppColor,
         borderRadius: configAwsome.defaultBorderRadius,
-        color: color ?? configAwsome.appColors.primaryColor,
       ),
       child: ElevatedButton(
         onPressed: onPressed,
@@ -155,33 +153,5 @@ class ChildBody extends StatelessWidget {
           ],
         ),
     };
-  }
-}
-
-class TxtState extends StatelessWidget {
-  const TxtState({
-    super.key,
-    required this.state,
-    required this.title,
-    this.textStyle,
-    this.succesTitle,
-  });
-
-  ///
-  final String? succesTitle;
-  final String title;
-  final BaseState state;
-  final TextStyle? textStyle;
-
-  ///
-  @override
-  Widget build(BuildContext context) {
-    return TxtAwsome(
-      state.getTxt(
-        intialTitle: title,
-        succesTitle: succesTitle ?? configAwsome.stringsAwsome.success,
-      ),
-      style: textStyle ?? mediumStyle.copyWith(color: Colors.white),
-    );
   }
 }
