@@ -21,14 +21,14 @@ class DialogBodyWidget extends StatelessWidget {
   //
   @override
   Widget build(BuildContext context) {
-    ///
+    /// create a dialog with custom Design
     if (useCutomDesignDialog) {
       return AlertDialog.adaptive(
         elevation: 20.0,
         contentPadding: const EdgeInsets.only(
-          top: 20.0,
-          left: 20.0,
-          right: 20.0,
+          top: 10.0,
+          left: 10.0,
+          right: 10.0,
         ),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20.0)),
@@ -148,7 +148,7 @@ class DialogBodyWidget extends StatelessWidget {
 
     /// use dialog without custom design
     return AlertDialog.adaptive(
-      elevation: 40.0,
+      elevation: 20.0,
       contentPadding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
       actionsPadding: const EdgeInsets.only(
         bottom: 10.0,
