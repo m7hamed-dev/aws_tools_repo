@@ -5,11 +5,12 @@ import 'package:awsome_tools/src/widgets/dialogs/dialog_awsome.dart';
 extension DialogExtension on BuildContext {
   ///# useAdaptiveDialog with new version of Flutter 3.13
   void showDialogAwsome({
-    BaseState? state,
-    bool useAdaptiveDialog = false,
-    bool useCutomDesignDialog = true,
-    bool isLoadingDialog = false,
-    bool useAnimation = false,
+    final BaseState? state,
+    final String? message,
+    final bool useAdaptiveDialog = false,
+    final bool useCutomDesignDialog = true,
+    final bool isLoadingDialog = false,
+    final bool useAnimation = false,
   }) async {
     /// # show loading
     if (isLoadingDialog) {
@@ -31,6 +32,7 @@ extension DialogExtension on BuildContext {
           state: state ?? InitalState(),
           useCutomDesignDialog: useCutomDesignDialog,
           useAnimation: useAnimation,
+          message: message,
         ),
       );
     } else {
@@ -40,6 +42,7 @@ extension DialogExtension on BuildContext {
           state: state ?? InitalState(),
           useCutomDesignDialog: useCutomDesignDialog,
           useAnimation: useAnimation,
+          message: message,
         ),
       );
     }
