@@ -65,12 +65,13 @@ class BtnAwsome extends StatelessWidget {
             borderRadius: configAwsome.defaultBorderRadius,
           ),
         ),
-        child: ChildBody(
-          btnType: btnType,
-          title: title,
-          textStyle: textStyle,
-          state: state ?? InitalState(),
-        ),
+        child: child ??
+            ButtonChild(
+              btnType: btnType,
+              title: title,
+              textStyle: textStyle,
+              state: state ?? InitalState(),
+            ),
       ),
     );
   }
@@ -82,8 +83,8 @@ class BtnAwsome extends StatelessWidget {
   }
 }
 
-class ChildBody extends StatelessWidget {
-  const ChildBody({
+class ButtonChild extends StatelessWidget {
+  const ButtonChild({
     super.key,
     required this.btnType,
     this.title = 'title button',
