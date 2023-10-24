@@ -149,7 +149,7 @@ class DialogBodyWidget extends StatelessWidget {
     /// use dialog without custom design
     return AlertDialog.adaptive(
       elevation: 40.0,
-      contentPadding: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+      contentPadding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
       actionsPadding: const EdgeInsets.only(
         bottom: 10.0,
         right: 10.0,
