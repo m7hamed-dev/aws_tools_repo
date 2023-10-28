@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../network/base_state_awsome.dart';
-import 'package:awsome_tools/src/extensions/animate_switcher_ext_awsome.dart';
 
 const iconSize = 28.0;
 const iconColor = Colors.white;

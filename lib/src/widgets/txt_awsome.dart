@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:awsome_tools/src/extensions/ext_current_theme.dart';
 
 class TxtAwsome extends StatelessWidget {
   const TxtAwsome(
@@ -13,6 +14,7 @@ class TxtAwsome extends StatelessWidget {
     this.textScaleFactor,
     this.maxLines,
     this.color,
+    this.fontSize,
   });
 
   ///
@@ -26,19 +28,51 @@ class TxtAwsome extends StatelessWidget {
   final double? textScaleFactor;
   final int? maxLines;
   final Color? color;
+  final double? fontSize;
 
   ///
   @override
   Widget build(BuildContext context) {
+    final isDark = context.isDarkTheme;
     return Text(
       data,
-      style: style,
+      style: getStyle(isDark, style, fontSize: fontSize),
       maxLines: maxLines,
       overflow: overflow,
       softWrap: softWrap,
       locale: locale,
       textAlign: textAlign,
       textDirection: textDirection,
+    );
+  }
+
+  TextStyle getStyle(
+    bool isDark,
+    TextStyle? style, {
+    double? fontSize,
+  }) {
+    // ! Style is Equal Null
+    if (style == null) {
+      // use your Color
+      if (color != null) {
+        return TextStyle(color: color, fontSize: fontSize);
+      }
+      // use color base on System
+      return TextStyle(
+        fontSize: fontSize,
+        color: isDark ? Colors.white : Colors.black,
+      );
+    }
+
+    // ! Style is Not Equal Null
+    // use your Color
+    if (color != null) {
+      return style.copyWith(color: color, fontSize: fontSize);
+    }
+    // use color base on System
+    return style.copyWith(
+      fontSize: fontSize,
+      color: isDark ? Colors.white.withOpacity(.8) : Colors.black,
     );
   }
 }
