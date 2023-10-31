@@ -48,4 +48,31 @@ extension IconBaseOnState on BaseState {
         )
     };
   }
+
+  /// ## show icon widget Base on Current State
+  Widget iconColorBaseOnState({Color? color}) {
+    return switch (this) {
+      // intial , loading
+      // InitalState() => const SizedBox(),
+      //
+      LoadingState() => const CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+        ),
+      //
+      WarningState() =>
+        Icon(Icons.warning, color: color ?? iconColor, size: iconSize),
+      //
+      ErrorState() =>
+        Icon(Icons.error, color: color ?? iconColor, size: iconSize),
+      //
+      NetworkErrorState() =>
+        Icon(Icons.network_check, color: color ?? iconColor, size: iconSize),
+      //
+      SuccesState() =>
+        Icon(Icons.check_circle, color: color ?? iconColor, size: iconSize),
+
+      /// when success
+      _ => Icon(Icons.check_circle, size: iconSize, color: color ?? iconColor)
+    };
+  }
 }
