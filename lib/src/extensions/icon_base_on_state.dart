@@ -55,8 +55,8 @@ extension IconBaseOnState on BaseState {
       // intial , loading
       // InitalState() => const SizedBox(),
       //
-      LoadingState() => const CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+      LoadingState() => CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation<Color>(color ?? Colors.white),
         ),
       //
       WarningState() =>
