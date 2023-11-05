@@ -1,6 +1,6 @@
-import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:awsome_tools/awsome_tools.dart';
 
 class InputWidgetAwsome extends StatefulWidget {
   const InputWidgetAwsome({
@@ -27,6 +27,7 @@ class InputWidgetAwsome extends StatefulWidget {
     this.border,
     this.focusedErrorBorder,
     this.fillColor,
+    this.isSelectedALLText = false,
   }) : super(key: key);
 
   ///
@@ -45,6 +46,7 @@ class InputWidgetAwsome extends StatefulWidget {
   final InputTypes inputType;
   final String? helperText;
   final Color? fillColor;
+  final bool isSelectedALLText;
   final InputBorder? focusedBorder,
       enabledBorder,
       errorBorder,
@@ -65,6 +67,14 @@ class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
     setState(() {});
   }
 
+  void selectAllText() {
+    if (widget.controller != null && widget.isSelectedALLText) {
+      widget.controller?.selection = TextSelection(
+        baseOffset: 0,
+        extentOffset: widget.controller?.text.length ?? 0,
+      );
+    }
+  }
   // void _setPasswordByTrue() {
   //   if (widget.inputType == InputTypes.password) {
   //     obscureText = true;

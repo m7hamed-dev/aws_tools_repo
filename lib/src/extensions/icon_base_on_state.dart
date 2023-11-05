@@ -16,36 +16,19 @@ extension IconBaseOnState on BaseState {
           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
         ),
       //
-      WarningState() => const Icon(
-          Icons.warning,
-          color: iconColor,
-          size: iconSize,
-        ),
+      WarningState() =>
+        const Icon(Icons.warning, color: iconColor, size: iconSize),
       //
-      ErrorState() => const Icon(
-          Icons.error,
-          color: iconColor,
-          size: iconSize,
-        ),
+      ErrorState() => const Icon(Icons.error, color: iconColor, size: iconSize),
       //
-      NetworkErrorState() => const Icon(
-          Icons.network_check,
-          color: iconColor,
-          size: iconSize,
-        ),
+      NetworkErrorState() =>
+        const Icon(Icons.network_check, color: iconColor, size: iconSize),
       //
-      SuccesState() => const Icon(
-          Icons.check_circle,
-          color: iconColor,
-          size: iconSize,
-        ),
+      SuccesState() =>
+        const Icon(Icons.check_circle, color: iconColor, size: iconSize),
 
       /// when success
-      _ => const Icon(
-          Icons.check_circle,
-          size: iconSize,
-          color: iconColor,
-        )
+      _ => const Icon(Icons.check_circle, size: iconSize, color: iconColor)
     };
   }
 
