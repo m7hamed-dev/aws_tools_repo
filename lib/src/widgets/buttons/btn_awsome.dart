@@ -1,6 +1,5 @@
 import '../../../awsome_tools.dart';
 import 'package:flutter/material.dart';
-import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 
 /// btn types
 enum BtnTypes { state, txtState, normal }
@@ -19,6 +18,7 @@ class BtnAwsome extends StatelessWidget {
     this.height,
     this.elevation,
     this.borderColor,
+    this.textColor,
     this.gradient,
     this.textStyle,
     this.state,
@@ -28,7 +28,7 @@ class BtnAwsome extends StatelessWidget {
   final String title;
   final void Function()? onPressed;
   final BtnTypes btnType;
-  final Color? borderColor, color;
+  final Color? borderColor, color, textColor;
   final EdgeInsetsGeometry? margin, padding;
   final double? width, height;
   final double? elevation;
@@ -71,6 +71,7 @@ class BtnAwsome extends StatelessWidget {
               title: title,
               textStyle: textStyle,
               state: state ?? InitalState(),
+              textColor: textColor,
             ),
       ),
     );
@@ -91,6 +92,7 @@ class ButtonChild extends StatelessWidget {
     this.textStyle,
     this.width,
     this.height,
+    this.textColor,
     required this.state,
   });
 
@@ -98,6 +100,7 @@ class ButtonChild extends StatelessWidget {
   final BtnTypes btnType;
   final String title;
   final TextStyle? textStyle;
+  final Color? textColor;
   final BaseState state;
   final double? height, width;
 
@@ -113,6 +116,8 @@ class ButtonChild extends StatelessWidget {
         child: Center(child: _buildChild),
       );
     }
+
+    ///
     if (btnType == BtnTypes.txtState) {
       return AnimatedContainer(
         duration: const Duration(milliseconds: 300),
@@ -125,7 +130,8 @@ class ButtonChild extends StatelessWidget {
     /// normal button
     return TxtAwsome(
       title,
-      style: textStyle ?? mediumStyle.copyWith(color: Colors.white),
+      style: textStyle ?? mediumStyle,
+      color: textColor ?? Colors.white,
     );
   }
 
