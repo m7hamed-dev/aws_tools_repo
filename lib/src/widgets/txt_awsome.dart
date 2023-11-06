@@ -15,9 +15,11 @@ class TxtAwsome extends StatelessWidget {
     this.maxLines,
     this.color,
     this.fontSize,
+    this.isDark,
   });
 
   ///
+  final bool? isDark;
   final String data;
   final TextStyle? style;
   final TextAlign? textAlign;
@@ -33,10 +35,10 @@ class TxtAwsome extends StatelessWidget {
   ///
   @override
   Widget build(BuildContext context) {
-    final isDark = context.isDarkTheme;
+    final isDarkTheme = isDark ?? context.isDarkTheme;
     return Text(
       data,
-      style: getStyle(isDark, style, fontSize: fontSize),
+      style: getStyle(isDarkTheme, style, fontSize: fontSize),
       maxLines: maxLines,
       overflow: overflow,
       softWrap: softWrap,
