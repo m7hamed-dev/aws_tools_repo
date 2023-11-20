@@ -33,8 +33,12 @@ extension NavigatorAwsome on BuildContext {
           return PageRouteBuilder<dynamic>(
             pageBuilder: (context, animation, secondaryAnimation) =>
                 destination,
-            transitionsBuilder:
-                (context, animation, secondaryAnimation, child) {
+            transitionsBuilder: (
+              context,
+              animation,
+              secondaryAnimation,
+              child,
+            ) {
               var begin = const Offset(1.0, 0.0);
               var end = Offset.zero;
               var curve = Curves.ease;
@@ -53,8 +57,9 @@ extension NavigatorAwsome on BuildContext {
               var begin = const Offset(-1.0, 0.0);
               var end = Offset.zero;
               var curve = Curves.ease;
-              var tween =
-                  Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+              var tween = Tween(begin: begin, end: end).chain(
+                CurveTween(curve: curve),
+              );
               var offsetAnimation = animation.drive(tween);
               return SlideTransition(position: offsetAnimation, child: child);
             },
@@ -63,11 +68,11 @@ extension NavigatorAwsome on BuildContext {
     }
 
     if (removeFromStack) {
+      // This predicate will remove all routes from the stack
       return Navigator.pushAndRemoveUntil(
         this,
         getPageRouteBuilder(),
-        (route) =>
-            false, // This predicate will remove all routes from the stack
+        (route) => false,
       );
     } else {
       return Navigator.of(this).push(getPageRouteBuilder());
