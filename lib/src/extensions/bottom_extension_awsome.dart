@@ -4,8 +4,8 @@ import 'package:awsome_tools/src/widgets/bottomsheet/bottom_widget_awsome.dart';
 
 extension BottomSheetExtensionAwsome on BuildContext {
   /// ## this extenstion TO show  bottom
-  void showBottom(BaseState state) {
-    showModalBottomSheet(
+  void showBottom(BaseState state) async {
+    await showModalBottomSheet(
       context: this,
       builder: (context) => BottomWidgetAwsome(state: state),
     );

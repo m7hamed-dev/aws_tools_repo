@@ -12,7 +12,7 @@ extension DialogSnackBarBottomExtensionAwsome on BuildContext {
     BaseState? state,
     bool isLoadingDialog = false,
     InteractiveTypes? interactiveType,
-    bool useCutomDesignDialog = true,
+    // bool useCutomDesignDialog = true,
   }) async {
     /// loading dialog
     if (isLoadingDialog) {
@@ -32,7 +32,7 @@ extension DialogSnackBarBottomExtensionAwsome on BuildContext {
             context: this,
             builder: (context) => DialogBodyWidget(
               state: state ?? InitalState(),
-              useCutomDesignDialog: useCutomDesignDialog,
+              useCutomDesignDialog: configAwsome.useCutomDesignDialog,
             ),
           ),
 
@@ -46,9 +46,7 @@ extension DialogSnackBarBottomExtensionAwsome on BuildContext {
           ),
 
         /// showSnackbar
-        _ => showSnackbar(
-            state ?? InitalState(),
-          )
+        _ => showSnackbar(state ?? InitalState())
       };
     }
   }

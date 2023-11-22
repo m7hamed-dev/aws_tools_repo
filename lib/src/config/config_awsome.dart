@@ -15,10 +15,13 @@ class ConfigAwsome {
     required this.stringsAwsome,
     required this.appAssets,
     required this.messageType,
-    this.duration = const Duration(seconds: 4),
+    this.duration = const Duration(seconds: 2),
     required this.lightTheme,
     required this.darkTheme,
-  });
+    this.useCutomDesignDialog = true,
+  }) {
+    configAwsome = this;
+  }
 
   /// ## some fields
   final String fontFamily;
@@ -33,6 +36,7 @@ class ConfigAwsome {
   final StringsAwsome stringsAwsome;
   final AssetsAwsome appAssets;
   final InteractiveTypes messageType;
+  final bool useCutomDesignDialog;
 
   /// inital configuration
   void init(ConfigAwsome yourConfigAwsome) {
