@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:awsome_tools/awsome_tools.dart';
-import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
 
 class DialogBodyWidget extends StatelessWidget {
@@ -26,13 +25,13 @@ class DialogBodyWidget extends StatelessWidget {
       return AlertDialog.adaptive(
         elevation: 20.0,
         contentPadding: const EdgeInsets.only(
-          top: 10.0,
-          left: 10.0,
-          right: 10.0,
+          top: 0.0,
+          left: 0.0,
+          right: 0.0,
         ),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(20.0)),
-          // borderRadius: configAwsome.defaultBorderRadius,
+        shape: RoundedRectangleBorder(
+          // borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: configAwsome.defaultBorderRadius,
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
@@ -117,6 +116,7 @@ class DialogBodyWidget extends StatelessWidget {
                               state.message ??
                               state.txtBaseState('string'),
                           style: mediumStyle.copyWith(color: Colors.white),
+                          color: Colors.white,
                         ),
                       ],
                     ),
@@ -138,6 +138,7 @@ class DialogBodyWidget extends StatelessWidget {
                 child: TxtAwsome(
                   'اغلاق',
                   style: regularStyle.copyWith(color: Colors.white),
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -155,12 +156,15 @@ class DialogBodyWidget extends StatelessWidget {
         right: 10.0,
         top: 10.0,
       ),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+      shape: RoundedRectangleBorder(
+        borderRadius: configAwsome.defaultBorderRadius,
       ),
       content: TxtAwsome(
         state.message ?? state.txtBaseState('s'),
-        style: mediumStyle.copyWith(),
+        style: mediumStyle.copyWith(
+          color: Colors.white,
+        ),
+        color: Colors.white,
       ),
       actions: [
         MaterialButton(
@@ -169,6 +173,7 @@ class DialogBodyWidget extends StatelessWidget {
           color: state.colorBaseOnStarte,
           child: TxtAwsome(
             'ok',
+            color: Colors.white,
             style: mediumStyle.copyWith(
               color: Colors.white,
               fontSize: 16.0,
