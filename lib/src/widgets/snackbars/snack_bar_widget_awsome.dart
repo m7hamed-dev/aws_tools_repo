@@ -1,63 +1,118 @@
+import '../txt_awsome.dart';
 import 'package:flutter/material.dart';
-import 'package:awsome_tools/awsome_tools.dart';
+import '../../config/config_awsome.dart';
+import '../../style/txt_style_awsome.dart';
+import '../../network/base_state_awsome.dart';
+import 'package:awsome_tools/src/extensions/screen_size_ext.dart';
 import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
+import 'package:awsome_tools/src/constants/constant_values_awsome.dart';
+import 'package:awsome_tools/src/widgets/circle_widget_awsom_extension.dart';
 
 class SnackBarWidgetAwsome {
-  const SnackBarWidgetAwsome({
-    // super.key,
-    required this.state,
-    this.message,
-    this.duration,
-    this.setOnTop = false,
-  });
-  //
-  final bool setOnTop;
-  final BaseState state;
-  final String? message;
-  final Duration? duration;
-
-  static SnackBar call(
+  static void showSnackBar(
     BuildContext context, {
     bool setOnTop = false,
     required BaseState state,
-    String? message,
-    Duration duration = const Duration(seconds: 4),
+    bool? useCutomDesign,
+    final String? title,
+    final String? message,
+    final Duration? duration,
   }) {
-    return SnackBar(
-      content: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Positioned(
-            top: -40.0,
-            right: -40,
+    final timer = duration ?? configAwsome.duration;
+    final msg = message ?? state.msg ?? '';
+    late OverlayEntry overlayEntry;
+    overlayEntry = OverlayEntry(
+      builder: (context) {
+        return Positioned(
+          top: MediaQuery.of(context).size.height * .1,
+          left: 0,
+          right: 0,
+          child: Material(
+            color: Colors.transparent,
             child: Container(
-              height: 55.0,
-              width: 55.0,
+              padding: const EdgeInsets.all(defaultPaddingAws),
+              width: context.width,
               decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white.withOpacity(.22),
+                color: state.colorBaseOnStarte,
+                boxShadow: [
+                  BoxShadow(
+                    color: state.colorBaseOnStarte.withOpacity(.2),
+                    spreadRadius: 10.0,
+                    blurRadius: 10.0,
+                  )
+                ],
+              ),
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Row(
+                    children: [
+                      state.iconBaseOnState.withCircle(
+                        color: Colors.white.withOpacity(.12),
+                        padding: const EdgeInsets.all(defaultPaddingAws),
+                      ),
+                      const SizedBox(width: defaultPaddingAws),
+                      title == null
+                          ? TxtAwsome(
+                              message ?? '',
+                              style: boldStyle,
+                              color: Colors.white,
+                            )
+                          : Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  TxtAwsome(
+                                    title,
+                                    style: boldStyle,
+                                    color: Colors.white,
+                                    overflow: TextOverflow.clip,
+                                  ),
+                                  // const SizedBox(height: 8.0),
+                                  TxtAwsome(
+                                    msg,
+                                    style: mediumStyle,
+                                    color: Colors.white,
+                                    overflow: TextOverflow.clip,
+                                  ),
+                                ],
+                              ),
+                            ),
+                    ],
+                  ),
+                  Positioned(
+                    top: -20,
+                    right: -50,
+                    bottom: 0,
+                    child: const SizedBox(
+                      width: 50.0,
+                      height: 50.0,
+                    ).withCircle(
+                      color: Colors.white.withOpacity(.12),
+                      padding: const EdgeInsets.all(10.0),
+                    ),
+                  ),
+                  Positioned(
+                    top: -40,
+                    right: -30,
+                    child: const SizedBox(
+                      width: 50.0,
+                      height: 50.0,
+                    ).withCircle(
+                      color: Colors.white.withOpacity(.12),
+                      padding: const EdgeInsets.all(10.0),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
-          Row(
-            children: [
-              state.iconBaseOnState,
-              const SizedBox(width: 10.0),
-              TxtAwsome(
-                state.message ?? '',
-                style: regularStyle.copyWith(color: Colors.white),
-              ),
-            ],
-          ),
-        ],
-      ),
-      backgroundColor: state.colorBaseOnStarte,
-      duration: duration,
-      behavior: setOnTop ? SnackBarBehavior.floating : SnackBarBehavior.fixed,
-      shape: RoundedRectangleBorder(
-        borderRadius: configAwsome.defaultBorderRadius,
-      ),
+        );
+      },
     );
+    Overlay.of(context).insert(overlayEntry);
+    Future.delayed(timer, () => overlayEntry.remove());
   }
 }

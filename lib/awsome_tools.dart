@@ -32,8 +32,8 @@ export 'src/widgets/gap.dart';
 //! colors
 export 'src/style/app_colors_awsome.dart';
 //! themes
-export './src/style/light_theme.dart';
-export './src/style/dark_theme.dart';
+export './src/style/light_theme_aws.dart';
+export './src/style/dark_theme_aws.dart';
 export './src/style/txt_style_awsome.dart';
 export 'src/style/custom_theme_awsome.dart';
 //! font sizes

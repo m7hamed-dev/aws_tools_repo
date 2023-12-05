@@ -1,4 +1,4 @@
-import 'package:awsome_tools/awsome_tools.dart';
+import '../config/config_awsome.dart';
 
 /// ## This is an abstract class with some functions like
 /// ## intialState , loadingState , errorState
@@ -18,8 +18,8 @@ abstract class IBaseState<Data> {
 }
 
 abstract class BaseState<Data> {
-  const BaseState({this.message, this.data});
-  final String? message;
+  const BaseState({this.msg, this.data});
+  final String? msg;
   final Data? data;
 }
 
@@ -28,34 +28,34 @@ class InitalState<Data> extends BaseState<Data> {}
 class LoadingState<Data> extends BaseState<Data> {}
 
 class WarningState<Data> extends BaseState<Data> {
-  WarningState({this.warning})
-      : super(message: warning ?? configAwsome.stringsAwsome.warning);
-  final String? warning;
+  WarningState({this.message})
+      : super(msg: message ?? configAwsome.stringsAwsome.warning);
+  final String? message;
 }
 
 class ErrorState<Data> extends BaseState<Data> {
-  ErrorState({this.error})
-      : super(message: error ?? configAwsome.stringsAwsome.error);
-  final String? error;
+  ErrorState({this.message})
+      : super(msg: message ?? configAwsome.stringsAwsome.error);
+  final String? message;
 }
 
 class EmptyState<Data> extends BaseState<Data> {
-  EmptyState({this.noData})
-      : super(message: noData ?? configAwsome.stringsAwsome.noData);
-  final String? noData;
+  EmptyState({this.message})
+      : super(msg: message ?? configAwsome.stringsAwsome.noData);
+  final String? message;
 }
 
 class NetworkErrorState<Data> extends BaseState<Data> {
-  NetworkErrorState({this.netWorkError})
-      : super(message: netWorkError ?? configAwsome.stringsAwsome.networkError);
-  final String? netWorkError;
+  NetworkErrorState({this.message})
+      : super(msg: message ?? configAwsome.stringsAwsome.networkError);
+  final String? message;
 }
 
 class SuccesState<Data> extends BaseState<Data> {
   SuccesState({
     required this.successData,
     this.successMessage = 'العملية تمت بصورة صحيحة!',
-  }) : super(data: successData, message: successMessage);
+  }) : super(data: successData, msg: successMessage);
   final Data successData;
   final String successMessage;
 }

@@ -1,6 +1,14 @@
+import '../txt_awsome.dart';
 import 'package:flutter/material.dart';
-import 'package:awsome_tools/awsome_tools.dart';
+import '../../config/config_awsome.dart';
+import '../../style/txt_style_awsome.dart';
+import '../../network/base_state_awsome.dart';
+import 'package:awsome_tools/src/extensions/navigator_ext.dart';
+import 'package:awsome_tools/src/extensions/txt_base_on_state.dart';
+import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
+import 'package:awsome_tools/src/constants/constant_values_awsome.dart';
+import 'package:awsome_tools/src/widgets/circle_widget_awsom_extension.dart';
 
 class DialogBodyWidget extends StatelessWidget {
   const DialogBodyWidget({
@@ -22,112 +30,80 @@ class DialogBodyWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     /// create a dialog with custom Design
     if (useCutomDesignDialog) {
-      return AlertDialog.adaptive(
+      return AlertDialog(
         elevation: 20.0,
+        clipBehavior: Clip.antiAlias,
         contentPadding: const EdgeInsets.only(
           top: 0.0,
           left: 0.0,
           right: 0.0,
         ),
-        shape: RoundedRectangleBorder(
-          // borderRadius: BorderRadius.all(Radius.circular(10.0)),
-          borderRadius: configAwsome.defaultBorderRadius,
-        ),
+        // clipBehavior: Clip.antiAlias,
+        // shape: const RoundedRectangleBorder(
+        //   borderRadius: BorderRadius.all(Radius.circular(20.0)),
+        //   // borderRadius: configAwsome.defaultBorderRadius,
+        // ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           // alignment: Alignment.center,
           children: [
-            // div
             Container(
-              height: 120.0,
-              width: double.infinity,
+              // height: 120.0,
+              // width: double.infinity,
               padding: const EdgeInsets.all(0.0),
               clipBehavior: Clip.antiAlias,
               decoration: BoxDecoration(
-                borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(10),
-                  topLeft: Radius.circular(10),
-                ),
                 color: state.colorBaseOnStarte,
               ),
               child: Stack(
                 children: [
-                  /// icon close
-                  IconButton(
-                    onPressed: context.pop,
-                    icon: const Icon(Icons.close, color: Colors.white),
-                  ),
-
-                  /// circle
                   Positioned(
-                    top: -80,
-                    right: -20,
-                    bottom: 0.0,
-                    child: Container(
-                      width: 60.0,
-                      height: 60.0,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white.withOpacity(.22),
+                    top: -10.0,
+                    right: -10,
+                    child: const SizedBox(
+                      width: 50,
+                      height: 50,
+                    ).withCircle(
+                      color: Colors.white.withOpacity(.12),
+                    ),
+                  ),
+                  Positioned(
+                    top: -20.0,
+                    right: -10,
+                    // bottom: 10,
+                    child: const SizedBox(
+                      width: 70,
+                      height: 70,
+                    ).withCircle(
+                      color: Colors.white.withOpacity(.12),
+                    ),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const SizedBox(height: defaultPaddingAws),
+                      state
+                          .iconColorBaseOnState(color: Colors.white, size: 40.0)
+                          .withCircle(
+                            padding: const EdgeInsets.all(10.0),
+                            color: Colors.white.withOpacity(.22),
+                          ),
+                      const SizedBox(height: defaultPaddingAws),
+                      TxtAwsome(
+                        message ?? state.msg ?? state.txtBaseState('string'),
+                        style: boldStyle,
+                        color: Colors.white,
+                        textAlign: TextAlign.center,
                       ),
-                    ),
-                  ),
-
-                  ///
-                  Positioned(
-                    top: 0,
-                    right: 0,
-                    left: 0,
-                    bottom: 0,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        /// icon base on state with animation
-                        useAnimation
-                            ? Container(
-                                padding: const EdgeInsets.all(8.0),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white.withOpacity(.18),
-                                ),
-                                child: GlowCircleAnimationAwsome(
-                                  glowColor:
-                                      configAwsome.appColors.primaryColor,
-                                  child: state.iconBaseOnState,
-                                ),
-                              )
-
-                            /// icon base on state without Animation
-                            : Container(
-                                padding: const EdgeInsets.all(8.0),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white.withOpacity(.18),
-                                ),
-                                child: state.iconBaseOnState,
-                              ),
-
-                        /// some height
-                        const SizedBox(height: 10.0),
-
-                        /// text
-                        TxtAwsome(
-                          message ??
-                              state.message ??
-                              state.txtBaseState('string'),
-                          style: mediumStyle.copyWith(color: Colors.white),
-                          color: Colors.white,
-                        ),
-                      ],
-                    ),
+                      const SizedBox(height: defaultPaddingAws),
+                    ],
                   ),
                 ],
               ),
             ),
-
-            /// Overlay container
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(10.0),
               child: MaterialButton(
                 onPressed: context.pop,
                 color: state.colorBaseOnStarte,
@@ -137,7 +113,7 @@ class DialogBodyWidget extends StatelessWidget {
                 ),
                 child: TxtAwsome(
                   'اغلاق',
-                  style: regularStyle.copyWith(color: Colors.white),
+                  style: regularStyle,
                   color: Colors.white,
                 ),
               ),
@@ -147,7 +123,7 @@ class DialogBodyWidget extends StatelessWidget {
       );
     }
 
-    /// use dialog without custom design
+    //! use Dialog without custom design
     return AlertDialog.adaptive(
       elevation: 20.0,
       contentPadding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
@@ -156,28 +132,28 @@ class DialogBodyWidget extends StatelessWidget {
         right: 10.0,
         top: 10.0,
       ),
-      shape: RoundedRectangleBorder(
-        borderRadius: configAwsome.defaultBorderRadius,
-      ),
+      clipBehavior: Clip.antiAlias,
+      // shape: RoundedRectangleBorder(
+      //   borderRadius: configAwsome.defaultBorderRadius,
+      // ),
       content: TxtAwsome(
-        state.message ?? state.txtBaseState('s'),
-        style: mediumStyle.copyWith(
-          color: Colors.white,
-        ),
-        color: Colors.white,
+        message ?? state.msg ?? state.txtBaseState('s'),
+        style: blackStyle,
+        color: state.colorBaseOnStarte,
       ),
       actions: [
         MaterialButton(
           onPressed: context.pop,
           elevation: 0.0,
           color: state.colorBaseOnStarte,
+          shape: RoundedRectangleBorder(
+            borderRadius: configAwsome.defaultBorderRadius,
+          ),
           child: TxtAwsome(
-            'ok',
-            color: Colors.white,
-            style: mediumStyle.copyWith(
-              color: Colors.white,
-              fontSize: 16.0,
-            ),
+            'موافق',
+            color: Colors.black,
+            fontSize: 16.0,
+            style: mediumStyle,
           ),
         ),
       ],

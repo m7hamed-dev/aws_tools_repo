@@ -1,5 +1,7 @@
-import '../../../awsome_tools.dart';
+import '../txt_awsome.dart';
 import 'package:flutter/material.dart';
+import '../../style/txt_style_awsome.dart';
+import '../../network/base_state_awsome.dart';
 import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
 
 class ApiStateToWidget<Data> extends StatelessWidget {
@@ -30,10 +32,10 @@ class ApiStateToWidget<Data> extends StatelessWidget {
         WarningState() ||
         NetworkErrorState() =>
           errorWidgetBuilder != null
-              ? errorWidgetBuilder!(state.message ?? 'Error Ocure!')
+              ? errorWidgetBuilder!(state.msg ?? 'Error Ocure!')
               : errorWidget ??
                   TxtAwsome(
-                    state.message ?? '',
+                    state.msg ?? '',
                     style: regularStyle.copyWith(
                       color: state.colorBaseOnStarte,
                     ),

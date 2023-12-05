@@ -7,7 +7,7 @@ extension BottomSheetExtensionAwsome on BuildContext {
   void showBottom(BaseState state) async {
     await showModalBottomSheet(
       context: this,
-      builder: (context) => BottomWidgetAwsome(state: state),
+      builder: (context) => BottomSheetWidgetAwsome(state: state),
     );
   }
 }

@@ -1,5 +1,7 @@
-import 'package:awsome_tools/awsome_tools.dart';
+import '../txt_awsome.dart';
 import 'package:flutter/material.dart';
+import '../../config/config_awsome.dart';
+import '../../style/txt_style_awsome.dart';
 
 class IconBtnAwsome extends StatelessWidget {
   /// # Icon Button
@@ -37,7 +39,7 @@ class IconBtnAwsome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      height: height ?? configAwsome.buttonHeight,
+      // height: height ?? configAwsome.buttonHeight,
       padding: padding,
       margin: margin,
       // clipBehavior: Clip.none,

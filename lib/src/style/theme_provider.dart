@@ -1,22 +1,62 @@
-// // Create an InheritedWidget to hold the theme data
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-// class ThemeProviderAwsome extends InheritedWidget {
-//   const ThemeProviderAwsome({
-//     super.key,
-//     required this.theme,
-//     required Widget child,
-//   }) : super(child: child);
+class ThemeNotifier extends InheritedWidget {
+  const ThemeNotifier({
+    super.key,
+    required this.isDarkMode,
+    required this.toggleTheme,
+    required Widget child,
+  }) : super(child: child);
 
-//   // final AppThemeAwsome theme;
+  final bool isDarkMode;
+  final void Function() toggleTheme;
 
-//   /// Helper method to easily access the ThemeProvider from any widget
-//   static ThemeProviderAwsome of(BuildContext context) {
-//     return context.dependOnInheritedWidgetOfExactType<ThemeProviderAwsome>()!;
-//   }
+  static ThemeNotifier of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<ThemeNotifier>() ??
+        ThemeNotifier(
+          isDarkMode: false,
+          toggleTheme: () {},
+          child: const SizedBox(),
+        );
+  }
 
-//   @override
-//   bool updateShouldNotify(ThemeProviderAwsome oldWidget) {
-//     return theme != oldWidget.theme;
-//   }
-// }
+  @override
+  bool updateShouldNotify(ThemeNotifier oldWidget) {
+    return isDarkMode != oldWidget.isDarkMode;
+  }
+}
+
+class IconChangeTheme extends StatelessWidget {
+  const IconChangeTheme({super.key});
+  @override
+  Widget build(BuildContext context) {
+    final themeNotifier = ThemeNotifier.of(context);
+    final isDark = themeNotifier.isDarkMode;
+    final icon = isDark ? Icons.brightness_7 : Icons.brightness_4;
+    return IconButton(onPressed: themeNotifier.toggleTheme, icon: Icon(icon));
+  }
+}
+
+class ThemeProvider extends StatefulWidget {
+  final Widget child;
+  const ThemeProvider({super.key, required this.child});
+  @override
+  ThemeProviderState createState() => ThemeProviderState();
+}
+
+class ThemeProviderState extends State<ThemeProvider> {
+  bool _isDarkMode = false;
+  void toggleTheme() {
+    _isDarkMode = !_isDarkMode;
+    setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ThemeNotifier(
+      isDarkMode: _isDarkMode,
+      toggleTheme: toggleTheme,
+      child: widget.child,
+    );
+  }
+}

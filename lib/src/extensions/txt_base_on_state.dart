@@ -1,4 +1,5 @@
-import 'package:awsome_tools/awsome_tools.dart';
+import '../config/config_awsome.dart';
+import '../network/base_state_awsome.dart';
 
 /// ## show String txt Base on Current State
 extension TxtBaseOnState on BaseState {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../network/base_state_awsome.dart';
 
-const iconSize = 28.0;
+const iconSize = 30.0;
 const iconColor = Colors.white;
 
 /// ## show icon widget Base on Current State
@@ -33,7 +33,7 @@ extension IconBaseOnState on BaseState {
   }
 
   /// ## show icon widget Base on Current State
-  Widget iconColorBaseOnState({Color? color}) {
+  Widget iconColorBaseOnState({Color? color, double? size}) {
     return switch (this) {
       // intial , loading
       // InitalState() => const SizedBox(),
@@ -42,20 +42,36 @@ extension IconBaseOnState on BaseState {
           valueColor: AlwaysStoppedAnimation<Color>(color ?? Colors.white),
         ),
       //
-      WarningState() =>
-        Icon(Icons.warning, color: color ?? iconColor, size: iconSize),
+      WarningState() => Icon(
+          Icons.error,
+          color: color ?? iconColor,
+          size: size ?? iconSize,
+        ),
       //
-      ErrorState() =>
-        Icon(Icons.error, color: color ?? iconColor, size: iconSize),
+      ErrorState() => Icon(
+          Icons.close,
+          color: color ?? iconColor,
+          size: size ?? iconSize,
+        ),
       //
-      NetworkErrorState() =>
-        Icon(Icons.network_check, color: color ?? iconColor, size: iconSize),
+      NetworkErrorState() => Icon(
+          Icons.network_check,
+          color: color ?? iconColor,
+          size: size ?? iconSize,
+        ),
       //
-      SuccesState() =>
-        Icon(Icons.check_circle, color: color ?? iconColor, size: iconSize),
+      SuccesState() => Icon(
+          Icons.check_circle,
+          color: color ?? iconColor,
+          size: size ?? iconSize,
+        ),
 
       /// when success
-      _ => Icon(Icons.check_circle, size: iconSize, color: color ?? iconColor)
+      _ => Icon(
+          Icons.check_circle,
+          size: size ?? iconSize,
+          color: color ?? iconColor,
+        )
     };
   }
 }

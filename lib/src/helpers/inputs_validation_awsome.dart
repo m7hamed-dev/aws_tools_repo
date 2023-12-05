@@ -1,7 +1,6 @@
-import 'package:awsome_tools/awsome_tools.dart';
+import '../config/config_awsome.dart';
 
 class InputsValidation {
-  ///
   static String? checkEmptyField(String? value, bool condition) =>
       !condition ? configAwsome.stringsAwsome.textInputValidation : null;
 

@@ -1,5 +1,5 @@
-import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
+import '../../config/config_awsome.dart';
 
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({

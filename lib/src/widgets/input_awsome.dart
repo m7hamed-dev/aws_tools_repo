@@ -1,6 +1,8 @@
+import 'txt_awsome.dart';
+import '../config/config_awsome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:awsome_tools/awsome_tools.dart';
+import '../style/txt_style_awsome.dart';
 
 class InputWidgetAwsome extends StatefulWidget {
   const InputWidgetAwsome({

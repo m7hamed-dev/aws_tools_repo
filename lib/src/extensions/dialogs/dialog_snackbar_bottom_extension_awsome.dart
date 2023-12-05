@@ -1,10 +1,13 @@
+import 'dialog_ext_awsome.dart';
 import 'package:flutter/material.dart';
-import 'package:awsome_tools/awsome_tools.dart';
+import '../../config/config_awsome.dart';
+import '../../network/base_state_awsome.dart';
 import 'package:awsome_tools/src/widgets/dialogs/dialog_awsome.dart';
+import 'package:awsome_tools/src/extensions/snackbar_ext_awsome.dart';
 import 'package:awsome_tools/src/widgets/bottomsheet/bottom_widget_awsome.dart';
 
-///! ### this extenstion for show dialog or snackBar or bottom
-///! ### Base on [ MessageTypes => ( dialog or snackbar or bottom  ) ]
+///! ## this extenstion for show dialog or snackBar or bottom
+///! ## Base on [ MessageTypes => ( dialog or snackbar or bottom  ) ]
 extension DialogSnackBarBottomExtensionAwsome on BuildContext {
   /// ## this extenstion for show dialog or snackbar or bottom
   /// ## Base on MessageTypes ( dialog or snackbar or bottom  )
@@ -12,7 +15,10 @@ extension DialogSnackBarBottomExtensionAwsome on BuildContext {
     BaseState? state,
     bool isLoadingDialog = false,
     InteractiveTypes? interactiveType,
-    // bool useCutomDesignDialog = true,
+    bool? useCutomDesign,
+    String? message,
+    String? title,
+    Duration? duration,
   }) async {
     /// loading dialog
     if (isLoadingDialog) {
@@ -25,28 +31,42 @@ extension DialogSnackBarBottomExtensionAwsome on BuildContext {
         },
       );
     } else {
+      //!
       final type = interactiveType ?? configAwsome.messageType;
+      final state0 = state ?? InitalState();
+      //!
       return switch (type) {
-        /// Dialog
-        DialogType() => await showDialog(
+        //! Dialog
+        InteractiveTypes.dialog => await showDialog(
             context: this,
-            builder: (context) => DialogBodyWidget(
-              state: state ?? InitalState(),
-              useCutomDesignDialog: configAwsome.useCutomDesignDialog,
+            builder: (context) {
+              return DialogBodyWidget(
+                state: state0,
+                message: message,
+                useCutomDesignDialog:
+                    useCutomDesign ?? configAwsome.useCutomDesignDialog,
+              );
+            },
+          ),
+
+        //! BottomSheet
+        InteractiveTypes.bottomSheet => await showModalBottomSheet(
+            context: this,
+            builder: (context) => BottomSheetWidgetAwsome(
+              state: state0,
+              useCutomDesignDialog: useCutomDesign,
+              message: message,
             ),
           ),
 
-        /// BottomSheet
-        BottomType() => await showModalBottomSheet(
-            context: this,
-            builder: (context) => BottomWidgetAwsome(
-              state: state ?? InitalState(),
-              // useCutomDesignDialog: useCutomDesignDialog,
-            ),
-          ),
-
-        /// showSnackbar
-        _ => showSnackbar(state ?? InitalState())
+        //! showSnackbar
+        _ => showSnackbar(
+            state0,
+            useCutomDesign: useCutomDesign,
+            title: title ?? '',
+            message: message ?? state?.msg ?? '',
+            duration: duration,
+          )
       };
     }
   }
@@ -54,10 +74,4 @@ extension DialogSnackBarBottomExtensionAwsome on BuildContext {
 
 /// ### MessageTypes == how can I display message for User UI
 /// ### They are three Wayes ( dialog , bottom , snackBar )
-abstract class InteractiveTypes {}
-
-class DialogType implements InteractiveTypes {}
-
-class BottomType implements InteractiveTypes {}
-
-class SnackBarType implements InteractiveTypes {}
+enum InteractiveTypes { dialog, bottomSheet, snackBar }

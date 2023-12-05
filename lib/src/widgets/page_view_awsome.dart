@@ -1,5 +1,6 @@
+import 'dot_indicator_awsome.dart';
 import 'package:flutter/material.dart';
-import 'package:awsome_tools/awsome_tools.dart';
+import 'package:awsome_tools/src/extensions/screen_size_ext.dart';
 
 /// ## PageViewAwsome
 class PageViewAwsome extends StatelessWidget {

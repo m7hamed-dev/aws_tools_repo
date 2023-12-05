@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:awsome_tools/awsome_tools.dart';
+import '../../widgets/txt_awsome.dart';
+import '../../config/config_awsome.dart';
+import '../../network/base_state_awsome.dart';
 import 'package:awsome_tools/src/widgets/dialogs/dialog_awsome.dart';
 
 extension DialogExtension on BuildContext {

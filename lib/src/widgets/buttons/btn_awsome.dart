@@ -1,5 +1,10 @@
-import '../../../awsome_tools.dart';
+import '../txt_awsome.dart';
 import 'package:flutter/material.dart';
+import '../../config/config_awsome.dart';
+import '../../style/txt_style_awsome.dart';
+import '../../network/base_state_awsome.dart';
+import 'package:awsome_tools/src/extensions/screen_size_ext.dart';
+import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 
 /// btn types
 enum BtnTypes { state, txtState, normal }
@@ -41,7 +46,7 @@ class BtnAwsome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      height: height ?? configAwsome.buttonHeight,
+      // height: height ?? configAwsome.buttonHeight,
       padding: padding,
       margin: margin,
       decoration: BoxDecoration(
@@ -148,7 +153,7 @@ class ButtonChild extends StatelessWidget {
         ),
       // when success
       SuccesState() => TxtAwsome(
-          state.message ?? '',
+          state.msg ?? '',
           style: textStyle ?? mediumStyle.copyWith(color: Colors.white),
         ),
 
@@ -161,7 +166,7 @@ class ButtonChild extends StatelessWidget {
             state.iconBaseOnState,
             const SizedBox(width: 5.0),
             TxtAwsome(
-              state.message ?? '',
+              state.msg ?? '',
               style: textStyle ?? mediumStyle.copyWith(color: Colors.white),
             ),
           ],
