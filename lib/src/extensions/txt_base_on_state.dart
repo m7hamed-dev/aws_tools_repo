@@ -10,6 +10,7 @@ extension TxtBaseOnState on BaseState {
       LoadingState() => configAwsome.stringsAwsome.loading,
       WarningState() => configAwsome.stringsAwsome.warning,
       ErrorState() => configAwsome.stringsAwsome.error,
+      SuccesState() => configAwsome.stringsAwsome.success,
       NetworkErrorState() => configAwsome.stringsAwsome.networkError,
       _ => string,
     };

@@ -41,7 +41,7 @@ class ApiStateToWidget<Data> extends StatelessWidget {
                     ),
                     overflow: TextOverflow.clip,
                   ),
-        _ => success(state.data as Data),
+        _ => success(state.requiredData as Data),
       },
     );
   }

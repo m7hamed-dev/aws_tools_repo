@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:awsome_tools/src/constants/constant_values_awsome.dart';
 
 final lightThemeAws = ThemeData(
   snackBarTheme: const SnackBarThemeData(
@@ -13,8 +12,8 @@ final lightThemeAws = ThemeData(
   dialogTheme: const DialogTheme(
     backgroundColor: Color(0xFFFAFAFA),
     shape: RoundedRectangleBorder(
-      borderRadius: defaultBorderRadiusAws,
-    ),
+        // borderRadius: ,
+        ),
   ),
   useMaterial3: true,
   primaryColor: const Color.fromARGB(255, 19, 193, 100),
@@ -33,8 +32,8 @@ final lightThemeAws = ThemeData(
     color: Colors.white,
     elevation: 0,
     shape: RoundedRectangleBorder(
-      borderRadius: defaultBorderRadiusAws,
-    ),
+        // borderRadius: Me.defaultBorderRadius,
+        ),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: Color(0xFFFAFAFA),

@@ -7,7 +7,6 @@ import 'package:awsome_tools/src/extensions/navigator_ext.dart';
 import 'package:awsome_tools/src/extensions/screen_size_ext.dart';
 import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
-import 'package:awsome_tools/src/constants/constant_values_awsome.dart';
 import 'package:awsome_tools/src/widgets/circle_widget_awsom_extension.dart';
 
 class BottomSheetWidgetAwsome extends StatelessWidget {
@@ -118,9 +117,9 @@ class BottomSheetWidgetAwsome extends StatelessWidget {
         children: [
           state.iconColorBaseOnState().withCircle(
                 color: state.colorBaseOnStarte,
-                padding: const EdgeInsets.all(defaultPaddingAws),
+                padding: EdgeInsets.all(configAwsome.defaultPadding),
               ),
-          const SizedBox(height: defaultPaddingAws),
+          SizedBox(height: configAwsome.defaultPadding),
           TxtAwsome(
             state.msg ?? '',
             style: mediumStyle,

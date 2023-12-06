@@ -7,7 +7,6 @@ import 'package:awsome_tools/src/extensions/navigator_ext.dart';
 import 'package:awsome_tools/src/extensions/txt_base_on_state.dart';
 import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
-import 'package:awsome_tools/src/constants/constant_values_awsome.dart';
 import 'package:awsome_tools/src/widgets/circle_widget_awsom_extension.dart';
 
 class DialogBodyWidget extends StatelessWidget {
@@ -82,21 +81,21 @@ class DialogBodyWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const SizedBox(height: defaultPaddingAws),
+                      const SizedBox(height: 10),
                       state
                           .iconColorBaseOnState(color: Colors.white, size: 40.0)
                           .withCircle(
                             padding: const EdgeInsets.all(10.0),
                             color: Colors.white.withOpacity(.22),
                           ),
-                      const SizedBox(height: defaultPaddingAws),
+                      const SizedBox(height: 10),
                       TxtAwsome(
                         message ?? state.msg ?? state.txtBaseState('string'),
                         style: boldStyle,
                         color: Colors.white,
                         textAlign: TextAlign.center,
                       ),
-                      const SizedBox(height: defaultPaddingAws),
+                      const SizedBox(height: 10),
                     ],
                   ),
                 ],

@@ -1,13 +1,8 @@
-import '../txt_awsome.dart';
 import 'package:flutter/material.dart';
-import '../../config/config_awsome.dart';
-import '../../style/txt_style_awsome.dart';
-import '../../network/base_state_awsome.dart';
-import 'package:awsome_tools/src/extensions/screen_size_ext.dart';
-import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
+import 'package:awsome_tools/awsome_tools.dart';
 
 /// btn types
-enum BtnTypes { state, txtState, normal }
+enum BtnTypes { state, normal, withCondition }
 
 class BtnAwsome extends StatelessWidget {
   ///
@@ -46,37 +41,32 @@ class BtnAwsome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      // height: height ?? configAwsome.buttonHeight,
-      padding: padding,
       margin: margin,
       decoration: BoxDecoration(
         border: borderColor == null ? null : Border.all(color: borderColor!),
         color: color ?? configAwsome.appColors.primaryColor,
         gradient: setGradientColor,
-        // gradient: borderColor == null && color == null
-        //     ? gradient
-        //     : configAwsome.appColors.gradientAppColor,
         borderRadius: configAwsome.defaultBorderRadius,
       ),
-      child: ElevatedButton(
+      child: MaterialButton(
         onPressed: onPressed,
         clipBehavior: Clip.antiAlias,
-        style: ElevatedButton.styleFrom(
-          visualDensity: VisualDensity.compact,
-          padding: const EdgeInsets.all(18.0),
-          backgroundColor: Colors.transparent,
-          shadowColor: Colors.transparent,
-          shape: RoundedRectangleBorder(
-            borderRadius: configAwsome.defaultBorderRadius,
-          ),
+        // style: ElevatedButton.styleFrom(
+        visualDensity: VisualDensity.compact,
+        padding: padding ?? EdgeInsets.all(configAwsome.defaultPadding),
+        // backgroundColor: Colors.transparent,
+        // shadowColor: Colors.transparent,
+        shape: RoundedRectangleBorder(
+          borderRadius: configAwsome.defaultBorderRadius,
+          // ),
         ),
         child: child ??
             ButtonChild(
-              btnType: btnType,
               title: title,
+              btnType: btnType,
               textStyle: textStyle,
-              state: state ?? InitalState(),
               textColor: textColor,
+              state: state ?? InitalState(),
             ),
       ),
     );
@@ -93,7 +83,7 @@ class ButtonChild extends StatelessWidget {
   const ButtonChild({
     super.key,
     required this.btnType,
-    this.title = 'title button',
+    this.title = '',
     this.textStyle,
     this.width,
     this.height,
@@ -114,25 +104,13 @@ class ButtonChild extends StatelessWidget {
   Widget build(BuildContext context) {
     if (btnType == BtnTypes.state) {
       return AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 600),
+        alignment: Alignment.center,
         width: state is LoadingState ? 50 : context.width,
-        // height: height ?? configAwsome.buttonHeight,
-        height: height,
-        child: Center(child: _buildChild),
+        curve: Curves.easeInOut,
+        child: _buildChild,
       );
     }
-
-    ///
-    if (btnType == BtnTypes.txtState) {
-      return AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
-        width: state is LoadingState ? 50 : context.width,
-        height: height,
-        child: Center(child: _buildChild),
-      );
-    }
-
-    /// normal button
     return TxtAwsome(
       title,
       style: textStyle ?? mediumStyle,
@@ -141,36 +119,16 @@ class ButtonChild extends StatelessWidget {
   }
 
   Widget get _buildChild {
-    return switch (state) {
-      //
-      InitalState() => TxtAwsome(
-          title,
-          style: textStyle ?? mediumStyle.copyWith(color: Colors.white),
-        ),
-      //
-      LoadingState() => const CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-        ),
-      // when success
-      SuccesState() => TxtAwsome(
-          state.msg ?? '',
-          style: textStyle ?? mediumStyle.copyWith(color: Colors.white),
-        ),
-
-      /// error , warning , noData , NetworkError
-      _ => Wrap(
-          alignment: WrapAlignment.center,
-          runAlignment: WrapAlignment.center,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          children: [
-            state.iconBaseOnState,
-            const SizedBox(width: 5.0),
-            TxtAwsome(
-              state.msg ?? '',
-              style: textStyle ?? mediumStyle.copyWith(color: Colors.white),
-            ),
-          ],
-        ),
-    };
+    if (state is LoadingState) {
+      return const CircularProgressIndicator.adaptive(
+        strokeWidth: 2.0,
+        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+      );
+    }
+    return TxtAwsome(
+      state is LoadingState ? '' : state.txtBaseState(''),
+      style: textStyle ?? mediumStyle,
+      color: Colors.white,
+    );
   }
 }

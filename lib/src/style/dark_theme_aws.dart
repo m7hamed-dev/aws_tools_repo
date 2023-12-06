@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:awsome_tools/src/constants/constant_values_awsome.dart';
 
 const primaryDarkColor = Color.fromRGBO(22, 183, 97, 1);
 const scfDarkColor = Color.fromRGBO(15, 18, 40, 1.000);
@@ -25,8 +24,8 @@ final darkThemeAws = ThemeData(
     color: cardDarkColor,
     elevation: 0,
     shape: RoundedRectangleBorder(
-      borderRadius: defaultBorderRadiusAws,
-    ),
+        // borderRadius: Me.defaultBorderRadius,
+        ),
   ),
   //! SnackBarThemeData
   snackBarTheme: const SnackBarThemeData(
@@ -41,8 +40,8 @@ final darkThemeAws = ThemeData(
   dialogTheme: const DialogTheme(
     backgroundColor: Color.fromRGBO(22, 44, 70, 1.000),
     shape: RoundedRectangleBorder(
-      borderRadius: defaultBorderRadiusAws,
-    ),
+        // borderRadius: Me.defaultBorderRadius,
+        ),
   ),
   // DialogTheme
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(

@@ -4,7 +4,7 @@ class StringsAwsome {
     this.loading = 'من فضلك انتظر',
     this.error = 'حدث خطأ',
     this.notAuth = 'غير مسجل معنا',
-    this.warning = 'تنبيه !!',
+    this.warning = 'تنبيه',
     this.errorInfoLogin = 'تاكد من البيانات التي قمت بادخالها',
     this.noData = 'يجب ان يحتوي علي قيمه',
     this.textInputValidation = 'يجب ان يحتوي علي قيمه',

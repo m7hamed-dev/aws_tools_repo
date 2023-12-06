@@ -6,7 +6,6 @@ import '../../network/base_state_awsome.dart';
 import 'package:awsome_tools/src/extensions/screen_size_ext.dart';
 import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
-import 'package:awsome_tools/src/constants/constant_values_awsome.dart';
 import 'package:awsome_tools/src/widgets/circle_widget_awsom_extension.dart';
 
 class SnackBarWidgetAwsome {
@@ -31,7 +30,7 @@ class SnackBarWidgetAwsome {
           child: Material(
             color: Colors.transparent,
             child: Container(
-              padding: const EdgeInsets.all(defaultPaddingAws),
+              // padding: const EdgeInsets.all(defaultPaddingAws),
               width: context.width,
               decoration: BoxDecoration(
                 color: state.colorBaseOnStarte,
@@ -48,11 +47,12 @@ class SnackBarWidgetAwsome {
                 children: [
                   Row(
                     children: [
+                      // icon base on state
                       state.iconBaseOnState.withCircle(
                         color: Colors.white.withOpacity(.12),
-                        padding: const EdgeInsets.all(defaultPaddingAws),
+                        padding: EdgeInsets.all(configAwsome.defaultPadding),
                       ),
-                      const SizedBox(width: defaultPaddingAws),
+                      SizedBox(width: configAwsome.defaultPadding),
                       title == null
                           ? TxtAwsome(
                               message ?? '',

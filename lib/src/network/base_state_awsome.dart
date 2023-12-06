@@ -18,9 +18,9 @@ abstract class IBaseState<Data> {
 }
 
 abstract class BaseState<Data> {
-  const BaseState({this.msg, this.data});
+  const BaseState({this.msg, this.requiredData});
   final String? msg;
-  final Data? data;
+  final Data? requiredData;
 }
 
 class InitalState<Data> extends BaseState<Data> {}
@@ -53,11 +53,11 @@ class NetworkErrorState<Data> extends BaseState<Data> {
 
 class SuccesState<Data> extends BaseState<Data> {
   SuccesState({
-    required this.successData,
-    this.successMessage = 'العملية تمت بصورة صحيحة!',
-  }) : super(data: successData, msg: successMessage);
-  final Data successData;
-  final String successMessage;
+    required this.data,
+    this.message = 'العملية تمت بصورة صحيحة',
+  }) : super(requiredData: data, msg: message);
+  final Data data;
+  final String message;
 }
 
 // Base Result class
