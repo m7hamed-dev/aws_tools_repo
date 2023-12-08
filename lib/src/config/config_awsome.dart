@@ -25,7 +25,7 @@ class ConfigAwsome {
       extraBlack: 20.0,
     ),
     this.stringsAwsome = const StringsAwsome(),
-    required this.appAssets,
+    // required this.appAssets,
     required this.messageType,
     this.duration = const Duration(seconds: 4),
     required this.lightTheme,
@@ -44,7 +44,7 @@ class ConfigAwsome {
   final BorderRadius defaultBorderRadius;
   final FontSizeModel fontSizeModel;
   final StringsAwsome stringsAwsome;
-  final AssetsAwsome appAssets;
+  // final AssetsAwsome appAssets;
   final InteractiveTypes messageType;
   final bool useCutomDesignDialog;
 }

@@ -38,17 +38,16 @@ class DialogBodyWidget extends StatelessWidget {
           right: 0.0,
         ),
         // clipBehavior: Clip.antiAlias,
-        // shape: const RoundedRectangleBorder(
-        //   borderRadius: BorderRadius.all(Radius.circular(20.0)),
-        //   // borderRadius: configAwsome.defaultBorderRadius,
-        // ),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+          // borderRadius: configAwsome.defaultBorderRadius,
+        ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
-          // alignment: Alignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              // height: 120.0,
-              // width: double.infinity,
+              width: double.infinity,
               padding: const EdgeInsets.all(0.0),
               clipBehavior: Clip.antiAlias,
               decoration: BoxDecoration(
@@ -77,26 +76,29 @@ class DialogBodyWidget extends StatelessWidget {
                       color: Colors.white.withOpacity(.12),
                     ),
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const SizedBox(height: 10),
-                      state
-                          .iconColorBaseOnState(color: Colors.white, size: 40.0)
-                          .withCircle(
-                            padding: const EdgeInsets.all(10.0),
-                            color: Colors.white.withOpacity(.22),
-                          ),
-                      const SizedBox(height: 10),
-                      TxtAwsome(
-                        message ?? state.msg ?? state.txtBaseState('string'),
-                        style: boldStyle,
-                        color: Colors.white,
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: 10),
-                    ],
+                  Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 10),
+                        state
+                            .iconColorBaseOnState(
+                                color: Colors.white, size: 40.0)
+                            .withCircle(
+                              padding: const EdgeInsets.all(10.0),
+                              color: Colors.white.withOpacity(.22),
+                            ),
+                        const SizedBox(height: 10),
+                        TxtAwsome(
+                          message ?? state.msg ?? state.txtBaseState('string'),
+                          style: boldStyle,
+                          color: Colors.white,
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 10),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -132,9 +134,9 @@ class DialogBodyWidget extends StatelessWidget {
         top: 10.0,
       ),
       clipBehavior: Clip.antiAlias,
-      // shape: RoundedRectangleBorder(
-      //   borderRadius: configAwsome.defaultBorderRadius,
-      // ),
+      shape: RoundedRectangleBorder(
+        borderRadius: configAwsome.defaultBorderRadius,
+      ),
       content: TxtAwsome(
         message ?? state.msg ?? state.txtBaseState('s'),
         style: blackStyle,

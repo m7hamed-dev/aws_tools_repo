@@ -24,8 +24,7 @@ extension DialogSnackBarBottomExtensionAwsome on BuildContext {
     if (isLoadingDialog) {
       await showDialog(
         context: this,
-        // Prevent dismissing by tapping outside
-        barrierDismissible: false,
+        barrierDismissible: true,
         builder: (BuildContext context) {
           return const DialogLoadingBody();
         },

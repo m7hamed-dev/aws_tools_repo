@@ -41,10 +41,12 @@ class BtnAwsome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (state is LoadingState) {
-      return CircularProgressIndicator(
-        strokeWidth: 6.0,
-        valueColor: AlwaysStoppedAnimation<Color>(
-          configAwsome.appColors.primaryColor,
+      return Center(
+        child: CircularProgressIndicator(
+          strokeWidth: 6.0,
+          valueColor: AlwaysStoppedAnimation<Color>(
+            configAwsome.appColors.primaryColor,
+          ),
         ),
       );
     }
