@@ -10,7 +10,6 @@ export 'src/widgets/loading_error_success_widgets/loading_widget_awsome.dart';
 export 'src/widgets/logo_widget_awsome.dart';
 //! buttons
 export 'src/widgets/circle_widget_awsom_extension.dart';
-export 'src/widgets/buttons/btn_condition_awsome.dart';
 export 'src/widgets/dot_indicator_awsome.dart';
 export 'src/widgets/page_view_awsome.dart';
 export './src/widgets/txt_awsome.dart';
@@ -41,7 +40,7 @@ export './src/style/font_sizes_model.dart';
 //! validations
 export 'src/helpers/inputs_validation_awsome.dart';
 //! Extensions
-export './src/extensions/dialogs/custom_dialog_extension_aws.dart';
+export './src/extensions/dialogs/custom_dialog_aws.dart';
 export './src/extensions/ext_current_theme.dart';
 export './src/extensions/icon_base_on_state.dart';
 export './src/extensions/color_base_on_state.dart';

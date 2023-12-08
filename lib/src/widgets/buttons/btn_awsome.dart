@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:awsome_tools/awsome_tools.dart';
 
-/// btn types
+//!# button types { state, normal, withCondition }
 enum BtnTypes { state, normal, withCondition }
 
 class BtnAwsome extends StatelessWidget {
-  ///
   const BtnAwsome({
     Key? key,
     this.child,
     this.title = '',
+    this.isClickable = false,
     this.onPressed,
     this.color,
     this.margin,
@@ -27,6 +27,7 @@ class BtnAwsome extends StatelessWidget {
 
   final String title;
   final void Function()? onPressed;
+  final bool isClickable;
   final BtnTypes btnType;
   final Color? borderColor, color, textColor;
   final EdgeInsetsGeometry? margin, padding;
@@ -39,37 +40,58 @@ class BtnAwsome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (state is LoadingState) {
+      return CircularProgressIndicator(
+        strokeWidth: 6.0,
+        valueColor: AlwaysStoppedAnimation<Color>(
+          configAwsome.appColors.primaryColor,
+        ),
+      );
+    }
     return Container(
       width: width,
       margin: margin,
       decoration: BoxDecoration(
         border: borderColor == null ? null : Border.all(color: borderColor!),
-        color: color ?? configAwsome.appColors.primaryColor,
+        color: buttonColor(),
         gradient: setGradientColor,
         borderRadius: configAwsome.defaultBorderRadius,
       ),
       child: MaterialButton(
         onPressed: onPressed,
+        // isClickable && btnType == BtnTypes.withCondition ? onPressed : null,
+        disabledColor: disabledColor(),
         clipBehavior: Clip.antiAlias,
-        // style: ElevatedButton.styleFrom(
+        elevation: 0.0,
         visualDensity: VisualDensity.compact,
         padding: padding ?? EdgeInsets.all(configAwsome.defaultPadding),
-        // backgroundColor: Colors.transparent,
-        // shadowColor: Colors.transparent,
         shape: RoundedRectangleBorder(
           borderRadius: configAwsome.defaultBorderRadius,
-          // ),
         ),
         child: child ??
-            ButtonChild(
-              title: title,
-              btnType: btnType,
-              textStyle: textStyle,
-              textColor: textColor,
-              state: state ?? InitalState(),
+            TxtAwsome(
+              buttonTitle(),
+              style: textStyle ?? mediumStyle,
+              color: textColor ?? Colors.white,
             ),
       ),
     );
+  }
+
+  String buttonTitle() {
+    return state is InitalState ? title : state?.msg ?? title;
+  }
+
+  Color? disabledColor() {
+    return btnType == BtnTypes.withCondition
+        ? const Color.fromARGB(255, 207, 207, 207)
+        : null;
+  }
+
+  Color buttonColor() {
+    return color == null && gradient == null
+        ? configAwsome.appColors.primaryColor
+        : color ?? Colors.blue;
   }
 
   Gradient? get setGradientColor {
@@ -77,58 +99,11 @@ class BtnAwsome extends StatelessWidget {
         ? configAwsome.appColors.gradientAppColor
         : gradient;
   }
-}
 
-class ButtonChild extends StatelessWidget {
-  const ButtonChild({
-    super.key,
-    required this.btnType,
-    this.title = '',
-    this.textStyle,
-    this.width,
-    this.height,
-    this.textColor,
-    required this.state,
-  });
-
-  ///
-  final BtnTypes btnType;
-  final String title;
-  final TextStyle? textStyle;
-  final Color? textColor;
-  final BaseState state;
-  final double? height, width;
-
-  ///
-  @override
-  Widget build(BuildContext context) {
-    if (btnType == BtnTypes.state) {
-      return AnimatedContainer(
-        duration: const Duration(milliseconds: 600),
-        alignment: Alignment.center,
-        width: state is LoadingState ? 50 : context.width,
-        curve: Curves.easeInOut,
-        child: _buildChild,
-      );
-    }
-    return TxtAwsome(
-      title,
-      style: textStyle ?? mediumStyle,
-      color: textColor ?? Colors.white,
-    );
-  }
-
-  Widget get _buildChild {
-    if (state is LoadingState) {
-      return const CircularProgressIndicator.adaptive(
-        strokeWidth: 2.0,
-        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-      );
-    }
-    return TxtAwsome(
-      state is LoadingState ? '' : state.txtBaseState(''),
-      style: textStyle ?? mediumStyle,
-      color: Colors.white,
-    );
+  void _onPressed() {
+    final _ = switch (btnType) {
+      BtnTypes.normal || BtnTypes.state => onPressed,
+      _ => onPressed,
+    };
   }
 }

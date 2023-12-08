@@ -31,8 +31,9 @@ extension NavigatorAwsome on BuildContext {
       switch (transitionType) {
         case TransitionType.slideFromRight:
           return PageRouteBuilder<dynamic>(
-            pageBuilder: (context, animation, secondaryAnimation) =>
-                destination,
+            pageBuilder: (context, animation, secondaryAnimation) {
+              return destination;
+            },
             transitionsBuilder: (
               context,
               animation,

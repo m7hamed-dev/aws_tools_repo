@@ -47,36 +47,6 @@ class ConfigAwsome {
   final AssetsAwsome appAssets;
   final InteractiveTypes messageType;
   final bool useCutomDesignDialog;
-
-  ConfigAwsome copyWith(
-    String? fontFamily,
-    ThemeData? lightTheme,
-    ThemeData? darkTheme,
-    Duration? duration,
-    double? defaultPadding,
-    AppColors? appColors,
-    BorderRadius? defaultBorderRadius,
-    FontSizeModel? fontSizeModel,
-    StringsAwsome? stringsAwsome,
-    AssetsAwsome? appAssets,
-    InteractiveTypes? messageType,
-    bool? useCutomDesignDialog,
-  ) {
-    return ConfigAwsome(
-      fontFamily: fontFamily ?? this.fontFamily,
-      lightTheme: lightTheme ?? this.lightTheme,
-      darkTheme: darkTheme ?? this.darkTheme,
-      duration: duration ?? this.duration,
-      defaultPadding: defaultPadding ?? this.defaultPadding,
-      appColors: appColors ?? this.appColors,
-      defaultBorderRadius: defaultBorderRadius ?? this.defaultBorderRadius,
-      fontSizeModel: fontSizeModel ?? this.fontSizeModel,
-      stringsAwsome: stringsAwsome ?? this.stringsAwsome,
-      appAssets: appAssets ?? this.appAssets,
-      messageType: messageType ?? this.messageType,
-      useCutomDesignDialog: useCutomDesignDialog ?? this.useCutomDesignDialog,
-    );
-  }
 }
 
 /// ## input types like ( number , password or text )
