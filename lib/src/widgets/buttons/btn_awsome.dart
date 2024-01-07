@@ -52,7 +52,9 @@ class BtnAwsome extends StatelessWidget {
     }
     return Container(
       width: width,
+      height: height,
       margin: margin,
+      padding: padding,
       decoration: BoxDecoration(
         border: borderColor == null ? null : Border.all(color: borderColor!),
         color: buttonColor(),
