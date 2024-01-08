@@ -41,15 +41,28 @@ class BtnAwsome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (state is LoadingState) {
-      return Center(
-        child: CircularProgressIndicator(
-          strokeWidth: 6.0,
-          valueColor: AlwaysStoppedAnimation<Color>(
-            configAwsome.appColors.primaryColor,
+      return Container(
+        width: width,
+        height: height,
+        margin: margin,
+        padding: padding,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 211, 211, 211),
+          borderRadius: configAwsome.defaultBorderRadius,
+        ),
+        child: const Padding(
+          padding: EdgeInsets.all(10.0),
+          child: CircularProgressIndicator(
+            strokeWidth: 2.0,
+            valueColor: AlwaysStoppedAnimation<Color>(
+              Colors.white,
+            ),
           ),
         ),
       );
     }
+
     return Container(
       width: width,
       height: height,
