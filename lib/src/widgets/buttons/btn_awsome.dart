@@ -87,16 +87,12 @@ class BtnAwsome extends StatelessWidget {
         ),
         child: child ??
             TxtAwsome(
-              buttonTitle(),
+              title,
               style: textStyle ?? mediumStyle,
               color: textColor ?? Colors.white,
             ),
       ),
     );
-  }
-
-  String buttonTitle() {
-    return state is InitalState ? title : state?.msg ?? title;
   }
 
   Color? disabledColor() {
