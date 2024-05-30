@@ -62,7 +62,7 @@ class InputWidgetAwsome extends StatefulWidget {
 
 class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
   //
-  bool obscureText = false;
+  bool obscureText = true;
   //
   void _changeObscureText() {
     obscureText = !obscureText;

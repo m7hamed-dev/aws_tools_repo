@@ -48,7 +48,7 @@ class BtnAwsome extends StatelessWidget {
         padding: padding,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 211, 211, 211),
+          color: const Color.fromARGB(255, 231, 231, 231),
           borderRadius: configAwsome.defaultBorderRadius,
         ),
         child: const Padding(
@@ -111,12 +111,5 @@ class BtnAwsome extends StatelessWidget {
     return color == null && gradient == null
         ? configAwsome.appColors.gradientAppColor
         : gradient;
-  }
-
-  void _onPressed() {
-    final _ = switch (btnType) {
-      BtnTypes.normal || BtnTypes.state => onPressed,
-      _ => onPressed,
-    };
   }
 }
