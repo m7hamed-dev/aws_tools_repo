@@ -40,68 +40,68 @@ class DialogBodyWidget extends StatelessWidget {
             Container(
               width: 50.0,
               height: 6.0,
-              margin: const EdgeInsets.symmetric(vertical: 8.0),
+              margin: const EdgeInsets.symmetric(vertical: 10.0),
               clipBehavior: Clip.antiAlias,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(8.0)),
                 color: Color.fromARGB(255, 220, 220, 220),
               ),
             ),
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(0.0),
-              // clipBehavior: Clip.antiAlias,
-              child: Column(
-                children: [
-                  const SizedBox(height: 10),
-                  CircleAvatar(
-                    radius: 30.0,
-                    backgroundColor: Colors.grey.withOpacity(.15),
-                    child: Icon(
-                      Icons.error,
-                      color: configAwsome.appColors.primaryColor,
-                      size: 40.0,
-                    ),
+            const SizedBox(height: 20),
+            Column(
+              children: [
+                CircleAvatar(
+                  radius: 30.0,
+                  backgroundColor: Colors.grey.withOpacity(.12),
+                  child: Icon(
+                    Icons.error,
+                    color: configAwsome.appColors.primaryColor,
+                    size: 44.0,
                   ),
-                  const SizedBox(height: 30),
-                  Text(
-                    (state is ErrorState)
-                        ? 'خطأ'
-                        : (state is WarningState)
-                            ? 'تحذير'
-                            : 'نجاح',
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.w900,
-                    ),
+                ),
+                const SizedBox(height: 30),
+                Text(
+                  (state is ErrorState)
+                      ? 'خطأ'
+                      : (state is WarningState)
+                          ? 'تحذير'
+                          : 'نجاح',
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w900,
                   ),
-                  const SizedBox(height: 10),
-                  Text(
-                    state.msg ?? '',
+                ),
+                const SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Text(
+                    state.txtBaseState('no data !!'),
+                    maxLines: 2,
                     textAlign: TextAlign.center,
                     style: const TextStyle(color: Colors.grey, fontSize: 16.0),
                   ),
-                  const SizedBox(height: 10),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: MaterialButton(
-                      onPressed: context.pop,
-                      elevation: 0.0,
-                      color: state.colorBaseOnStarte,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: configAwsome.defaultBorderRadius,
-                      ),
-                      child: TxtAwsome(
-                        'اغلاق',
-                        style: regularStyle,
-                        color: Colors.white,
-                      ),
+                ),
+                const SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: MaterialButton(
+                    minWidth: 90.0,
+                    onPressed: context.pop,
+                    elevation: 0.0,
+                    color: state.colorBaseOnStarte,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: configAwsome.defaultBorderRadius,
+                    ),
+                    child: TxtAwsome(
+                      'اغلاق',
+                      style: regularStyle,
+                      color: Colors.white,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),
