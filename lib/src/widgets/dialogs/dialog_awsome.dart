@@ -1,4 +1,5 @@
 import 'package:awsome_tools/awsome_tools.dart';
+import 'package:awsome_tools/src/config/config_awsome.dart';
 import 'package:flutter/material.dart';
 
 class DialogBodyWidget extends StatelessWidget {
@@ -67,10 +68,11 @@ class DialogBodyWidget extends StatelessWidget {
                           ? 'تحذير'
                           : 'نجاح',
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 14.0,
+                  style: TextStyle(
+                    color: Colors.black.withOpacity(.8),
+                    fontSize: 16.0,
                     fontWeight: FontWeight.w900,
+                    fontFamily: configAwsome.fontFamily,
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -80,7 +82,11 @@ class DialogBodyWidget extends StatelessWidget {
                     state.txtBaseState('no data !!'),
                     maxLines: 2,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(color: Colors.grey, fontSize: 16.0),
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 16.0,
+                      fontFamily: configAwsome.fontFamily,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 10),
