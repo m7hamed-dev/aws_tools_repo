@@ -79,7 +79,7 @@ class DialogBodyWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: Text(
-                    state.txtBaseState('no data !!'),
+                    state.msg ?? '',
                     maxLines: 2,
                     textAlign: TextAlign.center,
                     style: TextStyle(
