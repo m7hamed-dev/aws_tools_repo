@@ -43,7 +43,7 @@ class BtnAwsome extends StatelessWidget {
     if (state is LoadingState) {
       return Container(
         width: width,
-        height: height,
+        height: height ?? 56.0,
         margin: margin,
         padding: padding,
         alignment: Alignment.center,
@@ -65,7 +65,7 @@ class BtnAwsome extends StatelessWidget {
 
     return Container(
       width: width,
-      height: height,
+      height: height ?? 56.0,
       margin: margin,
       padding: padding,
       decoration: BoxDecoration(
