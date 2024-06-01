@@ -75,7 +75,11 @@ class BtnAwsome extends StatelessWidget {
         borderRadius: configAwsome.defaultBorderRadius,
       ),
       child: MaterialButton(
-        onPressed: onPressed,
+        onPressed: () {
+          // hide keyboard
+          FocusScope.of(context).unfocus();
+          if (onPressed != null) onPressed!();
+        },
         // isClickable && btnType == BtnTypes.withCondition ? onPressed : null,
         disabledColor: disabledColor(),
         clipBehavior: Clip.antiAlias,

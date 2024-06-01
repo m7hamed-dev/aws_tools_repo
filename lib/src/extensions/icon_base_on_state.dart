@@ -1,8 +1,8 @@
+import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
-import '../network/base_state_awsome.dart';
 
 const iconSize = 30.0;
-const iconColor = Colors.white;
+// const iconColor = Colors.white;
 
 /// ## show icon widget Base on Current State
 extension IconBaseOnState on BaseState {
@@ -12,23 +12,41 @@ extension IconBaseOnState on BaseState {
       // intial , loading
       // InitalState() => const SizedBox(),
       //
-      LoadingState() => const CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+      LoadingState() => CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation<Color>(colorBaseOnStarte),
+          // valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
         ),
       //
-      WarningState() =>
-        const Icon(Icons.warning, color: iconColor, size: iconSize),
+      WarningState() => Icon(
+          Icons.warning,
+          color: colorBaseOnStarte,
+          size: iconSize,
+        ),
       //
-      ErrorState() => const Icon(Icons.error, color: iconColor, size: iconSize),
+      ErrorState() => Icon(
+          Icons.error,
+          color: colorBaseOnStarte,
+          size: iconSize,
+        ),
       //
-      NetworkErrorState() =>
-        const Icon(Icons.network_check, color: iconColor, size: iconSize),
+      NetworkErrorState() => Icon(
+          Icons.network_check,
+          color: colorBaseOnStarte,
+          size: iconSize,
+        ),
       //
-      SuccesState() =>
-        const Icon(Icons.check_circle, color: iconColor, size: iconSize),
+      SuccesState() => Icon(
+          Icons.check_circle,
+          color: colorBaseOnStarte,
+          size: iconSize,
+        ),
 
       /// when success
-      _ => const Icon(Icons.check_circle, size: iconSize, color: iconColor)
+      _ => const Icon(
+          Icons.check_circle,
+          size: iconSize,
+          color: Color.fromARGB(255, 6, 103, 9),
+        )
     };
   }
 
@@ -44,25 +62,25 @@ extension IconBaseOnState on BaseState {
       //
       WarningState() => Icon(
           Icons.error,
-          color: color ?? iconColor,
+          color: color,
           size: size ?? iconSize,
         ),
       //
       ErrorState() => Icon(
           Icons.close,
-          color: color ?? iconColor,
+          color: color,
           size: size ?? iconSize,
         ),
       //
       NetworkErrorState() => Icon(
           Icons.network_check,
-          color: color ?? iconColor,
+          color: color,
           size: size ?? iconSize,
         ),
       //
       SuccesState() => Icon(
           Icons.check_circle,
-          color: color ?? iconColor,
+          color: color,
           size: size ?? iconSize,
         ),
 
@@ -70,7 +88,7 @@ extension IconBaseOnState on BaseState {
       _ => Icon(
           Icons.check_circle,
           size: size ?? iconSize,
-          color: color ?? iconColor,
+          color: color,
         )
     };
   }
