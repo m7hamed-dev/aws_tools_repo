@@ -64,23 +64,24 @@ class DialogBodyWidget extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 30),
-                  const Text(
-                    'ssss',
+                  Text(
+                    (state is ErrorState)
+                        ? 'خطأ'
+                        : (state is WarningState)
+                            ? 'تحذير'
+                            : 'نجاح',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 14.0,
                       fontWeight: FontWeight.w900,
                     ),
                   ),
                   const SizedBox(height: 10),
-                  const Text(
-                    'ssss',
+                  Text(
+                    state.msg ?? '',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 16.0,
-                    ),
+                    style: const TextStyle(color: Colors.grey, fontSize: 16.0),
                   ),
                   const SizedBox(height: 10),
                   Padding(
