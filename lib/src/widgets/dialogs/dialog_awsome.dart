@@ -54,11 +54,11 @@ class DialogBodyWidget extends StatelessWidget {
                 CircleAvatar(
                   radius: 30.0,
                   backgroundColor: Colors.grey.withOpacity(.12),
-                  child: Icon(
-                    Icons.error,
-                    color: configAwsome.appColors.primaryColor,
-                    size: 44.0,
-                  ),
+                  // child: Icon(
+                  child: state.iconBaseOnState,
+                  // color: configAwsome.appColors.primaryColor,
+                  // size: 44.0,
+                  // ),
                 ),
                 const SizedBox(height: 30),
                 Text(
