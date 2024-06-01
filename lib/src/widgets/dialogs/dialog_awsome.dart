@@ -1,13 +1,5 @@
-import '../txt_awsome.dart';
+import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
-import '../../config/config_awsome.dart';
-import '../../style/txt_style_awsome.dart';
-import '../../network/base_state_awsome.dart';
-import 'package:awsome_tools/src/extensions/navigator_ext.dart';
-import 'package:awsome_tools/src/extensions/txt_base_on_state.dart';
-import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
-import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
-import 'package:awsome_tools/src/widgets/circle_widget_awsom_extension.dart';
 
 class DialogBodyWidget extends StatelessWidget {
   const DialogBodyWidget({
@@ -30,7 +22,7 @@ class DialogBodyWidget extends StatelessWidget {
     /// create a dialog with custom Design
     if (useCutomDesignDialog) {
       return AlertDialog(
-        elevation: 20.0,
+        elevation: 10.0,
         clipBehavior: Clip.antiAlias,
         contentPadding: const EdgeInsets.only(
           top: 0.0,
@@ -39,84 +31,75 @@ class DialogBodyWidget extends StatelessWidget {
         ),
         // clipBehavior: Clip.antiAlias,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(20.0)),
-          // borderRadius: configAwsome.defaultBorderRadius,
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
+              width: 50.0,
+              height: 6.0,
+              margin: const EdgeInsets.symmetric(vertical: 8.0),
+              clipBehavior: Clip.antiAlias,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                color: Color.fromARGB(255, 220, 220, 220),
+              ),
+            ),
+            Container(
               width: double.infinity,
               padding: const EdgeInsets.all(0.0),
-              clipBehavior: Clip.antiAlias,
-              decoration: BoxDecoration(
-                color: state.colorBaseOnStarte,
-              ),
-              child: Stack(
+              // clipBehavior: Clip.antiAlias,
+              child: Column(
                 children: [
-                  Positioned(
-                    top: -10.0,
-                    right: -10,
-                    child: const SizedBox(
-                      width: 50,
-                      height: 50,
-                    ).withCircle(
-                      color: Colors.white.withOpacity(.12),
+                  const SizedBox(height: 10),
+                  CircleAvatar(
+                    radius: 30.0,
+                    backgroundColor: Colors.grey.withOpacity(.15),
+                    child: Icon(
+                      Icons.error,
+                      color: configAwsome.appColors.primaryColor,
+                      size: 40.0,
                     ),
                   ),
-                  Positioned(
-                    top: -20.0,
-                    right: -10,
-                    // bottom: 10,
-                    child: const SizedBox(
-                      width: 70,
-                      height: 70,
-                    ).withCircle(
-                      color: Colors.white.withOpacity(.12),
+                  const SizedBox(height: 30),
+                  const Text(
+                    'ssss',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w900,
                     ),
                   ),
-                  Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const SizedBox(height: 10),
-                        state
-                            .iconColorBaseOnState(
-                                color: Colors.white, size: 40.0)
-                            .withCircle(
-                              padding: const EdgeInsets.all(10.0),
-                              color: Colors.white.withOpacity(.22),
-                            ),
-                        const SizedBox(height: 10),
-                        TxtAwsome(
-                          message ?? state.msg ?? state.txtBaseState('string'),
-                          style: boldStyle,
-                          color: Colors.white,
-                          textAlign: TextAlign.center,
-                        ),
-                        const SizedBox(height: 10),
-                      ],
+                  const SizedBox(height: 10),
+                  const Text(
+                    'ssss',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: MaterialButton(
+                      onPressed: context.pop,
+                      elevation: 0.0,
+                      color: state.colorBaseOnStarte,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: configAwsome.defaultBorderRadius,
+                      ),
+                      child: TxtAwsome(
+                        'اغلاق',
+                        style: regularStyle,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: MaterialButton(
-                onPressed: context.pop,
-                color: state.colorBaseOnStarte,
-                elevation: 0.0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: configAwsome.defaultBorderRadius,
-                ),
-                child: TxtAwsome(
-                  'اغلاق',
-                  style: regularStyle,
-                  color: Colors.white,
-                ),
               ),
             ),
           ],
