@@ -128,7 +128,7 @@ class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
         hintText: widget.hint,
         fillColor: widget.fillColor,
         //! icons
-        prefix: widget.prefixIcon,
+        prefixIcon: widget.prefixIcon,
         suffixIcon: _suffixIcon,
         //
         helperText: widget.helperText,
