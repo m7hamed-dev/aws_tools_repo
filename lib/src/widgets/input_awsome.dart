@@ -2,7 +2,6 @@ import 'txt_awsome.dart';
 import '../config/config_awsome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../style/txt_style_awsome.dart';
 
 class InputWidgetAwsome extends StatefulWidget {
   const InputWidgetAwsome({
@@ -87,26 +86,25 @@ class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
 
   @override
   Widget build(BuildContext context) {
-    final input = switch (widget.isRequired) {
-      true => Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TxtAwsome(
-              widget.isRequired
-                  ? '* ${widget.inputDescription}'
-                  : widget.inputDescription,
-              style: regularStyle.copyWith(
-                color: widget.isRequired ? Colors.red : null,
-              ),
+    if (widget.inputDescription.isNotEmpty) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TxtAwsome(
+            widget.isRequired
+                ? '* ${widget.inputDescription}'
+                : widget.inputDescription,
+            style: TextStyle(
+              color: widget.isRequired ? Colors.red : null,
             ),
-            const SizedBox(height: 10.0),
-            _buikdTxtFormField(),
-          ],
-        ),
-      _ => _buikdTxtFormField(),
-    };
+          ),
+          const SizedBox(height: 10.0),
+          _buikdTxtFormField(),
+        ],
+      );
+    }
 
-    return input;
+    return _buikdTxtFormField();
   }
 
   TextFormField _buikdTxtFormField() {
@@ -129,8 +127,10 @@ class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
         filled: widget.filled,
         hintText: widget.hint,
         fillColor: widget.fillColor,
-        prefixIcon: widget.prefixIcon,
+        //! icons
+        prefix: widget.prefixIcon,
         suffixIcon: _suffixIcon,
+        //
         helperText: widget.helperText,
         focusedBorder: widget.focusedBorder,
         enabledBorder: widget.enabledBorder,
