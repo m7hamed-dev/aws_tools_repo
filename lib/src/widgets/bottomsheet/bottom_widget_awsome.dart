@@ -77,7 +77,7 @@ class BottomSheetWidgetAwsome extends StatelessWidget {
                       const SizedBox(height: 10.0),
                       TxtAwsome(
                         state.msg ?? '',
-                        style: mediumStyle,
+                        // style: mediumStyle,
                         textAlign: TextAlign.center,
                         color: Colors.white,
                       ),
@@ -98,9 +98,9 @@ class BottomSheetWidgetAwsome extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: configAwsome.defaultBorderRadius,
               ),
-              child: TxtAwsome(
+              child: const TxtAwsome(
                 'اغلاق',
-                style: regularStyle,
+                // style: regularStyle,
                 color: Colors.white,
               ),
             ),
@@ -122,7 +122,7 @@ class BottomSheetWidgetAwsome extends StatelessWidget {
           SizedBox(height: configAwsome.defaultPadding),
           TxtAwsome(
             state.msg ?? '',
-            style: mediumStyle,
+            // style: mediumStyle,
             textAlign: TextAlign.center,
             color: state.colorBaseOnStarte,
           ),
@@ -138,9 +138,9 @@ class BottomSheetWidgetAwsome extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: configAwsome.defaultBorderRadius,
               ),
-              child: TxtAwsome(
+              child: const TxtAwsome(
                 'اغلاق',
-                style: regularStyle,
+                // style: regularStyle,
                 color: Colors.white,
                 textAlign: TextAlign.center,
               ),

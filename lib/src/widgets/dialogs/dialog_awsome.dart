@@ -100,9 +100,9 @@ class DialogBodyWidget extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: configAwsome.defaultBorderRadius,
                     ),
-                    child: TxtAwsome(
+                    child: const TxtAwsome(
                       'اغلاق',
-                      style: regularStyle,
+                      // style: regularStyle,
                       color: Colors.white,
                     ),
                   ),
@@ -129,7 +129,7 @@ class DialogBodyWidget extends StatelessWidget {
       ),
       content: TxtAwsome(
         message ?? state.msg ?? state.txtBaseState('s'),
-        style: blackStyle,
+        // style: blackStyle,
         color: state.colorBaseOnStarte,
       ),
       actions: [
@@ -140,11 +140,11 @@ class DialogBodyWidget extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: configAwsome.defaultBorderRadius,
           ),
-          child: TxtAwsome(
+          child: const TxtAwsome(
             'موافق',
             color: Colors.black,
             fontSize: 16.0,
-            style: mediumStyle,
+            // style: mediumStyle,
           ),
         ),
       ],

@@ -92,7 +92,7 @@ class BtnAwsome extends StatelessWidget {
         child: child ??
             TxtAwsome(
               title,
-              style: textStyle ?? mediumStyle,
+              // style: textStyle ?? mediumStyle,
               color: textColor ?? Colors.white,
             ),
       ),

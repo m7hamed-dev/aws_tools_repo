@@ -56,7 +56,7 @@ class SnackBarWidgetAwsome {
                       title == null
                           ? TxtAwsome(
                               message ?? '',
-                              style: boldStyle,
+                              // style: boldStyle,
                               color: Colors.white,
                             )
                           : Expanded(
@@ -66,14 +66,14 @@ class SnackBarWidgetAwsome {
                                 children: [
                                   TxtAwsome(
                                     title,
-                                    style: boldStyle,
+                                    // style: boldStyle,
                                     color: Colors.white,
                                     overflow: TextOverflow.clip,
                                   ),
                                   // const SizedBox(height: 8.0),
                                   TxtAwsome(
                                     msg,
-                                    style: mediumStyle,
+                                    // style: mediumStyle,
                                     color: Colors.white,
                                     overflow: TextOverflow.clip,
                                   ),

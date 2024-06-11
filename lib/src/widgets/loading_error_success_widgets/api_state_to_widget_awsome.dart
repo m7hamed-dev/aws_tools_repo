@@ -36,9 +36,9 @@ class ApiStateToWidget<Data> extends StatelessWidget {
               : errorWidget ??
                   TxtAwsome(
                     state.msg ?? '',
-                    style: regularStyle.copyWith(
-                      color: state.colorBaseOnStarte,
-                    ),
+                    // style: regularStyle.copyWith(
+                    //   color: state.colorBaseOnStarte,
+                    // ),
                     overflow: TextOverflow.clip,
                   ),
         _ => success(state.requiredData as Data),
