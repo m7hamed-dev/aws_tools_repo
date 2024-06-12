@@ -1,7 +1,6 @@
 import '../txt_awsome.dart';
 import 'package:flutter/material.dart';
 import '../../config/config_awsome.dart';
-import '../../style/txt_style_awsome.dart';
 import '../../network/base_state_awsome.dart';
 import 'package:awsome_tools/src/extensions/navigator_ext.dart';
 import 'package:awsome_tools/src/extensions/screen_size_ext.dart';

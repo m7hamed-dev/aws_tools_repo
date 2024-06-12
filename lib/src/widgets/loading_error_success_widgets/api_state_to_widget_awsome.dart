@@ -1,8 +1,6 @@
 import '../txt_awsome.dart';
 import 'package:flutter/material.dart';
-import '../../style/txt_style_awsome.dart';
 import '../../network/base_state_awsome.dart';
-import 'package:awsome_tools/src/extensions/color_base_on_state.dart';
 
 class ApiStateToWidget<Data> extends StatelessWidget {
   /// ## Take an Api State and Return widget base on Current State
