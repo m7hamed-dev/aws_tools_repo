@@ -18,8 +18,9 @@ abstract class IBaseState<Data> {
 }
 
 abstract class BaseState<Data> {
-  const BaseState({this.msg, this.requiredData});
+  const BaseState({this.msg, this.requiredData, this.descriptionMsg});
   final String? msg;
+  final String? descriptionMsg;
   final Data? requiredData;
 }
 
@@ -28,36 +29,62 @@ class InitalState<Data> extends BaseState<Data> {}
 class LoadingState<Data> extends BaseState<Data> {}
 
 class WarningState<Data> extends BaseState<Data> {
-  WarningState({this.message})
-      : super(msg: message ?? configAwsome.stringsAwsome.warning);
+  WarningState({this.message, this.description})
+      : super(
+          msg: message ?? configAwsome.stringsAwsome.warning,
+          descriptionMsg: description,
+        );
+  //!
   final String? message;
+  final String? description;
 }
 
 class ErrorState<Data> extends BaseState<Data> {
-  ErrorState({this.message})
-      : super(msg: message ?? configAwsome.stringsAwsome.error);
+  ErrorState({
+    this.message,
+    this.description,
+  }) : super(
+          msg: message ?? configAwsome.stringsAwsome.error,
+          descriptionMsg: description,
+        );
   final String? message;
+  final String? description;
 }
 
 class EmptyState<Data> extends BaseState<Data> {
-  EmptyState({this.message})
-      : super(msg: message ?? configAwsome.stringsAwsome.noData);
+  EmptyState({this.message, this.description})
+      : super(
+          msg: message ?? configAwsome.stringsAwsome.noData,
+          descriptionMsg: description,
+        );
   final String? message;
+  final String? description;
 }
 
 class NetworkErrorState<Data> extends BaseState<Data> {
-  NetworkErrorState({this.message})
-      : super(msg: message ?? configAwsome.stringsAwsome.networkError);
+  NetworkErrorState({this.message, this.description})
+      : super(
+          msg: message ?? configAwsome.stringsAwsome.networkError,
+          descriptionMsg: description,
+        );
   final String? message;
+  final String? description;
 }
 
 class SuccesState<Data> extends BaseState<Data> {
   SuccesState({
     required this.data,
+    required this.description,
     this.message = 'العملية تمت بصورة صحيحة',
-  }) : super(requiredData: data, msg: message);
+  }) : super(
+          requiredData: data,
+          msg: message,
+          descriptionMsg: description,
+        );
+  //! Data required
   final Data data;
   final String message;
+  final String description;
 }
 
 // Base Result class
