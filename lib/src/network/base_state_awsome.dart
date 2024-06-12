@@ -74,7 +74,7 @@ class NetworkErrorState<Data> extends BaseState<Data> {
 class SuccesState<Data> extends BaseState<Data> {
   SuccesState({
     required this.data,
-    required this.description,
+    this.description = 'العملية تمت بصورة صحيحة',
     this.message = 'العملية تمت بصورة صحيحة',
   }) : super(
           requiredData: data,
