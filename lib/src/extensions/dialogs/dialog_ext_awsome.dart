@@ -55,24 +55,25 @@ class DialogLoadingBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog.adaptive(
-      elevation: 20.0,
-      contentPadding: const EdgeInsets.all(10.0),
+      elevation: 10.0,
+      contentPadding: const EdgeInsets.all(16.0),
       shape: RoundedRectangleBorder(
         borderRadius: configAwsome.defaultBorderRadius,
       ),
-      content: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          children: [
-            const SizedBox(width: 10.0),
-            CircularProgressIndicator(
-              strokeWidth: 2.0,
+      content: Row(
+        children: [
+          Container(
+            width: 24,
+            height: 24,
+            padding: const EdgeInsets.all(2.0),
+            child: CircularProgressIndicator(
+              strokeWidth: 4.0,
               color: configAwsome.appColors.primaryColor,
             ),
-            const SizedBox(width: 10.0),
-            const Text('من فضلك انتظر'),
-          ],
-        ),
+          ),
+          const SizedBox(width: 20.0),
+          const Text('من فضلك انتظر ...'),
+        ],
       ),
     );
   }

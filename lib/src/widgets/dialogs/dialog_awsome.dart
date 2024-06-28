@@ -1,5 +1,4 @@
 import 'package:awsome_tools/awsome_tools.dart';
-import 'package:awsome_tools/src/config/config_awsome.dart';
 import 'package:flutter/material.dart';
 
 class DialogBodyWidget extends StatelessWidget {
