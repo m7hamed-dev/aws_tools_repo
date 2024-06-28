@@ -102,13 +102,13 @@ class BtnAwsome extends StatelessWidget {
       return Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          icon,
-          const SizedBox(width: 10.0),
           TxtAwsome(
             title,
             // style: textStyle ?? mediumStyle,
             color: textColor ?? Colors.white,
           ),
+          const SizedBox(width: 10.0),
+          icon,
         ],
       );
     }
