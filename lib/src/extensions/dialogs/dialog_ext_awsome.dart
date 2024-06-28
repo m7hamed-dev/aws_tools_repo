@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../widgets/txt_awsome.dart';
 import '../../config/config_awsome.dart';
 import '../../network/base_state_awsome.dart';
 import 'package:awsome_tools/src/widgets/dialogs/dialog_awsome.dart';
@@ -70,8 +69,8 @@ class DialogLoadingBody extends StatelessWidget {
               strokeWidth: 2.0,
               color: configAwsome.appColors.primaryColor,
             ),
-            const SizedBox(width: 20.0),
-            const TxtAwsome('من فضلك انتظر'),
+            const SizedBox(width: 10.0),
+            const Text('من فضلك انتظر'),
           ],
         ),
       ),
