@@ -9,6 +9,7 @@ class BtnAwsome extends StatelessWidget {
     Key? key,
     this.child,
     this.title = '',
+    this.icon = const SizedBox(),
     this.isClickable = false,
     this.onPressed,
     this.color,
@@ -27,6 +28,7 @@ class BtnAwsome extends StatelessWidget {
 
   final String title;
   final void Function()? onPressed;
+  final Widget icon;
   final bool isClickable;
   final BtnTypes btnType;
   final Color? borderColor, color, textColor;
@@ -89,14 +91,29 @@ class BtnAwsome extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: configAwsome.defaultBorderRadius,
         ),
-        child: child ??
-            TxtAwsome(
-              title,
-              // style: textStyle ?? mediumStyle,
-              color: textColor ?? Colors.white,
-            ),
+        child: childButton(),
       ),
     );
+  }
+
+  Widget childButton() {
+    //! show icon and title
+    if (icon is! SizedBox) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          icon,
+          const SizedBox(width: 10.0),
+          TxtAwsome(
+            title,
+            // style: textStyle ?? mediumStyle,
+            color: textColor ?? Colors.white,
+          ),
+        ],
+      );
+    }
+    //! show only title
+    return child ?? TxtAwsome(title, color: textColor ?? Colors.white);
   }
 
   Color? disabledColor() {
