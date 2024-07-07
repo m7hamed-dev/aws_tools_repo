@@ -1,11 +1,10 @@
-import '../txt_awsome.dart';
+import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
-import '../../config/config_awsome.dart';
-import '../../network/base_state_awsome.dart';
-import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
-import 'package:awsome_tools/src/widgets/circle_widget_awsom_extension.dart';
 
 class SnackBarWidgetAwsome {
+  //! overlay entry
+  static late OverlayEntry overlayEntry;
+  //! showSnackBar
   static void showSnackBar(
     BuildContext context, {
     bool setOnTop = false,
@@ -16,49 +15,59 @@ class SnackBarWidgetAwsome {
     final Duration? duration,
   }) {
     final timer = duration ?? configAwsome.duration;
-    final msg = message ?? state.msg ?? '';
-    late OverlayEntry overlayEntry;
-    overlayEntry = OverlayEntry(
+
+    //
+    var overlayEntry2 = OverlayEntry(
       builder: (context) {
         return Positioned(
           top: MediaQuery.of(context).size.height * .1,
           left: 0,
           right: 0,
-          child: Row(
-            children: [
-              // icon base on state
-              state.iconBaseOnState.withCircle(
-                color: Colors.white.withOpacity(.12),
-                padding: EdgeInsets.all(configAwsome.defaultPadding),
-              ),
-              SizedBox(width: configAwsome.defaultPadding),
-              title == null
-                  ? TxtAwsome(message ?? '', color: Colors.white)
-                  : Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          TxtAwsome(
-                            title,
-                            color: Colors.white,
-                            overflow: TextOverflow.clip,
-                          ),
-                          // const SizedBox(height: 8.0),
-                          TxtAwsome(
-                            msg,
-                            color: Colors.white,
-                            overflow: TextOverflow.clip,
-                          ),
-                        ],
+          child: Container(
+            color: state.colorBaseOnStarte,
+            child: Row(
+              children: [
+                // icon base on state
+                const SizedBox(width: 8),
+                state.iconBaseOnState.withCircle(color: Colors.white),
+                const SizedBox(width: 8),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      state.msg ?? '',
+                      overflow: TextOverflow.clip,
+                      maxLines: 1,
+                      style: const TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-            ],
+                    // const SizedBox(height: 8.0),
+                    Text(
+                      state.descriptionMsg ?? '',
+                      maxLines: 1,
+                      overflow: TextOverflow.clip,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         );
       },
     );
+    //! remove the previous overlay
+    overlayEntry = overlayEntry2;
+    //! insert the new overlay
     Overlay.of(context).insert(overlayEntry);
+    //! remove the overlay after the duration
     Future.delayed(timer, () => overlayEntry.remove());
   }
 }
