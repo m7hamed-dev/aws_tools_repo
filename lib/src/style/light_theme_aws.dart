@@ -9,7 +9,7 @@ final lightThemeAws = ThemeData(
       fontWeight: FontWeight.bold,
     ),
   ),
-  dialogTheme: const DialogTheme(
+  dialogTheme: const DialogThemeData(
     backgroundColor: Color(0xFFFAFAFA),
     shape: RoundedRectangleBorder(
         // borderRadius: ,
@@ -28,7 +28,7 @@ final lightThemeAws = ThemeData(
       fontWeight: FontWeight.bold,
     ),
   ),
-  cardTheme: const CardTheme(
+  cardTheme: const CardThemeData(
     color: Colors.white,
     elevation: 0,
     shape: RoundedRectangleBorder(

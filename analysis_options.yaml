@@ -1,4 +1,29 @@
+# analysis_options.yaml
+# Reference: https://dart.dev/guides/language/analysis-options
+# Reference: https://pub.dev/packages/flutter_lints
+
 include: package:flutter_lints/flutter.yaml
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+linter:
+  rules:
+    # ====== Performance & Const Usage ======
+    prefer_const_constructors: true
+    prefer_const_literals_to_create_immutables: true
+    avoid_redundant_argument_values: true
+
+    # ====== Code Consistency ======
+    avoid_print: true                   # Use logger instead of print for production code
+    prefer_single_quotes: true          # Keep quotes consistent
+    always_use_package_imports: true    # Avoid relative imports for better refactoring
+
+    # ====== Style & Readability ======
+    sort_child_properties_last: true    # In widgets, put child/children last for clarity
+    require_trailing_commas: true       # Helps with cleaner git diffs and formatting
+    prefer_final_locals: true           # Make local variables final when possible
+    prefer_final_fields: true           # Make class fields final when possible
+    unnecessary_this: true              # Remove unnecessary `this.` prefixes
+
+    # ====== Safety ======
+    avoid_unnecessary_null_checks: true
+    prefer_null_aware_operators: true
+    avoid_types_as_parameter_names: true

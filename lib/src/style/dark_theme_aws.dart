@@ -20,7 +20,7 @@ final darkThemeAws = ThemeData(
   ),
   textTheme: const TextTheme(),
   cardColor: cardDarkColor,
-  cardTheme: const CardTheme(
+  cardTheme: const CardThemeData(
     color: cardDarkColor,
     elevation: 0,
     shape: RoundedRectangleBorder(
@@ -37,7 +37,7 @@ final darkThemeAws = ThemeData(
     ),
   ),
   //! DialogTheme
-  dialogTheme: const DialogTheme(
+  dialogTheme: const DialogThemeData(
     backgroundColor: Color.fromRGBO(22, 44, 70, 1.000),
     shape: RoundedRectangleBorder(
         // borderRadius: Me.defaultBorderRadius,
