@@ -1,21 +1,19 @@
 name: awsome_tools
 description: This package contains some useful tools for flutter development.
-version: 0.0.1
+version: 1.0.0
 homepage:
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
-  flutter: ">=1.17.0"
+  sdk: ^3.7.0
 
 dependencies:
-  another_flushbar: ^1.12.30
-
   flutter:
     sdk: flutter
+  another_flushbar: ^1.12.30
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^6.0.0
 
 flutter:
