@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../network/base_state_awsome.dart';
+import 'package:awsome_tools/src/network/base_state_awsome.dart';
 import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';
 
 class IconAnimationAwsome extends StatelessWidget {

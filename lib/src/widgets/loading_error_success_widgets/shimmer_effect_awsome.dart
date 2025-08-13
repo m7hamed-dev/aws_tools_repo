@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../config/config_awsome.dart';
+import 'package:awsome_tools/src/config/config_awsome.dart';
 
 enum ShimmerShapes { circle, square, likeLisTtile }
 
@@ -190,7 +190,7 @@ class ShimmerCard extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       );

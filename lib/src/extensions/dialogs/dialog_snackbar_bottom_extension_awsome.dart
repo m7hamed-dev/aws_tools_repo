@@ -1,7 +1,7 @@
-import 'dialog_ext_awsome.dart';
+import 'package:awsome_tools/src/extensions/dialogs/dialog_ext_awsome.dart';
 import 'package:flutter/material.dart';
-import '../../config/config_awsome.dart';
-import '../../network/base_state_awsome.dart';
+import 'package:awsome_tools/src/config/config_awsome.dart';
+import 'package:awsome_tools/src/network/base_state_awsome.dart';
 import 'package:awsome_tools/src/widgets/dialogs/dialog_awsome.dart';
 import 'package:awsome_tools/src/extensions/snackbar_ext_awsome.dart';
 import 'package:awsome_tools/src/widgets/bottomsheet/bottom_widget_awsome.dart';
@@ -24,7 +24,6 @@ extension DialogSnackBarBottomExtensionAwsome on BuildContext {
     if (isLoadingDialog) {
       await showDialog(
         context: this,
-        barrierDismissible: true,
         builder: (BuildContext context) {
           return const DialogLoadingBody();
         },

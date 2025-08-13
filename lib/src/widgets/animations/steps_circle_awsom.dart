@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import '../../style/app_colors_awsome.dart';
+import 'package:awsome_tools/src/style/app_colors_awsome.dart';
 
 class StepsCirclAwsome extends StatelessWidget {
   const StepsCirclAwsome({

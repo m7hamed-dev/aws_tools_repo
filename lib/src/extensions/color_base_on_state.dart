@@ -1,6 +1,6 @@
-import '../config/config_awsome.dart';
+import 'package:awsome_tools/src/config/config_awsome.dart';
 import 'package:flutter/material.dart';
-import '../network/base_state_awsome.dart';
+import 'package:awsome_tools/src/network/base_state_awsome.dart';
 
 extension ColorBaseOnState on BaseState {
   /// ## color Base on State

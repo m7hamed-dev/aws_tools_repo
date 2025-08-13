@@ -25,9 +25,7 @@ class DialogBodyWidget extends StatelessWidget {
         elevation: 10.0,
         clipBehavior: Clip.antiAlias,
         contentPadding: const EdgeInsets.only(
-          top: 0.0,
-          left: 0.0,
-          right: 0.0,
+          
         ),
         // clipBehavior: Clip.antiAlias,
         shape: const RoundedRectangleBorder(
@@ -35,7 +33,6 @@ class DialogBodyWidget extends StatelessWidget {
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
               width: 50.0,

@@ -1,5 +1,5 @@
-import 'txt_awsome.dart';
-import '../config/config_awsome.dart';
+import 'package:awsome_tools/src/widgets/txt_awsome.dart';
+import 'package:awsome_tools/src/config/config_awsome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -110,7 +110,6 @@ class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
   TextFormField _buikdTxtFormField() {
     return TextFormField(
       controller: widget.controller,
-      autofocus: false,
       maxLength: widget.maxLength,
       maxLines: widget.maxLines,
       keyboardType: keyboardType,
@@ -161,7 +160,7 @@ class _InputWidgetAwsomeState extends State<InputWidgetAwsome> {
     return [
       widget.inputType == InputTypes.number
           ? FilteringTextInputFormatter.digitsOnly
-          : FilteringTextInputFormatter.singleLineFormatter
+          : FilteringTextInputFormatter.singleLineFormatter,
     ];
   }
 

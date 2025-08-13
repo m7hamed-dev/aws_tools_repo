@@ -1,6 +1,6 @@
-import '../txt_awsome.dart';
+import 'package:awsome_tools/src/widgets/txt_awsome.dart';
 import 'package:flutter/material.dart';
-import '../../network/base_state_awsome.dart';
+import 'package:awsome_tools/src/network/base_state_awsome.dart';
 
 class ApiStateToWidget<Data> extends StatelessWidget {
   /// ## Take an Api State and Return widget base on Current State

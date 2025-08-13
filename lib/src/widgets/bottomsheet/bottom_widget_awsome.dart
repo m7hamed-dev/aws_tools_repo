@@ -1,7 +1,7 @@
-import '../txt_awsome.dart';
+import 'package:awsome_tools/src/widgets/txt_awsome.dart';
 import 'package:flutter/material.dart';
-import '../../config/config_awsome.dart';
-import '../../network/base_state_awsome.dart';
+import 'package:awsome_tools/src/config/config_awsome.dart';
+import 'package:awsome_tools/src/network/base_state_awsome.dart';
 import 'package:awsome_tools/src/extensions/navigator_ext.dart';
 import 'package:awsome_tools/src/extensions/screen_size_ext.dart';
 import 'package:awsome_tools/src/extensions/icon_base_on_state.dart';

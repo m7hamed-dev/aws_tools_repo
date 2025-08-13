@@ -1,4 +1,4 @@
-import '../config/config_awsome.dart';
+import 'package:awsome_tools/src/config/config_awsome.dart';
 
 /// ## This is an abstract class with some functions like
 /// ## intialState , loadingState , errorState

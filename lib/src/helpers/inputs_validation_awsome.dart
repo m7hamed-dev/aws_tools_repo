@@ -1,4 +1,4 @@
-import '../config/config_awsome.dart';
+import 'package:awsome_tools/src/config/config_awsome.dart';
 
 class InputsValidation {
   static String? checkEmptyField(String? value, bool condition) =>

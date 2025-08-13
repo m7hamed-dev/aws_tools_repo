@@ -1,4 +1,4 @@
-import 'dot_indicator_awsome.dart';
+import 'package:awsome_tools/src/widgets/dot_indicator_awsome.dart';
 import 'package:flutter/material.dart';
 import 'package:awsome_tools/src/extensions/screen_size_ext.dart';
 

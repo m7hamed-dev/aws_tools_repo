@@ -1,4 +1,4 @@
-import '../../awsome_tools.dart';
+import 'package:awsome_tools/awsome_tools.dart';
 import 'package:flutter/material.dart';
 
 late final ConfigAwsome configAwsome;
@@ -18,11 +18,9 @@ class ConfigAwsome {
       Radius.circular(10),
     ),
     this.fontSizeModel = const FontSizeModel(
-      small: 10,
       medium: 12,
       bold: 14,
       black: 16,
-      extraBlack: 20.0,
     ),
     this.stringsAwsome = const StringsAwsome(),
     // required this.appAssets,

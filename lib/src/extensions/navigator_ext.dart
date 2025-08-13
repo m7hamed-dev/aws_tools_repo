@@ -19,7 +19,7 @@ extension NavigatorAwsome on BuildContext {
 
   /// This predicate will remove all routes from the stack
   void _pushAndRemoveUntil(Widget page) => Navigator.pushAndRemoveUntil(
-      this, MaterialPageRoute(builder: (context) => page), (route) => false);
+      this, MaterialPageRoute(builder: (context) => page), (route) => false,);
 
   /// # with animation
   Future pushWithAnimation(
@@ -40,12 +40,12 @@ extension NavigatorAwsome on BuildContext {
               secondaryAnimation,
               child,
             ) {
-              var begin = const Offset(1.0, 0.0);
-              var end = Offset.zero;
-              var curve = Curves.ease;
-              var tween =
+              const begin = Offset(1.0, 0.0);
+              const end = Offset.zero;
+              const curve = Curves.ease;
+              final tween =
                   Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-              var offsetAnimation = animation.drive(tween);
+              final offsetAnimation = animation.drive(tween);
               return SlideTransition(position: offsetAnimation, child: child);
             },
           );
@@ -55,13 +55,13 @@ extension NavigatorAwsome on BuildContext {
                 destination,
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              var begin = const Offset(-1.0, 0.0);
-              var end = Offset.zero;
-              var curve = Curves.ease;
-              var tween = Tween(begin: begin, end: end).chain(
+              const begin = Offset(-1.0, 0.0);
+              const end = Offset.zero;
+              const curve = Curves.ease;
+              final tween = Tween(begin: begin, end: end).chain(
                 CurveTween(curve: curve),
               );
-              var offsetAnimation = animation.drive(tween);
+              final offsetAnimation = animation.drive(tween);
               return SlideTransition(position: offsetAnimation, child: child);
             },
           );
